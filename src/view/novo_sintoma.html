@@ -1,0 +1,80 @@
+<!-- =========================
+    container content
+============================== -->
+<div class="contaier mt-3 pt-0 p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <h3>Cadastrar sintoma</h3>
+            <hr class="mt-4 mb-4">
+        </div>
+    </div><!-- *** end row título *** -->
+
+
+    <!-- =========================
+        alert campos obrigatórios
+    ============================== -->
+    <section class="row alert_user mt-0 mb-0"></section>
+
+
+    <!-- =========================
+        row cadastro de sintoma
+    ============================== -->
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nome_popular_sintoma">Nome cientifíco
+                            <span class="red">*</span>
+                        </label>
+                        <input type="text" class="form-control obrigatorio" id="nome_popular_sintoma" placeholder="Nome cientifíco do sintoma">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nome_cientifico_sintoma">Nome Popular
+                            <span class="red">*</span>
+                        </label>
+                        <input type="text" class="form-control obrigatorio" id="nome_cientifico_sintoma" placeholder="Nome popular do sintoma">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="parte_sintoma">Parte do corpo
+                            <span class="red">*</span>
+                        </label>
+                        <select class="custom-select obrigatorio" id="parte_sintoma">
+                            <option selected></option>
+                            <option value="1">Cabeça</option>
+                            <option value="2">Ombro</option>
+                            <option value="3">Joelho</option>
+                            <option value="4">Pé</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="causas_sintoma">Causas</label>
+                        <textarea class="form-control" id="causas_sintoma" rows="3"></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="tratamentos_sintoma">Tratamentos</label>
+                        <textarea class="form-control" id="tratamentos_sintoma" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mt-4 d-flex justify-content-center">
+                    <div class="col-md-2">
+                        <button id="insert_sintoma" type="button" class="btn btn-success btn-block">Cadastrar</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="sintoma_cancelar" type="button" class="btn btn-danger btn-block">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div><!-- col -->
+    </div><!-- *** row cadastro de sintoma *** -->
+
+</div><!-- *** container content *** -->

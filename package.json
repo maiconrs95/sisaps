@@ -1,0 +1,25 @@
+{
+  "name": "sisaps",
+  "version": "1.0.0",
+  "description": "SISAPS - Sistema para Associação de Plantas e Sintomas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "author": "Maicon R Silva",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-remove-html-comments": "^1.0.1",
+    "gulp-strip-comments": "^2.5.2",
+    "gulp-strip-css-comments": "^2.0.0",
+    "gulp-uglify": "^1.4.1",
+    "jquery": "^3.3.1"
+  }
+}

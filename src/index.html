@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <title>SISAPS | Login</title>
+</head>
+
+<body>
+
+    
+    <!-- =========================
+        Header
+    ============================== -->
+    <header id="header" class="">
+        <div class="row text-center mt-5">
+            <div class="col-md-1 mx-auto">
+                <a id="inicio" class=" logo" href="#">
+                    <img id="logo_principal" src="img/sisaps.logo2-icone.png" width="70" height="70">
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- =========================
+        Container login
+    ============================== -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 mt-2 mx-auto">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7 mx-auto">
+                                <h3 class="card-title">Entrar no SISAPS</h3>
+                                <div class="row alert-msg font-weight-bold small" role="alert">
+
+                                </div>
+                                <form id="login-form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="User ou email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control alterar-senha" id="senha-nova" placeholder="Nova senha">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control alterar-senha" id="nova-senha" name="nova-senha" placeholder="Confirme a nova senha">
+                                    </div>
+                                    <button id="btn-login" type="button" class="btn btn-success">Entrar</button>
+                                    <button id="btn-alterar" type="button" class="btn btn-info">Alterar senha</button>
+                                    <button id="btn-cancelar" type="button" class="btn btn-danger">Cancelar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Esqueceu sua senha?
+                            <a href="#" style="color: #2EA900 !important;">Recuperar senha >></a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- *** end container login *** -->
+
+    <!-- Bootstrap -->
+    <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#logo_principal').addClass('animated slideInDown');
+            $('.alert').hide();
+            $('#btn-alterar').hide();
+            $('.btn-danger').hide();
+            $('.alterar-senha').hide();
+        });
+    </script>
+</body>
+
+</html>

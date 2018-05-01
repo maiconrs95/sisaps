@@ -1,0 +1,188 @@
+<!-- =========================
+    container content
+============================== -->
+<div class="contaier mt-3 pt-0 p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <h3>Alterar usuário</h3>
+            <hr class="mt-4 mb-4">
+        </div>
+    </div><!-- *** end row título *** -->
+
+
+    <!-- =========================
+        filtros
+    ============================== -->
+    <div class="row mb-2">
+        <div class="col-md-3 mt-1">
+            <div class="input-group">
+                <input id="find-user" class="form-control" type="search" placeholder="Pesquisar usuário" aria-label="Search">
+            </div>
+        </div><!-- *** filtro por nome *** -->
+
+        <div class="col-md-3 mt-1">
+            <div class="input-group">
+                <select class="custom-select filtro-secundario" id="filtro-perfil">
+                    <option value="*">Filtrar perfil</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Professor">Professor</option>
+                    <option value="Assistente">Assistente</option>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-success" type="button">
+                        <i class="fas fa-filter fa-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div><!-- *** filtro por perfil *** -->
+
+        <div class="col-md-3 d-none d-md-block mt-1">
+            <div class="input-group">
+                <select class="custom-select filtro-secundario" id="filtro-status">
+                    <option selected>Filtrar status</option>
+                    <option value="Ativo">Ativo</option>
+                    <option value="Inativo">Inativo</option>
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-success" type="button">
+                        <i class="fas fa-filter fa-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div><!-- *** Filtro por status *** -->
+    </div><!-- *** row filtros *** -->
+
+
+    <!-- =========================
+        conteúdo da tabela + modal
+    ============================== -->
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+
+            <table class="table table-hover table-sm table-responsive-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <i class="fas fa-plus"></i>
+                            <span class="d-none d-md-inline-block">Info</span>
+                        </th>
+                        <th scope="col">Usuário</th>
+                        <th scope="col">Perfil</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-usuarios">
+                </tbody>
+            </table>
+
+            <div class="modal fade" id="alterar_user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div id="modal_header" class="modal-header">
+                            <h5 class="modal-title">Nome do usuário</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <section class="row alert-msg mt-0 mb-0"></section>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active" id="nav-perfil-tab" data-toggle="tab" href="#nav_perfil" role="tab" aria-controls="nav_perfil"
+                                                aria-selected="true">Perfil</a>
+                                            <a class="nav-item nav-link" id="nav-pessoais-tab" data-toggle="tab" href="#nav_pessoais" role="tab" aria-controls="nav_pessoais"
+                                                aria-selected="false">Pessoais</a>
+                                        </div>
+                                    </nav>
+
+                                    <div class="tab-content mt-3" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav_perfil" role="tabpanel" aria-labelledby="nav-perfil-tab">
+
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control obrigatorio" id="email_user" aria-describedby="Atualizar email" placeholder="Atualizar email">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control obrigatorio" id="password_user" aria-describedby="Atualizar senha" placeholder="Atualizar senha">
+                                                </div>
+                                                <div class="form-group">
+                                                    <select class="custom-select obrigatorio" id="perfil_user">
+                                                        <option selected></option>
+                                                        <option value="1">Administrador</option>
+                                                        <option value="2">Professor</option>
+                                                        <option value="3">Assistente</option>
+                                                        <option value="4">Comum</option>
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div><!-- tab pane -->
+
+                                        <div class="tab-pane fade" id="nav_pessoais" role="tabpanel" aria-labelledby="nav-pessoais-tab">
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control obrigatorio" id="nome_user" aria-describedby="Atualizar nome" placeholder="Atualizar nome">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" class="form-control cpf obrigatorio" id="cpf_user" aria-describedby="Atualizar CPF" placeholder="CPF">
+                                                        <div class="input-group-append">
+                                                            <span id="cpf_invalido" class="red p-2 input-group-text" style="background: #fff !important; border-left: none;">
+                                                                <i class="small fas fa-times"></i>
+                                                            </span>
+                                                            <span id="cpf_valido" class="green p-2 input-group-text" style="background: #fff !important; border-left: none;">
+                                                                <i class="small fas fa-check"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control telefone" id="telefone_user" aria-describedby="Atualizar telefone" placeholder="Atualizar telefone">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control celular" id="celular_user" aria-describedby="Atualizar celular" placeholder="Atualizar celular">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control cep" id="cep_user" aria-describedby="Atualizar CEP" placeholder="CEP">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="cidade_user" aria-describedby="Atualizar cidade" placeholder="Cidade">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="logradouro_user" aria-describedby="Atualizar logradouro" placeholder="Logradouro">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="num_logradouro">
+                                                </div>
+                                            </form>
+
+                                        </div><!-- *** tab pane *** -->
+                                    </div><!-- *** tab content *** -->
+                                </div><!-- *** col *** -->
+                            </div><!-- *** row *** -->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <small id="modal_info" class="form-text text-muted">* Altere os dados e clique em confirmar para atualizar</small>
+                                </div>
+                            </div>
+                        </div><!-- *** modal body *** -->
+
+                        <div class="modal-footer">
+                            <button id="update_user" type="button" class="btn btn-success btn-sm">Confirmar</button>
+                            <button id="calcel_update" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
+                        </div>
+
+                    </div><!-- *** modal content *** -->
+                </div><!-- *** modal dialog *** -->
+            </div><!-- *** modal fade *** -->
+        </div><!-- *** col tabelas *** -->
+    </div><!-- *** row tableas + modais ***-->
+
+</div><!-- *** containeir content *** -->

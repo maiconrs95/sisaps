@@ -1,0 +1,104 @@
+<!-- =========================
+    container content
+============================== -->
+<div class="contaier mt-3 pt-0 p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <h3>Sugestões</h3>
+            <hr class="mt-4 mb-4">
+        </div>
+    </div><!-- *** end row título *** -->
+
+
+    <!-- =========================
+        row campos para cadastro
+    ============================== -->
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nome_user">Nome
+                            <span class="red">*</span>
+                        </label>
+                        <input type="text" class="form-control obrigatorio" id="nome_user" placeholder="Digite o nome do usuário">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email_user">Email
+                            <span class="red">*</span>
+                        </label>
+                        <input type="email" class="form-control obrigatorio" id="email_user" placeholder="E-mail">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="cpf_user">CPF
+                            <span class="red">*</span>
+                        </label>
+                        <span id="cpf_invalido" class="red">
+                            <i class="fas fa-times"></i>
+                        </span>
+                        <span id="cpf_valido" class="green">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <input type="text" class="form-control cpf obrigatorio" id="cpf_user" placeholder="CPF do usuário">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="perfil_user">Perfil do usuário
+                            <span class="red">*</span>
+                        </label>
+                        <select class="custom-select obrigatorio" id="perfil_user">
+                            <option selected></option>
+                            <option value="1">Administrador</option>
+                            <option value="2">Professor</option>
+                            <option value="3">Assistente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="telefone_user">Telefone</label>
+                        <input type="text" class="form-control telefone" id="telefone_user">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="celular_user">Celular</label>
+                        <input type="text" class="form-control celular" id="celular_user">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="cep_user">CEP</label>
+                        <input type="text" class="form-control cep insert_user" id="cep_user">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cidade_user">Cidade</label>
+                        <input type="text" class="form-control insert_user" id="cidade_user">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="logradouro">Logradouro</label>
+                        <input type="text" class="form-control insert_user" id="logadouro_user">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label for="num_logradouro">Nº</label>
+                        <input type="text" class="form-control insert_user" id="num_logradouro">
+                    </div>
+                </div>
+
+                <div class="row mt-4 d-flex justify-content-center">
+                    <div class="col-md-2">
+                        <button id="insert_cadastrar" type="button" class="btn btn-success btn-block">Cadastrar</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="insert_cancelar" type="button" class="btn btn-danger btn-block">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div><!-- *** col *** -->
+    </div><!-- *** row *** -->
+
+</div><!-- *** container content *** -->

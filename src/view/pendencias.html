@@ -1,0 +1,73 @@
+<!-- =========================
+    container content
+============================== -->
+<div class="contaier mt-3 pt-0 p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <h3>Pendências</h3>
+            <hr class="mt-4 mb-4">
+        </div>
+    </div><!-- *** end row título *** -->
+
+
+    <!-- =========================
+        row campos para cadastro
+    ============================== -->
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+
+            <div class="list-group pendencia">
+                <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target=".alterar_registro">
+                    <h5>Status:
+                        <span id="status_aprovacao" class="yellow">Pendente de aprovação</span>
+                    </h5>
+                    <div class="registro">
+                        <div>Id:
+                            <span>10</span>
+                        </div>
+                        <div>Tipo:
+                            <span id="tipo_aprovacao">Cadastro de sintoma</span>
+                        </div>
+                        <div>Nome Científico:
+                            <span>Canabis</span>
+                        </div>
+                        <div>Nome Popular:
+                            <span>Maconha</span>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <div class="modal fade alterar_registro" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Message:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- *** col *** -->
+    </di><!-- *** row *** -->
+
+</div><!-- *** container content *** -->
