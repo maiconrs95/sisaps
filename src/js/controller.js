@@ -38,10 +38,10 @@ function controlaView(conteudo) {
             filtraUsuario(value);
         });
 
-        //Filtrar por perfil ou status
-        $(".filtro-secundario").blur(function () {
-            var value = $(this).val().toLowerCase();
-            filtraUsuario(value);
+
+        //Abre modal
+        $('.edit-user').click(function(){
+            console.log('abre modal');
         });
 
     } //alterar usuario

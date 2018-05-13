@@ -7,57 +7,57 @@ function consultaUsuario() {
 
         //console.log(data);
         $(data).each(function (i, user) {
+            var id_user = user.id_user;
             var usuario = user.nome_user;
             var perfil = user.perfil;
             var status = user.ativo;
             var cpf = user.cpf_user;
 
-            insereUsuario(usuario.toLowerCase(), perfil, verificaStatus(status), cpf);
+            insereUsuario(id_user, usuario.toLowerCase(), perfil, verificaStatus(status), cpf);
         });
-    });  
+    });
 }
 
 
 //Obtém todos os usuários
-function obtemUsers(data){
+function obtemUsers(data) {
     var usuarios = data;
-
     return usuarios;
 }
 
 
 //Verifica o status do usuário para alimentar a tabela
-function verificaStatus(status){
-    if(status == 1){
+function verificaStatus(status) {
+    if (status == 1) {
         return 'Ativo';
     }
-    if(status == 2){
+    if (status == 2) {
         return 'Inativo';
     }
 }
 
 
 //Insere os usuários que retornaram da consulta na tabela
-function insereUsuario(usuario, perfil, status, cpf) {
+function insereUsuario(id_user, usuario, perfil, status, cpf) {
 
     var corpoTabela = $(".table").find("tbody");
-    var linha = novaLinha(usuario, perfil, status, cpf);
+    var linha = novaLinha(id_user, usuario, perfil, status, cpf);
 
     corpoTabela.append(linha);
 }
 
 
 //Cria as linhas que serão adicionada na tabela
-function novaLinha(usuario, perfil, status, cpf) {
+function novaLinha(id_user, usuario, perfil, status, cpf) {
 
-    var linha = $("<tr>").addClass('usuario-sistema');
+    var linha = $("<tr>").attr('id', id_user).addClass('usuario-sistema').attr('onclick', 'carregaModal(this.id)');
     var colunaEditar = $("<th>").attr("scope", "row").attr("width", '10%');
     var colunaUsuario = $("<td>").text(usuario).attr("width", '40%');
     var colunaPerfil = $("<td>").text(perfil).attr("width", '25%');
     var colunaStatus = $("<td>").text(status).attr("width", '15%');
     var colunaCpf = $("<td>").text(cpf).addClass('d-none');
 
-    var link = $("<a>").attr("href", "#").addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_user');
+    var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_user');
     var icone = $("<i>").addClass("fas fa-search");
 
     link.append(icone);
@@ -78,10 +78,14 @@ function novaLinha(usuario, perfil, status, cpf) {
 function filtraUsuario(value) {
 
     $("#lista-usuarios tr").filter(function () {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)        
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
 
 }
 
 
-//carrega os dados no modal
+//Abre modal
+function carregaModal(id){
+    
+    console.log('id: ' + id);
+}
