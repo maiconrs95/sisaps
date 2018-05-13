@@ -59,11 +59,6 @@
                             <i class="fas fa-user-circle"></i>&nbsp; <?= $_SESSION['usuario']?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a id="editar_perfil" class="dropdown-item" href="#">
-                                <i class="far fa-edit"></i> Editar perfil</a>
-                            <a class="dropdown-item" href="#">
-                                <i class="far fa-bell"></i> Notificações</a>
-                            <div class="dropdown-divider"></div>
                             <a id="btn-sair" class="dropdown-item" href="#">
                                 <i class="fas fa-sign-out-alt"></i> Sair</a>
                         </div>
@@ -86,15 +81,17 @@
                 <nav class="col-md-2 sidebar mt-3  animated fadeInLeft">
                     <ul class="nav nav-pills flex-column"> 
                         <li class="nav-item">
-                            <a id="novo_usuario" class="nav-link side-nav" href="#">
-                                <i class="fas fa-user-plus"></i>
-                                <span class="hidden-sm-down"> Registrar novo usuário</span>
-                            </a>
-                            <a id="alterar_usuario" class="nav-link side-nav" href="#">
-                                <i class="fas fa-redo-alt"></i>
-                                <span class="hidden-sm-down"> Alterar usuário</span>
-                            </a>                            
-                            <hr>
+                            <span id="adm-section">
+                                <a id="novo_usuario" class="nav-link side-nav" href="#">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span class="hidden-sm-down"> Registrar novo usuário</span>
+                                </a>
+                                <a id="alterar_usuario" class="nav-link side-nav" href="#">
+                                    <i class="fas fa-redo-alt"></i>
+                                    <span class="hidden-sm-down"> Alterar usuário</span>
+                                </a>                            
+                                <hr>                        
+                            </span>
                             <a id="cadastrar_planta" class="nav-link side-nav" href="#">
                                 <i class="fab fa-envira"></i>
                                 <span class="hidden-sm-down"> Cadastrar planta</span>
@@ -112,14 +109,16 @@
                                 <span class="hidden-sm-down"> Alterar Sintoma</span>
                             </a>
                             <hr>
-                            <a id="pendencias" class="nav-link side-nav" href="#">
-                                <i class="fas fa-exclamation"></i>
-                                <span class="hidden-sm-down">  Pendências</span>
-                            </a>
-                            <a id="sugestoes" class="nav-link side-nav" href="#">
-                                <i class="far fa-lightbulb"></i>
-                                <span class="hidden-sm-down"> Sugestões</span>
-                            </a>
+                            <span id="professor-section">
+                                <a id="pendencias" class="nav-link side-nav" href="#">
+                                    <i class="fas fa-exclamation"></i>
+                                    <span class="hidden-sm-down">  Pendências</span>
+                                </a>
+                                <a id="sugestoes" class="nav-link side-nav" href="#">
+                                    <i class="far fa-lightbulb"></i>
+                                    <span class="hidden-sm-down"> Sugestões</span>
+                                </a>
+                            </span>
                         </li>
                     </ul>
                 </nav>

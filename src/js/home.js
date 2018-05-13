@@ -30,4 +30,17 @@ $(document).ready(function () {
         });
     });
 
+
+    //VERIFICA O NIVEL DE USUÁRIO NO MOMENTO DO LOGIN
+    $.get('includes/session.php', function (data) {
+
+        if (data.user_perfil == 2) {
+            $('#adm-section').remove();
+        }
+        if (data.user_perfil == 3) {
+            $('#adm-section').remove();
+            $('#professor-section').remove();
+        }
+    });
+
 });
