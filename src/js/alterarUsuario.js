@@ -1,25 +1,9 @@
-//obtém o novo usuário a ser cadastrado
-function obterUsuario(form) {
-
-    usuario = {
-        nome: form.nome.value,
-        email: form.email.value,
-        cpf: form.cpf.value,
-        perfil: form.perfil.value,
-        telefone: form.telefone.value,
-        celular: form.celular.value,
-        cep: form.cep.value,
-        cidade: form.cidade.value,
-        logradouro: form.logradouro.value,
-        num: form.num.value
-    }
-
-    return usuario;
+//obtém dados dos campos
+function obtemDadosInputs(){
+    
 }
-
-
-//cadastra novo usuário no sistema
-function cadastrarUsuario(usuario) {
+//altera o usuário no sistema
+function alterarUsuario(usuario) {
 
     var data = 'nome=' + usuario.nome + 
         '&email=' + usuario.email + 
@@ -35,7 +19,7 @@ function cadastrarUsuario(usuario) {
     $('.alert-msg').hide();
 
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: 'includes/alterarUsuario.php',
         data: data,
         dataType: 'json',

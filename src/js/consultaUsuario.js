@@ -1,6 +1,11 @@
 //Variavel Global que recebe o array com todos os usários
 var usuarios;
 
+function obtemUsuarioAtualizacao(){
+
+    return usuarios;
+}
+
 //Busca os usuários cadastrados na base de dados
 function consultaUsuario() {
 
@@ -102,7 +107,6 @@ function carregaModal(id) {
 function selecionaPerfil(perfil) {
 
     var combo = document.getElementById('perfil_user');
-    console.log(perfil);
 
     for (var i = 0; i < combo.options.length; i++) {
         if (combo.options[i].text == perfil) {

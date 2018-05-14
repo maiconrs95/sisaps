@@ -39,7 +39,7 @@ function controlaView(conteudo) {
         });
 
         $('#update_user').click(function () {
-
+            console.log(obtemUsuarioAtualizacao());
             console.log('atualiza user');
         });
 
