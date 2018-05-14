@@ -81,6 +81,18 @@ function filtraUsuario(value) {
 
 //Abre modal
 function carregaModal(id) {
-
+    
     console.log(usuarios[id]);
+    $('.modal-title').text(usuarios[id].usuario);
+    $('#email_user').val(usuarios[id].email_user);
+    //$('#').text(usuarios[id]);
+    $('#perfil_user').val(usuarios[id].perfil);
+    $('#nome_user').val(usuarios[id].nome_user);
+    $('#cpf_user').val(usuarios[id].cpf_user);
+    $('#telefone_user').val(usuarios[id].telefone_user);
+    $('#celular_user').val(usuarios[id].celular_user);
+    $('#cep_user').val(usuarios[id].cep_user);
+    $('#cidade_user').val(usuarios[id].cidade);
+    $('#logradouro_user').val(usuarios[id].logradouro);
+    $('#num_logradouro').val(usuarios[id].num_casa);
 }
