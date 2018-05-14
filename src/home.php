@@ -189,8 +189,11 @@
     <script src="./js/controller.js"></script>
     <script src="./js/valida.cpf.js"></script>
     <script src="./js/via.cep.js"></script>
+
+    <!-- USUARIO -->
     <script src="./js/novoUsuario.js"></script>
     <script src="./js/consultaUsuario.js"></script>
+    <script src="./js/alterarUsuario.js"></script>
 
     <script src="./js/sair.js"></script>
 

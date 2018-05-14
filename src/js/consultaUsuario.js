@@ -97,6 +97,8 @@ function carregaModal(id) {
     $('#num_logradouro').val(usuarios[id].num_casa);
 }
 
+
+//Verifica o perfil que é carregado do BD para selecionar a option no DOM
 function selecionaPerfil(perfil) {
 
     var combo = document.getElementById('perfil_user');

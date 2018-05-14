@@ -38,10 +38,9 @@ function controlaView(conteudo) {
             filtraUsuario(value);
         });
 
+        $('#update_user').click(function () {
 
-        //Abre modal
-        $('.edit-user').click(function(){
-            console.log('abre modal');
+            console.log('atualiza user');
         });
 
     } //alterar usuario
