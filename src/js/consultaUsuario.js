@@ -1,9 +1,12 @@
+//Variavel Global que recebe o array com todos os usários
+var usuarios;
+
 //Busca os usuários cadastrados na base de dados
 function consultaUsuario() {
 
     $.get('includes/buscaUsuarios.php', function (data) {
 
-        console.log(obtemUsers(data));
+        usuarios = data;
 
         //console.log(data);
         $(data).each(function (i, user) {
@@ -13,18 +16,10 @@ function consultaUsuario() {
             var status = user.ativo;
             var cpf = user.cpf_user;
 
-            insereUsuario(id_user, usuario.toLowerCase(), perfil, verificaStatus(status), cpf);
+            insereUsuario(i, usuario.toLowerCase(), perfil, verificaStatus(status), cpf);
         });
     });
 }
-
-
-//Obtém todos os usuários
-function obtemUsers(data) {
-    var usuarios = data;
-    return usuarios;
-}
-
 
 //Verifica o status do usuário para alimentar a tabela
 function verificaStatus(status) {
@@ -85,7 +80,7 @@ function filtraUsuario(value) {
 
 
 //Abre modal
-function carregaModal(id){
-    
-    console.log('id: ' + id);
+function carregaModal(id) {
+
+    console.log(usuarios[id]);
 }
