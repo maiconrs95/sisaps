@@ -16,6 +16,11 @@ body {
 /* ========================= 
     navbar 
 ========================= */
+.disabled {
+    pointer-events: none;
+    cursor: default;
+ }
+ 
 select.custom-select option:hover {
     box-shadow: 0 0 10px 100px #66A80F inset;
 }

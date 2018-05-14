@@ -1,7 +1,7 @@
 //Variavel Global que recebe o array com todos os usários
 var usuarios;
 
-function obtemUsuarioAtualizacao(id){
+function obtemUsuarioAtualizacao(id) {
     return usuarios[id];
 }
 
@@ -10,6 +10,7 @@ function consultaUsuario() {
 
     $.get('includes/buscaUsuarios.php', function (data) {
 
+        $('a').addClass('disabled');
         usuarios = data;
 
         //console.log(data);
@@ -22,6 +23,8 @@ function consultaUsuario() {
 
             insereUsuario(i, usuario.toLowerCase(), perfil, verificaStatus(status), cpf);
         });
+
+        $('a').removeClass('disabled');
     });
 }
 
