@@ -49,7 +49,7 @@
         } else{
 
             //Se não, insere o novo usuário no sistema
-            $sql = "INSERT INTO tb_user (nome_user, email_user, cpf_user, id_perfil, telefone_user, celular_user, cidade, logradouro, num_casa, primeiro_login, senha_user, usuario) values ('$nome', '$email', '$cpf', '$perfil', '$telefone', '$celular', '$cidade', '$logradouro', '$numero', 1, '1234', '$usuario')";
+            $sql = "INSERT INTO tb_user (nome_user, email_user, cpf_user, id_perfil, telefone_user, celular_user, cep, cidade, logradouro, num_casa, primeiro_login, senha_user, usuario) values ('$nome', '$email', '$cpf', '$perfil', '$telefone', '$celular', '$cep', '$cidade', '$logradouro', '$numero', 1, '1234', '$usuario')";
            
             $result_id = mysqli_query($link, $sql);
 

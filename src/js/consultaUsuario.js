@@ -75,24 +75,36 @@ function filtraUsuario(value) {
     $("#lista-usuarios tr").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
-
 }
 
 
 //Abre modal
 function carregaModal(id) {
-    
+
     console.log(usuarios[id]);
+
     $('.modal-title').text(usuarios[id].usuario);
     $('#email_user').val(usuarios[id].email_user);
     //$('#').text(usuarios[id]);
-    $('#perfil_user').val(usuarios[id].perfil);
+    selecionaPerfil(usuarios[id].perfil);
     $('#nome_user').val(usuarios[id].nome_user);
     $('#cpf_user').val(usuarios[id].cpf_user);
     $('#telefone_user').val(usuarios[id].telefone_user);
     $('#celular_user').val(usuarios[id].celular_user);
-    $('#cep_user').val(usuarios[id].cep_user);
+    $('#cep_user').val(usuarios[id].cep);
     $('#cidade_user').val(usuarios[id].cidade);
     $('#logradouro_user').val(usuarios[id].logradouro);
     $('#num_logradouro').val(usuarios[id].num_casa);
+}
+
+function selecionaPerfil(perfil) {
+
+    var combo = document.getElementById('perfil_user');
+    console.log(perfil);
+
+    for (var i = 0; i < combo.options.length; i++) {
+        if (combo.options[i].text == perfil) {
+            combo.options[i].selected = true;
+        }
+    }
 }

@@ -3,7 +3,7 @@
     header("Content-Type:" .  "application/json");
     require_once('conexao.php');
 
-    $sql = "SELECT id_user, usuario, nome_user, email_user, cpf_user, perfil, telefone_user, celular_user, cidade, logradouro, num_casa, ativo
+    $sql = "SELECT id_user, usuario, nome_user, email_user, cpf_user, perfil, telefone_user, celular_user, cep, cidade, logradouro, num_casa, ativo
         FROM tb_user INNER JOIN tb_perfil ON tb_perfil.id_perfil = tb_user.id_perfil";
 
     $conexao = new db();
