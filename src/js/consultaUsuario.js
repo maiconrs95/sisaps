@@ -1,9 +1,8 @@
 //Variavel Global que recebe o array com todos os usários
 var usuarios;
 
-function obtemUsuarioAtualizacao(){
-
-    return usuarios;
+function obtemUsuarioAtualizacao(id){
+    return usuarios[id];
 }
 
 //Busca os usuários cadastrados na base de dados
@@ -86,7 +85,7 @@ function filtraUsuario(value) {
 //Abre modal
 function carregaModal(id) {
 
-    console.log(usuarios[id]);
+    $('#update_user').removeAttr('id');
 
     $('.modal-title').text(usuarios[id].usuario);
     $('#email_user').val(usuarios[id].email_user);
@@ -100,6 +99,10 @@ function carregaModal(id) {
     $('#cidade_user').val(usuarios[id].cidade);
     $('#logradouro_user').val(usuarios[id].logradouro);
     $('#num_logradouro').val(usuarios[id].num_casa);
+
+    $('#update_user').attr('id', usuarios[id].id_user);
+
+    console.log(obtemUsuarioAtualizacao(id));
 }
 
 

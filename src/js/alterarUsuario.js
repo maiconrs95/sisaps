@@ -1,19 +1,35 @@
 //obtém dados dos campos
-function obtemDadosInputs(){
-    
-}
-//altera o usuário no sistema
-function alterarUsuario(usuario) {
+function obtemDadosInputs() {
 
-    var data = 'nome=' + usuario.nome + 
-        '&email=' + usuario.email + 
-        '&cpf=' + usuario.cpf + 
-        '&perfil=' + usuario.perfil + 
-        '&telefone=' + usuario.telefone + 
-        '&celular=' + usuario.celular + 
-        '&cep=' + usuario.cep + 
-        '&cidade=' + usuario.cidade + 
-        '&logradouro=' + usuario.logradouro + 
+    var usuarioModal = {
+        nome: document.querySelector('#nome_user').value,
+        email: document.querySelector('#email_user').value,
+        cpf: document.querySelector('#cpf_user').value,
+        perfil: document.querySelector('#perfil_user').value,
+        telefone: document.querySelector('#telefone_user').value,
+        celular: document.querySelector('#celular_user').value,
+        cep: document.querySelector('#cep_user').value,
+        cidade: document.querySelector('#cidade_user').value,
+        logradouro: document.querySelector('#logradouro_user').value,
+        num: document.querySelector('#num_logradouro').value
+    }
+    
+    return usuarioModal;
+}
+
+
+//altera o usuário no sistema
+function alterarUsuario(id, dados) {
+
+    var data = 'nome=' + usuario.nome +
+        '&email=' + usuario.email +
+        '&cpf=' + usuario.cpf +
+        '&perfil=' + usuario.perfil +
+        '&telefone=' + usuario.telefone +
+        '&celular=' + usuario.celular +
+        '&cep=' + usuario.cep +
+        '&cidade=' + usuario.cidade +
+        '&logradouro=' + usuario.logradouro +
         '&num=' + usuario.num;
 
     $('.alert-msg').hide();
@@ -114,7 +130,7 @@ function exibeMsg(msg, alerta) {
 
 //scroll para header da tela
 function scrollMsg() {
-    
+
     $("html, body").animate({
         scrollTop: 0
     }, 200);
