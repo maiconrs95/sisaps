@@ -18,7 +18,7 @@ function obtemDadosInputs() {
 }
 
 
-//altera o usuário no sistema
+//altera o usuário no sistema. recebe o id para query e os dados dos inputs para atualização
 function alterarUsuario(id, dados) {
 
     var data = 'nome=' + usuario.nome +
