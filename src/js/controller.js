@@ -38,6 +38,10 @@ function controlaView(conteudo) {
             filtraUsuario(value);
         });
 
+        $('#cep_user').blur(function () {
+            carregaCep();
+        });
+
         $('#update_user').click(function () {
 
             //VALIDA OS DADOS OBRIGATÓRIOS DO MODAL
@@ -53,8 +57,6 @@ function controlaView(conteudo) {
             } else {
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
-
-
         });
 
     } //alterar usuario

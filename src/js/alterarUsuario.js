@@ -59,7 +59,6 @@ function alterarUsuario(usuario) {
                     break;
                 case 3:
                     exibeMsg(response.mensagem, 'alert-success');
-                    limpaCampos();
                     break;
                 default:
                     break;

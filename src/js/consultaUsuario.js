@@ -103,7 +103,6 @@ function carregaModal(id) {
 
     
     mascaraCampo();
-    console.log(obtemUsuarioAtualizacao(id));
 }
 
 
