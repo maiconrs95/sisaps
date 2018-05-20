@@ -1,7 +1,7 @@
 //obtém dados dos campos
 function obtemDadosInputs() {
 
-    var usuarioModal = {
+    var usuario = {
         id: document.querySelector('#id').textContent,    
         nome: document.querySelector('#nome_user').value,
         email: document.querySelector('#email_user').value,
@@ -15,14 +15,15 @@ function obtemDadosInputs() {
         num: document.querySelector('#num_logradouro').value
     }
     
-    return usuarioModal;
+    return usuario;
 }
 
 
 //altera o usuário no sistema. recebe o id para query e os dados dos inputs para atualização
-function alterarUsuario(id, dados) {
+function alterarUsuario(dados) {
 
-    var data = 'nome=' + usuario.nome +
+    var data = 'id' + usuario.id +
+        '&nome=' + usuario.nome +
         '&email=' + usuario.email +
         '&cpf=' + usuario.cpf +
         '&perfil=' + usuario.perfil +
@@ -68,12 +69,11 @@ function alterarUsuario(id, dados) {
 
 
 //valida os campos obrigatórios
-function validaCampos(form) {
+function validaCampos(formPerfil, formPessoais) {
 
-    var usuario = form.nome;
-    var email = form.email;
-    var cpf = form.cpf;
-    var perfil = form.perfil;
+    var usuario = formPessoais.nome;
+    var email = formPerfil.email;
+    var perfil = formPerfil.perfil;
 
     if (usuario.value == '') {
         usuario.classList.add('borda-vermelha');
@@ -87,19 +87,13 @@ function validaCampos(form) {
         email.classList.remove('borda-vermelha');
     }
 
-    if (cpf.value == '') {
-        cpf.classList.add('borda-vermelha');
-    } else {
-        cpf.classList.remove('borda-vermelha');
-    }
-
     if (perfil.value == '') {
         perfil.classList.add('borda-vermelha');
     } else {
         perfil.classList.remove('borda-vermelha');
     }
 
-    if (usuario.value == '' || email.value == '' || cpf.value == '' || perfil.value == '') {
+    if (usuario.value == '' || email.value == '' || perfil.value == '') {
         return false;
     } else {
         $('.alert_user').hide();

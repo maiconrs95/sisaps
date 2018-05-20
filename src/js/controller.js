@@ -38,8 +38,21 @@ function controlaView(conteudo) {
             filtraUsuario(value);
         });
 
-        $('#update_user').click(function () {          
-            console.log(obtemDadosInputs());
+        $('#update_user').click(function () {
+
+            var formPerfil = document.querySelector('#formPerfil');
+            var formPessoais = document.querySelector('#formPessoais');
+            
+            var camposObg = validaCampos(formPerfil, formPessoais);
+
+            console.log(formPerfil);
+            console.log(formPessoais);
+            console.log(camposObg);
+            
+            var usuario = obtemDadosInputs();
+            //var camposObg = validaCampos(formulario);
+                      
+            console.log(usuario);
         });
 
     } //alterar usuario

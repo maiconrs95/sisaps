@@ -72,15 +72,15 @@
                                     <div class="tab-content mt-3" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="nav_perfil" role="tabpanel" aria-labelledby="nav-perfil-tab">
 
-                                            <form>
+                                            <form id="formPerfil">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control obrigatorio" id="email_user" aria-describedby="Atualizar email" placeholder="Atualizar email">
+                                                    <input type="text" name="email" class="form-control obrigatorio" id="email_user" aria-describedby="Atualizar email" placeholder="Atualizar email">
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="password" class="form-control obrigatorio" id="password_user" aria-describedby="Atualizar senha" placeholder="Atualizar senha">
                                                 </div>
                                                 <div class="form-group">
-                                                    <select class="custom-select obrigatorio" id="perfil_user">
+                                                    <select class="custom-select obrigatorio" name="perfil" id="perfil_user">
                                                         <option selected></option>
                                                         <option value="1">Administrador</option>
                                                         <option value="2">Professor</option>
@@ -92,9 +92,9 @@
                                         </div><!-- tab pane -->
 
                                         <div class="tab-pane fade" id="nav_pessoais" role="tabpanel" aria-labelledby="nav-pessoais-tab">
-                                            <form>
+                                            <form id="formPessoais">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control obrigatorio" id="nome_user" aria-describedby="Atualizar nome" placeholder="Atualizar nome">
+                                                    <input type="text" name="nome" class="form-control obrigatorio" id="nome_user" aria-describedby="Atualizar nome" placeholder="Atualizar nome">
                                                 </div>
 
                                                 <div class="form-group">
