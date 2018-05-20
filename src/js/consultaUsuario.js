@@ -102,12 +102,12 @@ function carregaModal(id) {
     $('#num_logradouro').val(usuarios[id].num_casa);
 
     
-    mascaraCampo();
+    updateMaskCampo();
 }
 
 
 //formata os campos do formulário
-function mascaraCampo() {
+function updateMaskCampo() {
 
     $('.cpf').mask('000.000.000-00', {
         reverse: true

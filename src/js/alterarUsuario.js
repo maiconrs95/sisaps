@@ -69,7 +69,7 @@ function alterarUsuario(usuario) {
 
 
 //valida os campos obrigatórios
-function validaCampos(formPerfil, formPessoais) {
+function updateCampos(formPerfil, formPessoais) {
 
     var usuario = formPessoais.nome;
     var email = formPerfil.email;

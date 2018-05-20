@@ -47,7 +47,7 @@ function controlaView(conteudo) {
             //VALIDA OS DADOS OBRIGATÓRIOS DO MODAL
             var formPerfil = document.querySelector('#formPerfil');
             var formPessoais = document.querySelector('#formPessoais');
-            var camposObg = validaCampos(formPerfil, formPessoais);
+            var camposObg = updateCampos(formPerfil, formPessoais);
             
             //OBTÉM OS DADOS DO USUÁRIO DO MODAL
             var usuario = obtemDadosInputs();
