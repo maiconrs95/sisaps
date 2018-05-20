@@ -25,6 +25,7 @@ function alterarUsuario(usuario) {
     var data = 'id=' + usuario.id +
         '&nome=' + usuario.nome +
         '&email=' + usuario.email +
+        '&senha=' + usuario.senha +
         '&cpf=' + usuario.cpf +
         '&perfil=' + usuario.perfil +
         '&telefone=' + usuario.telefone +
@@ -69,7 +70,7 @@ function alterarUsuario(usuario) {
 
 
 //valida os campos obrigatórios
-function updateCampos(formPerfil, formPessoais) {
+function updateCamposObg(formPerfil, formPessoais) {
 
     var usuario = formPessoais.nome;
     var email = formPerfil.email;
