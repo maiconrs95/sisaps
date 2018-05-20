@@ -88,11 +88,9 @@ function filtraUsuario(value) {
 //Abre modal
 function carregaModal(id) {
 
-    $('#update_user').removeAttr('id');
-
+    $('#id').text(usuarios[id].id_user);
     $('.modal-title').text(usuarios[id].usuario);
     $('#email_user').val(usuarios[id].email_user);
-    //$('#').text(usuarios[id]);
     selecionaPerfil(usuarios[id].perfil);
     $('#nome_user').val(usuarios[id].nome_user);
     $('#cpf_user').val(usuarios[id].cpf_user);
@@ -103,9 +101,23 @@ function carregaModal(id) {
     $('#logradouro_user').val(usuarios[id].logradouro);
     $('#num_logradouro').val(usuarios[id].num_casa);
 
-    $('#update_user').attr('id', usuarios[id].id_user);
-
+    
+    mascaraCampo();
     console.log(obtemUsuarioAtualizacao(id));
+}
+
+
+//formata os campos do formulário
+function mascaraCampo() {
+
+    $('.cpf').mask('000.000.000-00', {
+        reverse: true
+    });
+    $('.telefone').mask('(00) 0000-0000');
+    $('.celular').mask('(00) 00000-0000');
+    $('.cep').mask('00000-000');
+
+    $('.alert-msg').hide();
 }
 
 

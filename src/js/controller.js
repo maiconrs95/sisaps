@@ -38,8 +38,7 @@ function controlaView(conteudo) {
             filtraUsuario(value);
         });
 
-        $('#update_user').click(function () {
-            alert(this.id);            
+        $('#update_user').click(function () {          
             console.log(obtemDadosInputs());
         });
 

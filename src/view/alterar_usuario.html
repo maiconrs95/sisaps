@@ -49,7 +49,7 @@
                     <div class="modal-content">
 
                         <div id="modal_header" class="modal-header">
-                            <h5 class="modal-title">Nome do usuário</h5>
+                            <h5 class="modal-title"></h5><span id="id" style="display: none;">a</span>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -99,11 +99,8 @@
 
                                                 <div class="form-group">
                                                     <div class="input-group mb-3">
-                                                        <input type="text" class="form-control cpf obrigatorio" id="cpf_user" aria-describedby="Atualizar CPF" placeholder="CPF">
+                                                        <input type="text" class="form-control cpf obrigatorio" id="cpf_user" aria-describedby="Atualizar CPF" placeholder="CPF" disabled>
                                                         <div class="input-group-append">
-                                                            <span id="cpf_invalido" class="red p-2 input-group-text" style="background: #fff !important; border-left: none;">
-                                                                <i class="small fas fa-times"></i>
-                                                            </span>
                                                             <span id="cpf_valido" class="green p-2 input-group-text" style="background: #fff !important; border-left: none;">
                                                                 <i class="small fas fa-check"></i>
                                                             </span>

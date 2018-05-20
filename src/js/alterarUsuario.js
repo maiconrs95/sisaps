@@ -2,6 +2,7 @@
 function obtemDadosInputs() {
 
     var usuarioModal = {
+        id: document.querySelector('#id').textContent,    
         nome: document.querySelector('#nome_user').value,
         email: document.querySelector('#email_user').value,
         cpf: document.querySelector('#cpf_user').value,
@@ -134,37 +135,4 @@ function scrollMsg() {
     $("html, body").animate({
         scrollTop: 0
     }, 200);
-}
-
-//limpa todos os campos do formulário
-function limpaCampos() {
-
-    $('#nome_user').val("");
-    $('#email_user').val("");
-    $('#cpf_user').val("");
-    $('#perfil_user').val("");
-    $('#telefone_user').val("");
-    $('#celular_user').val("");
-    $('#cep_user').val("");
-    $('#cidade_user').val("");
-    $('#logradouro_user').val("");
-    $('#num_logradouro').val("");
-    $('#cpf_invalido').hide();
-    $('#cpf_valido').hide();
-}
-
-
-//formata os campos do formulário
-function mascaraCampo() {
-
-    $('.cpf').mask('000.000.000-00', {
-        reverse: true
-    });
-    $('.telefone').mask('(00) 0000-0000');
-    $('.celular').mask('(00) 00000-0000');
-    $('.cep').mask('00000-000');
-
-    $('.alert-msg').hide();
-    $('#cpf_invalido').hide();
-    $('#cpf_valido').hide();
 }
