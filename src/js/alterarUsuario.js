@@ -20,9 +20,9 @@ function obtemDadosInputs() {
 
 
 //altera o usuário no sistema. recebe o id para query e os dados dos inputs para atualização
-function alterarUsuario(dados) {
+function alterarUsuario(usuario) {
 
-    var data = 'id' + usuario.id +
+    var data = 'id=' + usuario.id +
         '&nome=' + usuario.nome +
         '&email=' + usuario.email +
         '&cpf=' + usuario.cpf +
@@ -34,6 +34,7 @@ function alterarUsuario(dados) {
         '&logradouro=' + usuario.logradouro +
         '&num=' + usuario.num;
 
+    alert(data);
     $('.alert-msg').hide();
 
     $.ajax({
@@ -42,12 +43,12 @@ function alterarUsuario(dados) {
         data: data,
         dataType: 'json',
         beforeSend: function () {
-            $('#insert_cadastrar').attr('disabled', true);
-            $('#insert_cancelar').attr('disabled', true);
+            $('#update_user').attr('disabled', true);
+            $('#calcel_update').attr('disabled', true);
         },
         success: function (response) {
-            $('#insert_cadastrar').attr('disabled', false);
-            $('#insert_cancelar').attr('disabled', false);
+            $('#update_user').attr('disabled', false);
+            $('#calcel_update').attr('disabled', false);
 
             switch (response.codigo) {
                 case 1:

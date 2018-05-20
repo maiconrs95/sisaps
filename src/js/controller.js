@@ -40,19 +40,21 @@ function controlaView(conteudo) {
 
         $('#update_user').click(function () {
 
+            //VALIDA OS DADOS OBRIGATÓRIOS DO MODAL
             var formPerfil = document.querySelector('#formPerfil');
             var formPessoais = document.querySelector('#formPessoais');
-            
             var camposObg = validaCampos(formPerfil, formPessoais);
-
-            console.log(formPerfil);
-            console.log(formPessoais);
-            console.log(camposObg);
             
+            //OBTÉM OS DADOS DO USUÁRIO DO MODAL
             var usuario = obtemDadosInputs();
-            //var camposObg = validaCampos(formulario);
-                      
-            console.log(usuario);
+
+            if (camposObg) {
+                alterarUsuario(usuario);
+            } else {
+                exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
+            }
+
+
         });
 
     } //alterar usuario

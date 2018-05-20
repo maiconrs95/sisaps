@@ -14,6 +14,7 @@
    
     require_once('conexao.php');
 
+    $id         = (isset($_GET['id'])) ? $_GET['id'] : '' ;
     $nome       = (isset($_GET['nome'])) ? $_GET['nome'] : '' ;
     $email      = (isset($_GET['email'])) ? $_GET['email'] : '' ; 
     $usuario    = strstr($email, '@', true);
