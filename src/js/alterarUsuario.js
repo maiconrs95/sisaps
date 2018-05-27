@@ -124,13 +124,13 @@ function exibeMsg(msg, alerta) {
     alert.parent().remove();
     $('.alert-msg').append(col);
     $('.alert-msg').fadeIn(100);
-    scrollMsg();
+    alertModal();
 };
 
 //scroll para header da tela
-function scrollMsg() {
+function alertModal() {
 
-    $("html, body").animate({
+    $(".modal-title").animate({
         scrollTop: 0
     }, 200);
 }
