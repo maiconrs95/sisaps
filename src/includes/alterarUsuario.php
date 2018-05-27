@@ -28,7 +28,7 @@
     $logradouro = (isset($_POST['logradouro'])) ? $_POST['logradouro'] : '' ;  
     $numero     = (isset($_POST['num'])) ? $_POST['num'] : '' ;  
 
-    //verifica se o email ou cpf ja se encontra cadastrado
+    //verifica se o usuário existe
     $sql = "SELECT id_user, id_perfil, usuario FROM tb_user WHERE id_user = $id LIMIT 1";
 
     $conexao = new db();
@@ -49,7 +49,7 @@
 
             //ATUALIZA OS DADOS DO USUÁRIO NO SISTEMA
             $sql = "UPDATE tb_user SET nome_user = '$nome', email_user = '$email', cpf_user='$cpf', telefone_user = '$telefone',
-            celular_user= '$celular', cep = '$cep', cidade = '$cidade', logradouro = '$logradouro', num_casa = '$numero', id_perfil = $perfil, usuario='usuario' WHERE id_user = $id";
+            celular_user= '$celular', cep = '$cep', cidade = '$cidade', logradouro = '$logradouro', num_casa = '$numero', id_perfil = $perfil, usuario = '$usuario' WHERE id_user = $id";
            
             $result_id = mysqli_query($link, $sql);
 

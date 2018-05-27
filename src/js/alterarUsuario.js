@@ -60,6 +60,8 @@ function alterarUsuario(usuario) {
                     break;
                 case 3:
                     exibeMsg(response.mensagem, 'alert-success');
+                    $(".table tr").remove();
+                    consultaUsuario();
                     break;
                 default:
                     break;
