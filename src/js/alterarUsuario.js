@@ -57,7 +57,7 @@ function alterarUsuario(usuario) {
                     aler(response.mensagem);
                     break;
                 case 2:
-                    exibeMsg(response.mensagem, 'alert-warning');
+                    exibeMsg(response.mensagem, 'alert-success');
                     break;
                 case 3:
                     exibeMsg(response.mensagem, 'alert-success');

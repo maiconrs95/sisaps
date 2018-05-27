@@ -40,10 +40,10 @@
         $dados_usuario = mysqli_fetch_array($result_id);
 
         //SE A VIRIÁVEL DE SENHA ESTIVER PREENCHIDA, A QUERY ATUALIZARA OS DADOS + SENHA, SE NÃO APENAS OS DADOS SERÃO ALTERADOS
-        if(isset($senha)){
+        if(!empty($senha)){
 
             $sql = "UPDATE tb_user SET nome_user = '$nome', email_user = '$email', cpf_user='$cpf', telefone_user = '$telefone',
-            celular_user= '$celular', cep = '$cep', cidade = '$cidade', logradouro = '$logradouro', num_casa = '$numero', id_perfil = $perfil, ,senha_user = '$senha', usuario = '$usuario' WHERE id_user = $id";
+            celular_user= '$celular', cep = '$cep', cidade = '$cidade', logradouro = '$logradouro', num_casa = '$numero', id_perfil = $perfil,senha_user = '$senha', usuario = '$usuario' WHERE id_user = $id";
            
             $result_id = mysqli_query($link, $sql);
             
