@@ -35,8 +35,7 @@ function alterarUsuario(usuario) {
         '&cidade=' + usuario.cidade +
         '&logradouro=' + usuario.logradouro +
         '&num=' + usuario.num;
-
-    alert(data);
+        
     $('.alert-msg').hide();
 
     $.ajax({
