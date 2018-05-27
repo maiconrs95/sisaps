@@ -4,6 +4,7 @@ function obtemDadosInputs() {
     var usuario = {
         id: document.querySelector('#id').textContent,    
         nome: document.querySelector('#nome_user').value,
+        senha: document.querySelector('#password_user').value,
         email: document.querySelector('#email_user').value,
         cpf: document.querySelector('#cpf_user').value,
         perfil: document.querySelector('#perfil_user').value,
