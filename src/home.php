@@ -64,8 +64,6 @@
                         </div>
                     </li>
                 </ul>
-                <input class="form-control mr-sm-2 mt-sm-1 ml-2 mt-md-0" type="search" placeholder="Procurar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
             </form>
         </div>
     </nav><!-- *** end navbar *** -->
@@ -127,7 +125,7 @@
             <div id="conteudo" class="col-md-10 mt-5 pb-5">
                 <div class="row d-flex justify-content-center mt-5 loader" style="display: none;">
                     <div class="col-md-4 mt-5">
-                        <i class="fas fa-spinner mt-5 fa-3x"></i>
+                        
                     </div>
                 </div>
             </div><!-- conteudo -->
@@ -194,6 +192,9 @@
     <script src="./js/novoUsuario.js"></script>
     <script src="./js/consultaUsuario.js"></script>
     <script src="./js/alterarUsuario.js"></script>
+
+    <!-- SINTOMAS -->
+    <script src="./js/novoSintoma.js"></script>
 
     <script src="./js/sair.js"></script>
 

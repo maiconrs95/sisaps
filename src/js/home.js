@@ -30,7 +30,6 @@ $(document).ready(function () {
         });
     });
 
-
     //VERIFICA O NIVEL DE USUÁRIO NO MOMENTO DO LOGIN
     $.get('includes/session.php', function (data) {
 

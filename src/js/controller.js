@@ -1,9 +1,7 @@
 function controlaView(conteudo) {
 
     if (conteudo == 'view/novo_usuario.html') {
-
-        var formulario = document.querySelector('#form-usuario');
-
+        
         mascaraCampo();
 
         $('#cep_user').blur(function () {
@@ -16,6 +14,7 @@ function controlaView(conteudo) {
 
         $('#insert_cadastrar').click(function () {
 
+            var formulario = document.querySelector('#form-usuario');
             var usuario = obterUsuario(formulario);
             var camposObg = validaCampos(formulario);
             var cpfValido = validacaoCpf(formulario.cpf.value);
@@ -60,4 +59,24 @@ function controlaView(conteudo) {
         });
 
     } //alterar usuario
+
+    //planta x sintomas
+
+    else if(conteudo == 'view/novo_sintoma.html'){
+
+        $('#insert_sintoma').click(function(){
+
+            var formSintoma = document.querySelector('#form-sintoma');
+            var sintoma = obterSintoma(formSintoma);
+
+           console.log(validaCamposSintoma(formSintoma));
+
+            if(validaCamposSintoma(formSintoma)){
+                console.log('CADASTRADO' + sintoma);
+            }else{
+                exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
+            }
+        });
+        
+    }//sintoma
 }

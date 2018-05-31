@@ -9,12 +9,10 @@
         </div>
     </div><!-- *** end row título *** -->
 
-
     <!-- =========================
         alert campos obrigatórios
     ============================== -->
-    <section class="row alert_user mt-0 mb-0"></section>
-
+    <section class="row alert-msg mt-0 mb-0"></section>
 
     <!-- =========================
         row cadastro de sintoma
@@ -22,19 +20,19 @@
     <div class="row">
         <div class="col-md-12 mx-auto">
 
-            <form>
+            <form id="form-sintoma">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome_popular_sintoma">Nome cientifíco
                             <span class="red">*</span>
                         </label>
-                        <input type="text" class="form-control obrigatorio" id="nome_popular_sintoma" placeholder="Nome cientifíco do sintoma">
+                        <input type="text" class="form-control obrigatorio" name="nome_cientifico" id="nome_cientifico" placeholder="Nome cientifíco do sintoma">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="nome_cientifico_sintoma">Nome Popular
                             <span class="red">*</span>
                         </label>
-                        <input type="text" class="form-control obrigatorio" id="nome_cientifico_sintoma" placeholder="Nome popular do sintoma">
+                        <input type="text" class="form-control obrigatorio" name="nome_popular" id="nome_popular" placeholder="Nome popular do sintoma">
                     </div>
                 </div>
 
@@ -43,7 +41,7 @@
                         <label for="parte_sintoma">Parte do corpo
                             <span class="red">*</span>
                         </label>
-                        <select class="custom-select obrigatorio" id="parte_sintoma">
+                        <select class="custom-select obrigatorio" name="parte_sintoma" id="parte_sintoma">
                             <option selected></option>
                             <option value="1">Cabeça</option>
                             <option value="2">Ombro</option>
@@ -56,11 +54,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="causas_sintoma">Causas</label>
-                        <textarea class="form-control" id="causas_sintoma" rows="3"></textarea>
+                        <textarea class="form-control" name="causas" id="causas_sintoma" rows="3"></textarea>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="tratamentos_sintoma">Tratamentos</label>
-                        <textarea class="form-control" id="tratamentos_sintoma" rows="3"></textarea>
+                        <textarea class="form-control" name="tratamentos" id="tratamentos_sintoma" rows="3"></textarea>
                     </div>
                 </div>
 
