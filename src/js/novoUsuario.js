@@ -131,7 +131,7 @@ function exibeMsg(msg, alerta) {
 //scroll para header da tela
 function scrollMsg() {
     
-    $("html, body").animate({
+    $(".contaier").animate({
         scrollTop: 0
     }, 200);
 }

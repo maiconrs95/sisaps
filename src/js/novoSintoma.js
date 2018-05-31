@@ -12,6 +12,47 @@ function obterSintoma(form) {
     return sintoma;
 }
 
+//cadastra novo sintoma no sistema
+function cadastrarSintoma(usuario) {
+
+    var data = 'nome_cientifico=' + usuario.nome + 
+        '&nome_popular=' + usuario.email + 
+        '&parte_corpo=' + usuario.cpf + 
+        '&causa=' + usuario.perfil + 
+        '&tratamentos=' + usuario.telefone;
+
+    $('.alert-msg').hide();
+
+    $.ajax({
+        type: 'GET',
+        url: 'includes/novoSintoma.php',
+        data: data,
+        dataType: 'json',
+        beforeSend: function () {
+            $('#insert_sintoma').attr('disabled', true);
+            $('#sintoma_cancelar').attr('disabled', true);
+        },
+        success: function (response) {
+            $('#insert_sintoma').attr('disabled', false);
+            $('#sintoma_cancelar').attr('disabled', false);
+
+            switch (response.codigo) {
+                case 1:
+                    aler(response.mensagem);
+                    break;
+                case 2:
+                    exibeMsg(response.mensagem, 'alert-warning');
+                    break;
+                case 3:
+                    exibeMsg(response.mensagem, 'alert-success');
+                    limpaCampos();
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+};
 
 //valida os campos obrigatórios
 function validaCamposSintoma(form) {
