@@ -15,13 +15,14 @@ function obterSintoma(form) {
 //cadastra novo sintoma no sistema
 function cadastrarSintoma(usuario) {
 
-    var data = 'nome_cientifico=' + usuario.nome + 
-        '&nome_popular=' + usuario.email + 
-        '&parte_corpo=' + usuario.cpf + 
-        '&causa=' + usuario.perfil + 
-        '&tratamentos=' + usuario.telefone;
+    var data = 'nome_cientifico=' + sintoma.nome_cientifico + 
+        '&nome_popular=' + sintoma.nome_popular + 
+        '&parte_corpo=' + sintoma.parte_corpo + 
+        '&causa=' + sintoma.causa + 
+        '&tratamentos=' + sintoma.tratamentos;
 
     $('.alert-msg').hide();
+    alert(data);
 
     $.ajax({
         type: 'GET',
