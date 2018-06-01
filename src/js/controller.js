@@ -72,7 +72,6 @@ function controlaView(conteudo) {
            console.log(validaCamposSintoma(formSintoma));
 
             if(validaCamposSintoma(formSintoma)){
-                console.log('CADASTRADO' + sintoma);
                 cadastrarSintoma(sintoma);
             }else{
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');

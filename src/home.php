@@ -183,6 +183,7 @@
 
     <!-- main js -->
     <script src="./js/jquery.mask.min.js"></script>
+    <script src="./js/removeAcento.js"></script>
     <script src="./js/home.js"></script>
     <script src="./js/controller.js"></script>
     <script src="./js/valida.cpf.js"></script>

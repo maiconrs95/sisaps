@@ -16,13 +16,14 @@ function obterSintoma(form) {
 function cadastrarSintoma(usuario) {
 
     var data = 'nome_cientifico=' + sintoma.nome_cientifico + 
+        '&nome_cientifico_comp=' + removerAcentos(sintoma.nome_cientifico.toLowerCase()) + 
         '&nome_popular=' + sintoma.nome_popular + 
         '&parte_corpo=' + sintoma.parte_corpo + 
         '&causa=' + sintoma.causa + 
         '&tratamentos=' + sintoma.tratamentos;
 
     $('.alert-msg').hide();
-    alert(data);
+    console.log(data);
 
     $.ajax({
         type: 'GET',
@@ -46,7 +47,7 @@ function cadastrarSintoma(usuario) {
                     break;
                 case 3:
                     exibeMsg(response.mensagem, 'alert-success');
-                    limpaCampos();
+                    limpaSintomas();
                     break;
                 default:
                     break;
@@ -84,4 +85,14 @@ function validaCamposSintoma(form) {
         $('.alert-msg').hide();
         return true;
     }
+}
+
+
+function limpaSintomas() {
+
+    $('#nome_cientifico').val("");
+    $('#nome_popular').val("");
+    $('#parte_sintoma').val("");
+    $('#causas_sintoma').val("");
+    $('#tratamentos_sintoma').val("");
 }
