@@ -103,10 +103,11 @@ function getCorpo() {
     $.get('includes/getCorpo.php', function (data) {
 
         corpo = data;
-        console.log(data);
 
         $(data).each(function (i, user) {
 
+            var select = $('#parte_sintoma');
+            $('<option>').val(corpo[i].id_parte_corpo).text(corpo[i].parte_corpo).appendTo(select);
         });
     });
 }
