@@ -112,10 +112,6 @@
                                     <i class="fas fa-exclamation"></i>
                                     <span class="hidden-sm-down">  Pendências</span>
                                 </a>
-                                <a id="sugestoes" class="nav-link side-nav" href="#">
-                                    <i class="far fa-lightbulb"></i>
-                                    <span class="hidden-sm-down"> Sugestões</span>
-                                </a>
                             </span>
                         </li>
                     </ul>
