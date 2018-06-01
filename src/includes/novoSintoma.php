@@ -13,7 +13,7 @@
     $nome_p         = (isset($_GET['nome_popular'])) ? $_GET['nome_popular'] : '' ; 
     $parte_corpo    = (isset($_GET['parte_corpo'])) ? $_GET['parte_corpo'] : '' ;
     $causa          = (isset($_GET['causa'])) ? $_GET['causa'] : '' ;
-    $tratamento         = (isset($_GET['tratamentos'])) ? $_GET['tratamentos'] : '' ;
+    $tratamento     = (isset($_GET['tratamentos'])) ? $_GET['tratamentos'] : '' ;
 
     //verifica se o sintoma ja se encontra cadastrado
     $sql = "SELECT * FROM tb_sintomas WHERE nome_cientifico_comp = '$nome_comp'  LIMIT 1";

@@ -64,6 +64,8 @@ function controlaView(conteudo) {
 
     else if(conteudo == 'view/novo_sintoma.html'){
 
+        getCorpo();
+
         $('#insert_sintoma').click(function(){
 
             var formSintoma = document.querySelector('#form-sintoma');

@@ -87,7 +87,7 @@ function validaCamposSintoma(form) {
     }
 }
 
-
+//Limpa campos do form
 function limpaSintomas() {
 
     $('#nome_cientifico').val("");
@@ -95,4 +95,18 @@ function limpaSintomas() {
     $('#parte_sintoma').val("");
     $('#causas_sintoma').val("");
     $('#tratamentos_sintoma').val("");
+}
+
+//Busca as partes do corpo na base de dados
+function getCorpo() {
+
+    $.get('includes/getCorpo.php', function (data) {
+
+        corpo = data;
+        console.log(data);
+
+        $(data).each(function (i, user) {
+
+        });
+    });
 }
