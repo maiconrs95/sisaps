@@ -40,7 +40,7 @@
             $result_id = mysqli_query($link, $sql);
 
             //Mensagem de sucesso
-            $retorno = array('codigo' => 3,'mensagem' => 'Sintoma' . $nome_c . 'cadastrado.');
+            $retorno = array('codigo' => 3,'mensagem' => 'Sintoma ' . $nome_c . ' cadastrado.');
             echo json_encode($retorno);
             exit();
         }
