@@ -71,8 +71,6 @@ function controlaView(conteudo) {
             var formSintoma = document.querySelector('#form-sintoma');
             var sintoma = obterSintoma(formSintoma);
 
-           console.log(validaCamposSintoma(formSintoma));
-
             if(validaCamposSintoma(formSintoma)){
                 cadastrarSintoma(sintoma);
             }else{
@@ -80,5 +78,14 @@ function controlaView(conteudo) {
             }
         });
         
+    }//sintoma
+    else if(conteudo == 'view/alterar_sintoma.html'){
+        
+        consultaSintomas();
+
+        $("#pesquisar-sintoma").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            filtraSintoma(value);
+        });
     }//sintoma
 }

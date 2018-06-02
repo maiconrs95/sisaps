@@ -192,6 +192,7 @@
 
     <!-- SINTOMAS -->
     <script src="./js/novoSintoma.js"></script>
+    <script src="./js/consultaSintoma.js"></script>
 
     <script src="./js/sair.js"></script>
 

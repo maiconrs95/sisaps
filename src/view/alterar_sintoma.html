@@ -16,7 +16,7 @@
     <div class="row mb-2">
         <div class="col-md-3 mt-1">
             <div class="input-group">
-                <input class="form-control" type="search" placeholder="Pesquisar sintoma" aria-label="Search">
+                <input class="form-control" id="pesquisar-sintoma" type="search" placeholder="Pesquisar sintoma" aria-label="Search">
             </div>
         </div><!-- *** filtro por nome *** -->
     </div><!-- *** row filtros *** -->
@@ -37,21 +37,11 @@
                         </th>
                         <th scope="col">Sintoma</th>
                         <th scope="col">Parte Corpo</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Nome popular</th>
                     </tr>
                 </thead>
 
-                <tbody>
-                    <tr>
-                        <th scope="row">
-                            <a href="#" class="btn-sm p-1" data-toggle="modal" data-target="#alterar_sintomas">
-                                <i class="fas fa-search"></i>
-                            </a>
-                        </th>
-                        <td>Dor de cabeça</td>
-                        <td>Cabeça</td>
-                        <td>Ativo</td>
-                    </tr>
+                <tbody id="lista-sintomas">
                 </tbody>
             </table>
 
