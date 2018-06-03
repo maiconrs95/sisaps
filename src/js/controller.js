@@ -61,13 +61,23 @@ function controlaView(conteudo) {
     } //alterar usuario
 
     else if (conteudo == 'view/novo_planta.html'){
+
+        var formPLanta = document.querySelector('#form-planta');
         
+        $('input, textarea').blur(function(){
+            validaPlanta(formPLanta);
+        });
+
         $('#insert_planta').click(function(){
-           
-            var formPLanta = document.querySelector('#form-planta');
+
             var planta = obterPlanta(formPLanta);
 
-            console.log(planta);
+            if(validaPlanta(formPLanta)){
+                console.log(planta);
+            }else{
+                exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
+            }
+            
         });
     }
 
