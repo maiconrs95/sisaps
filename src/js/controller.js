@@ -70,7 +70,7 @@ function controlaView(conteudo) {
             var planta = obterPlanta(formPLanta);
 
             if(validaPlanta(formPLanta)){
-                console.log(planta);
+                cadastraPlanta(planta);
             }else{
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }

@@ -1,16 +1,16 @@
-function obterSintomas(){
-    
+function obterSintomas() {
+
     var sintomas_select = new Array();
 
-    $(".demo2 option").each(function() {
-        if($(this).is(':selected'))
-            sintomas_select.push(this.value);                               
-     }); 
+    $(".demo2 option").each(function () {
+        if ($(this).is(':selected'))
+            sintomas_select.push(this.value);
+    });
 
-     return sintomas_select;
+    return sintomas_select;
 }
 
-function obterPlanta(form){
+function obterPlanta(form) {
 
     var planta = {
         nome_c: form.nome_cientifico.value,
@@ -28,11 +28,17 @@ function obterPlanta(form){
     return planta;
 }
 
-function cadastraPlanta(planta){
+function cadastraPlanta(planta) {
+
+    //FAZER UPLOAD DE IMAGEM
+    var form_data = new FormData('#form-planta');
+
+    console.log(form_data);
+    console.log(planta);
 
 }
 
-function validaPlanta(form){
+function validaPlanta(form) {
 
     var nome_c = form.nome_cientifico;
     var nome_p = form.nome_popular;
@@ -79,29 +85,29 @@ function validaPlanta(form){
     }
 }
 
-function limpaPlanta(form){
+function limpaPlanta(form) {
     form.reset();
 
-    $(".demo2 option").each(function() {
-        if($(this).is(':selected'))
-            $(this).attr('selected', 'false');                           
-     }); 
+    $(".demo2 option").each(function () {
+        if ($(this).is(':selected'))
+            $(this).attr('selected', 'false');
+    });
 }
 
-function obtemSintomas(){
+function obtemSintomas() {
     $.get('includes/buscaSintomas.php', function (data) {
 
         var select = $('.demo2');
         $(data).each(function (i, user) {
 
-            select.append( $('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico));
+            select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico));
         });
 
         var demo2 = $('.demo2').bootstrapDualListbox({
             preserveSelectionOnMove: 'moved',
             moveOnSelect: false,
             nonSelectedFilter: ''
-          });
+        });
 
     });
 }
