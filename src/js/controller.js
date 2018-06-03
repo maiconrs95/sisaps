@@ -95,8 +95,7 @@ function controlaView(conteudo) {
                 console.log(alterarSintoma(obtemSintomaInputs()));
             }else{
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
-            }
-            
+            }            
         });
     }//sintoma
 }

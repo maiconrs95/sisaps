@@ -42,7 +42,7 @@ function alterarSintoma(sintoma_update) {
 
             switch (response.codigo) {
                 case 1:
-                    aler(response.mensagem);
+                    alert(response.mensagem);
                     break;
                 case 2:
                     exibeMsg(response.mensagem, 'alert-success');
@@ -50,7 +50,7 @@ function alterarSintoma(sintoma_update) {
                 case 3:
                     exibeMsg(response.mensagem, 'alert-success');
                     $(".table tr").remove();
-                    consultaUsuario();
+                    consultaSintomas();
                     break;
                 default:
                     break;
