@@ -90,7 +90,7 @@
                                 </a>                            
                                 <hr>                        
                             </span>
-                            <a id="cadastrar_planta" class="nav-link side-nav" href="#">
+                            <a id="novo_planta" class="nav-link side-nav" href="#">
                                 <i class="fab fa-envira"></i>
                                 <span class="hidden-sm-down"> Cadastrar planta</span>
                             </a>

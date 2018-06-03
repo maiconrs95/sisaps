@@ -48,7 +48,7 @@ function alterarSintoma(sintoma_update) {
                     break;
                 case 3:
                     exibeMsg(response.mensagem, 'alert-success');
-                    $(".table tr").remove();
+                    $("tbody tr").remove();
                     consultaSintomas();
                     break;
                 default:
