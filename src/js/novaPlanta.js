@@ -1,3 +1,15 @@
+function obterSintomas(){
+    
+    var sintomas_select = new Array();
+
+    $(".demo2 option").each(function() {
+        if($(this).is(':selected'))
+            sintomas_select.push(this.value);                               
+     }); 
+
+     return sintomas_select;
+}
+
 function obterPlanta(form){
 
     var planta = {
@@ -9,7 +21,8 @@ function obterPlanta(form){
         cuidados: form.cuidados.value,
         efeitos: form.efeitos.value,
         principio_ativo: form.principio_ativo.value,
-        bibliografia: form.bibliografia.value
+        bibliografia: form.bibliografia.value,
+        sintomas: obterSintomas()
     }
 
     return planta;
