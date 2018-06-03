@@ -62,14 +62,15 @@ function controlaView(conteudo) {
 
     else if (conteudo == 'view/novo_planta.html'){
 
-        var formPLanta = document.querySelector('#form-planta');
-        
-        $('input, textarea').blur(function(){
-            validaPlanta(formPLanta);
-        });
+        var demo2 = $('.demo2').bootstrapDualListbox({
+            preserveSelectionOnMove: 'moved',
+            moveOnSelect: false,
+            nonSelectedFilter: ''
+          });
 
         $('#insert_planta').click(function(){
 
+            var formPLanta = document.querySelector('#form-planta');
             var planta = obterPlanta(formPLanta);
 
             if(validaPlanta(formPLanta)){

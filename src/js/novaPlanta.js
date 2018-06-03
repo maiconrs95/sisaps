@@ -61,10 +61,11 @@ function validaPlanta(form){
         return false;
     } else {
         $('.alert-msg').hide();
+        limpaPlanta(form);
         return true;
     }
 }
 
-function limpaPlanta(){
-
+function limpaPlanta(form){
+    form.reset();
 }

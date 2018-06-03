@@ -24,6 +24,7 @@
     <!-- main css -->
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap-duallistbox.css">
     <link rel="stylesheet" href="./css/animate.css">
 
     <!-- Font Weasome -->
@@ -191,6 +192,7 @@
     <script src="./js/alterarUsuario.js"></script>
 
     <!-- PLANTAS -->
+    <script src="./js/jquery.bootstrap-duallistbox.min.js"></script>
     <script src="./js/novaPlanta.js"></script>
 
 
