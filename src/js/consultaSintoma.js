@@ -71,9 +71,29 @@ function carregaModalSintoma(id) {
     $('#id').text(sintomas_bd[id].id_sintomas);
     $('#nome_cientifco_sintoma').val(sintomas_bd[id].nome_cientifico);
     $('#nome_popular_sintoma').val(sintomas_bd[id].nome_popular);
+    $('#parte_sintoma').text(sintomas_bd[id].parte_corpo);
     $('#causas_sintoma').val(sintomas_bd[id].causas);
     $('#tratamentos_sintoma').val(sintomas_bd[id].tratamentos);
 
-    getCorpo();
+    parteCorpo(id);
 }
 
+function parteCorpo(id) {
+
+    $.get('includes/getCorpo.php', function (data) {
+
+        corpo = data;
+
+        $(data).each(function (i, user) {
+
+            var select = $('#parte_sintoma');
+
+            if(corpo[i].parte_corpo == sintomas_bd[id].parte_corpo){
+                $('<option>').val(corpo[i].id_parte_corpo).text(corpo[i].parte_corpo).attr('selected', 'true').appendTo(select);
+            }else{
+                $('<option>').val(corpo[i].id_parte_corpo).text(corpo[i].parte_corpo).appendTo(select);
+            }            
+        });
+
+    });
+}
