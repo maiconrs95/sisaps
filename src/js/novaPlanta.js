@@ -81,4 +81,27 @@ function validaPlanta(form){
 
 function limpaPlanta(form){
     form.reset();
+
+    $(".demo2 option").each(function() {
+        if($(this).is(':selected'))
+            $(this).attr('selected', 'false');                           
+     }); 
+}
+
+function obtemSintomas(){
+    $.get('includes/buscaSintomas.php', function (data) {
+
+        var select = $('.demo2');
+        $(data).each(function (i, user) {
+
+            select.append( $('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico));
+        });
+
+        var demo2 = $('.demo2').bootstrapDualListbox({
+            preserveSelectionOnMove: 'moved',
+            moveOnSelect: false,
+            nonSelectedFilter: ''
+          });
+
+    });
 }

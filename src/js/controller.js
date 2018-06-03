@@ -62,11 +62,9 @@ function controlaView(conteudo) {
 
     else if (conteudo == 'view/novo_planta.html'){
 
-        var demo2 = $('.demo2').bootstrapDualListbox({
-            preserveSelectionOnMove: 'moved',
-            moveOnSelect: false,
-            nonSelectedFilter: ''
-          });
+        obtemSintomas();
+
+
 
         $('#insert_planta').click(function(){
 
