@@ -87,5 +87,16 @@ function controlaView(conteudo) {
             var value = $(this).val().toLowerCase();
             filtraSintoma(value);
         });
+
+        $('#update_registro').click(function(){
+            var formSintomas = document.querySelector('#update_sintoma');
+
+            if(updateCamposSintoma(formSintomas)){
+                console.log(formSintomas);
+            }else{
+                exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
+            }
+            
+        });
     }//sintoma
 }

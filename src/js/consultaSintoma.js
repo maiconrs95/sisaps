@@ -68,7 +68,8 @@ function filtraSintoma(value) {
 //Abre modal
 function carregaModalSintoma(id) {
 
-    $('#id').text(sintomas_bd[id].id_sintomas);
+    $('#id_sintoma').text(sintomas_bd[id].id_sintomas);
+    $('.modal-title').text(sintomas_bd[id].nome_cientifico);
     $('#nome_cientifco_sintoma').val(sintomas_bd[id].nome_cientifico);
     $('#nome_popular_sintoma').val(sintomas_bd[id].nome_popular);
     $('#parte_sintoma').text(sintomas_bd[id].parte_corpo);

@@ -52,49 +52,40 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div id="modal_header" class="modal-header">
-                            <h5 class="modal-title">
-                                <span id="id" class="d-none"></span>
+                            <h5 class="modal-title">                                
                             </h5>
+                            <span id="id_sintoma" class="d-none"></span>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
 
                         <div class="modal-body">
-                            <div class="row alert_user mt-0 mb-0">
-                                <div class="col-md-12 mx-auto">
-                                    <div class="alert alert-danger" role="alert">
-                                        <button type="button" class="close close_user ml-1" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <strong>Preencha/Valide</strong> todos os campos obrigatórios!
-                                    </div>
-                                </div>
-                            </div>
+                            <section class="row alert-msg mt-0 mb-0"></section>
 
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <form>
+                                    <form id="update_sintoma">
                                         <div class="form-group">
-                                            <input type="text" class="form-control obrigatorio" id="nome_cientifco_sintoma" placeholder="Nome Científico">
+                                            <input type="text" class="form-control obrigatorio" id="nome_cientifco_sintoma" name="nome_c" placeholder="Nome Científico">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control obrigatorio" id="nome_popular_sintoma" placeholder="Nome Popular">
+                                            <input type="text" class="form-control obrigatorio" id="nome_popular_sintoma" name="nome_p" placeholder="Nome Popular">
                                         </div>
                                         <div class="form-group">
-                                            <select class="custom-select obrigatorio" id="parte_sintoma">
+                                            <select class="custom-select obrigatorio" id="parte_sintoma" name="parte_corpo">
                                                 <option></option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="causas_sintoma">Causas</label>
-                                            <textarea class="form-control" id="causas_sintoma" rows="3"></textarea>
+                                            <textarea class="form-control" id="causas_sintoma" name="causas" rows="3"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="tratamentos_sintoma">Tratamentos</label>
-                                            <textarea class="form-control" id="tratamentos_sintoma" rows="3"></textarea>
+                                            <textarea class="form-control" id="tratamentos_sintoma" name="tratamentos" rows="3"></textarea>
                                         </div>
                                     </form>
                                 </div>

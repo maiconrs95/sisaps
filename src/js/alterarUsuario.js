@@ -99,7 +99,7 @@ function updateCamposObg(formPerfil, formPessoais) {
     if (usuario.value == '' || email.value == '' || perfil.value == '') {
         return false;
     } else {
-        $('.alert_user').hide();
+        $('.alert-msg').hide();
         return true;
     }
 }
