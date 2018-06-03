@@ -13,15 +13,7 @@
     <!-- =========================
         alert campos obrigatórios
     ============================== -->
-    <div class="row alert_user mt-0 mb-0">
-        <div class="col-md-12 mx-auto">
-            <div class="alert alert-danger" role="alert">
-                <button type="button" class="close close_user ml-1" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Preencha/Valide</strong> todos os campos obrigatórios!
-            </div>
-        </div>
+    <div class="row alert-msg mt-0 mb-0">
     </div>
 
 
@@ -31,36 +23,39 @@
     <div class="row">
         <div class="col-md-12 mx-auto">
 
-            <form>
+            <form id='form-planta'>
                 <div class="form-row">
                     <div class="form-group col-md-2">
                         <label for="insert_foto">Foto</label>
                         <div class="text-left">
                             <img src="../img/img.svg" class="rounded" alt="...">
                         </div>
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
                     </div>
                     <div class="form-group col-md-5">
-                        <label for="obrigatorio_2" class="mt-3">Nome Popular
+                        <label for="nome_popular">Nome Popular
                             <span class="red">*</span>
                         </label>
-                        <input type="text" class="form-control obrigatorio" id="obrigatorio_2" placeholder="Nome popular da planta">
+                        <input type="text" class="form-control obrigatorio" id="nome_popular" name="nome_popular" placeholder="Nome popular da planta">
 
-                        <label for="obrigatorio_1">Nome cientifíco
+                        <label for="nome_cientifico" class="mt-2">Nome cientifíco
                             <span class="red">*</span>
                         </label>
-                        <input type="text" class="form-control obrigatorio" id="obrigatorio_1" placeholder="Nome cientifíco da planta">
+                        <input type="text" class="form-control obrigatorio" id="nome_cientifico" name="nome_cientifico" placeholder="Nome cientifíco da planta">
                     </div>
                     <div class="form-group col-md-5">
-                        <label for="insert_parte">Parte planta
+                        <label for="parte_planta">Parte planta
                         </label>
-                        <select class="custom-select insert_user" id="insert_parte">
+                        <select class="custom-select insert_user" id="parte_planta" name="parte_planta">
                             <option selected></option>
                             <option value="1">Galho</option>
                             <option value="2">Planta</option>
                         </select>
 
-                        <label for="insert_regiao" class="mt-3">Região</label>
-                        <select class="custom-select obrigatorio insert_user" id="insert_regiao">
+                        <label for="regiao" class="mt-2">Região</label>
+                        <select class="custom-select obrigatorio insert_user" id="regiao" name="regiao">
                             <option selected></option>
                             <option value="1">Norte</option>
                             <option value="2">Sul</option>
@@ -72,36 +67,36 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="insert_preparo">Modo de Preparo</label>
-                        <textarea class="form-control" id="insert_preparo" rows="2"></textarea>
+                        <label for="modo_preparo">Modo de Preparo</label>
+                        <textarea class="form-control" id="modo_preparo" name="modo_preparo" rows="2"></textarea>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="obrigatorio_3">Cuidados e contraindicações
+                        <label for="cuidados">Cuidados e contraindicações
                             <span class="red">*</span>
                         </label>
-                        <textarea class="form-control obrigatorio" id="obrigatorio_3" rows="2"></textarea>
+                        <textarea class="form-control obrigatorio" id="cuidados" name="cuidados" rows="2"></textarea>
                     </div>
                 </div><!-- *** form row *** -->
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="obrigatorio_4">Efeitos colaterais
+                        <label for="efeitos">Efeitos colaterais
                             <span class="red">*</span>
                         </label>
-                        <textarea class="form-control obrigatorio" id="obrigatorio_4" rows="2"></textarea>
+                        <textarea class="form-control obrigatorio" id="efeitos" name="efeitos" rows="2"></textarea>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="obrigatorio_5">Principio ativo e efeitos
+                        <label for="principio_ativo">Principio ativo e efeitos
                             <span class="red">*</span>
                         </label>
-                        <textarea class="form-control obrigatorio" id="obrigatorio_5" rows="2"></textarea>
+                        <textarea class="form-control obrigatorio" id="principio_ativo" name="principio_ativo" rows="2"></textarea>
                     </div>
                 </div><!-- *** form row *** -->
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="insert_tratamento">Bibliografia</label>
-                        <textarea class="form-control" id="insert_tratamento" rows="2"></textarea>
+                        <label for="bibliografia">Bibliografia</label>
+                        <textarea class="form-control" id="bibliografia" name="bibliografia" rows="2"></textarea>
                     </div>
                 </div><!-- *** form row *** -->
 

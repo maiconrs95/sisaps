@@ -190,6 +190,10 @@
     <script src="./js/consultaUsuario.js"></script>
     <script src="./js/alterarUsuario.js"></script>
 
+    <!-- PLANTAS -->
+    <script src="./js/novaPlanta.js"></script>
+
+
     <!-- SINTOMAS -->
     <script src="./js/novoSintoma.js"></script>
     <script src="./js/consultaSintoma.js"></script>

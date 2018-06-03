@@ -60,7 +60,16 @@ function controlaView(conteudo) {
 
     } //alterar usuario
 
-    //planta x sintomas
+    else if (conteudo == 'view/novo_planta.html'){
+        
+        $('#insert_planta').click(function(){
+           
+            var formPLanta = document.querySelector('#form-planta');
+            var planta = obterPlanta(formPLanta);
+
+            console.log(planta);
+        });
+    }
 
     else if(conteudo == 'view/novo_sintoma.html'){
 
