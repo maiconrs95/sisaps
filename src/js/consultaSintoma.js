@@ -1,8 +1,8 @@
-//Variavel Global que recebe o array com todos os usários
+//Variavel Global que recebe o array com todos os sintomas
 var sintomas_bd;
 
 function obtemUsuarioAtualizacao(id) {
-    return usuarios[id];
+    return sintomas_bd[id];
 }
 
 //Busca os usuários cadastrados na base de dados
@@ -12,23 +12,12 @@ function consultaSintomas() {
 
         sintomas_bd = data;
 
-        console.log(data);
         $(data).each(function (i, sintoma) {
 
             insereSintomas(i, sintoma.nome_cientifico.toLowerCase(), sintoma.parte_corpo, sintoma.nome_popular);
         });
 
     });
-}
-
-//Verifica o status do usuário para alimentar a tabela
-function verificaStatus(status) {
-    if (status == 1) {
-        return 'Ativo';
-    }
-    if (status == 2) {
-        return 'Inativo';
-    }
 }
 
 
@@ -51,7 +40,7 @@ function novaLinhaSintoma(id_sintoma, sintoma, parteCorpo, nome) {
     var colunaParteCorpo = $("<td>").text(parteCorpo).attr("width", '30%');
     var colunaNome = $("<td>").text(nome).attr("width", '30%');
 
-    var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_user');
+    var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_sintomas');
     var icone = $("<i>").addClass("fas fa-search");
 
     link.append(icone);
@@ -79,22 +68,12 @@ function filtraSintoma(value) {
 //Abre modal
 function carregaModalSintoma(id) {
 
-    $('#id').text(usuarios[id].id_user);
-    $('.modal-title').text(usuarios[id].usuario);
-    $('#email_user').val(usuarios[id].email_user);
-    selecionaPerfil(usuarios[id].perfil);
-    $('#nome_user').val(usuarios[id].nome_user);
+    $('#id').text(sintomas_bd[id].id_sintomas);
+    $('#nome_cientifco_sintoma').val(sintomas_bd[id].nome_cientifico);
+    $('#nome_popular_sintoma').val(sintomas_bd[id].nome_popular);
+    $('#causas_sintoma').val(sintomas_bd[id].causas);
+    $('#tratamentos_sintoma').val(sintomas_bd[id].tratamentos);
 
+    getCorpo();
 }
 
-//Verifica o perfil que é carregado do BD para selecionar a option no DOM
-function selecionaPerfil(perfil) {
-
-    var combo = document.getElementById('perfil_user');
-
-    for (var i = 0; i < combo.options.length; i++) {
-        if (combo.options[i].text == perfil) {
-            combo.options[i].selected = true;
-        }
-    }
-}

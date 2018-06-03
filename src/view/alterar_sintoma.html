@@ -7,7 +7,8 @@
             <h3>Alterar sintoma</h3>
             <hr class="mt-4 mb-4">
         </div>
-    </div><!-- *** end row título *** -->
+    </div>
+    <!-- *** end row título *** -->
 
 
     <!-- =========================
@@ -18,8 +19,10 @@
             <div class="input-group">
                 <input class="form-control" id="pesquisar-sintoma" type="search" placeholder="Pesquisar sintoma" aria-label="Search">
             </div>
-        </div><!-- *** filtro por nome *** -->
-    </div><!-- *** row filtros *** -->
+        </div>
+        <!-- *** filtro por nome *** -->
+    </div>
+    <!-- *** row filtros *** -->
 
 
     <!-- =========================
@@ -49,7 +52,9 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div id="modal_header" class="modal-header">
-                            <h5 class="modal-title">Nome do Sintoma</h5>
+                            <h5 class="modal-title">
+                                <span id="id" class="d-none"></span>
+                            </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -75,15 +80,11 @@
                                             <input type="text" class="form-control obrigatorio" id="nome_cientifco_sintoma" placeholder="Nome Científico">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control obrigatorio" id="nome_popular_sintoma" placeholder="Nome Popular">
+                                            <input type="text" class="form-control obrigatorio" id="nome_popular_sintoma" placeholder="Nome Popular">
                                         </div>
                                         <div class="form-group">
                                             <select class="custom-select obrigatorio" id="parte_sintoma">
-                                                <option selected></option>
-                                                <option value="1">Cabeça</option>
-                                                <option value="2">Ombro</option>
-                                                <option value="3">Joelho</option>
-                                                <option value="4">Pé</option>
+                                                <option></option>
                                             </select>
                                         </div>
 
@@ -103,18 +104,26 @@
                                 <div class="col-md-12">
                                     <small id="info_modal" class="form-text text-muted">* Altere os dados e clique em confirmar para atualizar</small>
                                 </div>
-                            </div><!-- *** modal body *** -->
+                            </div>
+                            <!-- *** modal body *** -->
 
                             <div class="modal-footer">
                                 <button id="update_registro" type="button" class="btn btn-success btn-sm">Confirmar</button>
                                 <button id="calcel_update" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
                             </div>
 
-                        </div><!-- *** modal body *** -->
-                    </div><!-- *** modal content *** -->
-                </div><!-- *** modal dialog *** -->
-            </div><!--*** modal fade *** -->
-        </div><!-- col tabelas -->
-    </div><!-- row tabelas + modais -->
+                        </div>
+                        <!-- *** modal body *** -->
+                    </div>
+                    <!-- *** modal content *** -->
+                </div>
+                <!-- *** modal dialog *** -->
+            </div>
+            <!--*** modal fade *** -->
+        </div>
+        <!-- col tabelas -->
+    </div>
+    <!-- row tabelas + modais -->
 
-</div><!-- *** containeir content *** -->
+</div>
+<!-- *** containeir content *** -->
