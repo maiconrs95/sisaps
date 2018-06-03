@@ -2,7 +2,7 @@
 function obtemSintomaInputs() {
 
     var sintoma_update = {
-        id: document.querySelector('#id').textContent,    
+        id: document.querySelector('#id_sintoma').textContent,    
         nome_cientifico: document.querySelector('#nome_cientifco_sintoma').value,
         nome_popular: document.querySelector('#nome_popular_sintoma').value,
         parte_sintoma: document.querySelector('#parte_sintoma').value,
@@ -15,7 +15,7 @@ function obtemSintomaInputs() {
 
 
 //altera o usuário no sistema. recebe o id para query e os dados dos inputs para atualização
-function alterarUsuario(sintoma_update) {
+function alterarSintoma(sintoma_update) {
 
     var data = 'id=' + sintoma_update.id +
         '&nome_c=' + sintoma_update.nome_cientifico +
@@ -25,6 +25,7 @@ function alterarUsuario(sintoma_update) {
         '&tratamentos=' + sintoma_update.tratamentos;
         
     $('.alert-msg').hide();
+    console.log(data);
 
     $.ajax({
         type: 'POST',

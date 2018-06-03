@@ -92,7 +92,7 @@ function controlaView(conteudo) {
             var formSintomas = document.querySelector('#update_sintoma');
 
             if(updateCamposSintoma(formSintomas)){
-                console.log(formSintomas);
+                console.log(alterarSintoma(obtemSintomaInputs()));
             }else{
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
