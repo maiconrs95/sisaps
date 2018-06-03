@@ -64,8 +64,6 @@ function controlaView(conteudo) {
 
         obtemSintomas();
 
-
-
         $('#insert_planta').click(function(){
 
             var formPLanta = document.querySelector('#form-planta');
