@@ -83,6 +83,10 @@ function controlaView(conteudo) {
         
         consultaSintomas();
 
+        $('.close').click(function(){
+            $('.alert-msg').hide();
+        });
+    
         $("#pesquisar-sintoma").on("keyup", function () {
             var value = $(this).val().toLowerCase();
             filtraSintoma(value);
@@ -92,7 +96,7 @@ function controlaView(conteudo) {
             var formSintomas = document.querySelector('#update_sintoma');
 
             if(updateCamposSintoma(formSintomas)){
-                console.log(alterarSintoma(obtemSintomaInputs()));
+                alterarSintoma(obtemSintomaInputs());
             }else{
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }            

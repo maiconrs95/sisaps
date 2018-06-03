@@ -21,12 +21,11 @@ function alterarSintoma(sintoma_update) {
         '&nome_c=' + sintoma_update.nome_cientifico +
         '&nome_p=' + sintoma_update.nome_popular +
         '&parte_corpo=' + sintoma_update.parte_sintoma +
-        '&causas=' + sintoma_update.causas;
+        '&causas=' + sintoma_update.causas +
         '&tratamentos=' + sintoma_update.tratamentos;
         
     $('.alert-msg').hide();
-    console.log(data);
-
+    
     $.ajax({
         type: 'POST',
         url: 'includes/alterarSintoma.php',

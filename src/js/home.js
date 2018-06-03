@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     var campos_obg = 0;
     var cpf_user = 0;
-
+    
     $('.side-nav').click(function () {
 
         var conteudo = this.id;
