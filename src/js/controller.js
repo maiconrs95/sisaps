@@ -66,7 +66,7 @@ function controlaView(conteudo) {
 
         obtemSintomas();
 
-        //começa
+        //valida-img
         $("#file").change(function () {
             if(validaImg()){
                 img_valida = 1;
@@ -74,9 +74,6 @@ function controlaView(conteudo) {
                 img_valida = 0;
             };
         });
-
-
-        //acaba
 
         $('#insert_planta').click(function(){
 
