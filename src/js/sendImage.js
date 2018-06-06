@@ -19,7 +19,7 @@ $("#uploadimage").on('submit', (function (e) {
 
 // Function to preview image after validation
 function validaImg() {
-    
+
     $("#message").empty(); // To remove the previous error message
     var file = document.querySelector('#file').files[0];
     var imagefile = file.type;
@@ -27,13 +27,16 @@ function validaImg() {
     console.log(imagefile);
     if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
         $('#previewing').attr('src', 'noimage');
-        $('#previwborder').css('border-color', 'red');
+        $('#previwborder').removeClass('borda-img');
+        $('#previwborder').addClass('borda-vermelha');
         alert('Selecione uma imagem válida.');
         return false;
     } else {
         var reader = new FileReader();
         reader.onload = imageIsLoaded;
         reader.readAsDataURL(document.querySelector('#file').files[0]);
+        $('#previwborder').addClass('borda-img');
+        $('#previwborder').removeClass('borda-vermelha');
 
         return true;
     }
