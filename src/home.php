@@ -194,6 +194,7 @@
     <!-- PLANTAS -->
     <script src="./js/jquery.bootstrap-duallistbox.min.js"></script>
     <script src="./js/novaPlanta.js"></script>
+    <script src="./js/sendImage.js"></script>
 
 
     <!-- SINTOMAS -->

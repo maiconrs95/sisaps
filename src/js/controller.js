@@ -64,6 +64,14 @@ function controlaView(conteudo) {
 
         obtemSintomas();
 
+        //começa
+        $("#file").change(function () {
+            validaImg();
+        });
+
+
+        //acaba
+
         $('#insert_planta').click(function(){
 
             var formPLanta = document.querySelector('#form-planta');
