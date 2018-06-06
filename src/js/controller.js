@@ -85,6 +85,8 @@ function controlaView(conteudo) {
                 enviaImg();
             }else{
                 console.log('Não cadastra');
+                $('#previwborder').removeClass('borda-img');
+                $('#previwborder').addClass('borda-vermelha');
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
             
