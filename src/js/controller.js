@@ -62,11 +62,17 @@ function controlaView(conteudo) {
 
     else if (conteudo == 'view/novo_planta.html'){
 
+        var img_valida = 0;
+
         obtemSintomas();
 
         //começa
         $("#file").change(function () {
-            validaImg();
+            if(validaImg()){
+                img_valida = 1;
+            }else{
+                img_valida = 0;
+            };
         });
 
 
@@ -77,7 +83,7 @@ function controlaView(conteudo) {
             var formPLanta = document.querySelector('#form-planta');
             var planta = obterPlanta(formPLanta);
 
-            if(validaPlanta(formPLanta)){
+            if(validaPlanta(formPLanta) && img_valida == 1){
                 cadastraPlanta(planta);
             }else{
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');

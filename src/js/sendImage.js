@@ -19,15 +19,15 @@ $("#uploadimage").on('submit', (function (e) {
 
 // Function to preview image after validation
 function validaImg() {
-
-    console.log(document.querySelector('#file'));
+    
     $("#message").empty(); // To remove the previous error message
     var file = document.querySelector('#file').files[0];
     var imagefile = file.type;
     var match = ["image/jpeg", "image/png", "image/jpg"];
     console.log(imagefile);
     if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
-        $('#previewing').attr('src', 'noimage.png');
+        $('#previewing').attr('src', 'noimage');
+        $('#previwborder').css('border-color', 'red');
         alert('Selecione uma imagem válida.');
         return false;
     } else {
