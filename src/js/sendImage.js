@@ -1,7 +1,5 @@
-$("#uploadimage").on('submit', (function (e) {
-    e.preventDefault();
-    $("#message").empty();
-    $('#loading').show();
+function enviaImg() {
+
     $.ajax({
         url: "ajax_php_file.php", // Url to which the request is send
         type: "POST", // Type of request to be send, called as method
@@ -9,13 +7,8 @@ $("#uploadimage").on('submit', (function (e) {
         contentType: false, // The content type used when sending data to the server.
         cache: false, // To unable request pages to be cached
         processData: false, // To send DOMDocument or non processed data file it is set to false
-        success: function (data) // A function to be called if request succeeds
-        {
-            $('#loading').hide();
-            $("#message").html(data);
-        }
     });
-}));
+};
 
 // Function to preview image after validation
 function validaImg() {

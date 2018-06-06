@@ -82,7 +82,9 @@ function controlaView(conteudo) {
 
             if(validaPlanta(formPLanta) && img_valida == 1){
                 cadastraPlanta(planta);
+                enviaImg();
             }else{
+                console.log('Não cadastra');
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
             
