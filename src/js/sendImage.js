@@ -19,7 +19,7 @@ function validaImg() {
     var match = ["image/jpeg", "image/png", "image/jpg"];
     console.log(imagefile);
     if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
-        $('#previewing').attr('src', 'noimage');
+        $('#previewing').attr('src', 'img/sem-foto.jpg');
         $('#previwborder').removeClass('borda-img');
         $('#previwborder').addClass('borda-vermelha');
         alert('Selecione uma imagem válida.');
