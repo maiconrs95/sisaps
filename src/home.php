@@ -153,7 +153,7 @@
                     </a>
                 </div>
                 <div class="col-2">
-                    <a class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
+                    <a id="alterar_planta" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
                         <i class="fab fa-pagelines"></i>
                     </a>
                 </div>
