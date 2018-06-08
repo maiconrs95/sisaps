@@ -12,7 +12,8 @@ function consultaUsuario() {
 
         $('a').addClass('disabled');
         usuarios = data;
-
+        console.log(usuarios);
+        
         //console.log(data);
         $(data).each(function (i, user) {
             var id_user = user.id_user;

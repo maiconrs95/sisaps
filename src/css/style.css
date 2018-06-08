@@ -124,14 +124,19 @@ th a:hover {
     text-align: center;
 }
 
-.red {
+.opc{
+    margin-right: 20px;
+}
+.editar{
+    color: #015DCF;
+}
+.negado {
     color: red;
 }
-
-.green {
+.ativo {
     color: #2EA900;
 }
-.yellow {
+.pendente {
     color: #E8AD45;
 }
 

@@ -148,7 +148,7 @@
                     </a>
                 </div>
                 <div class="col-2">
-                    <a id="cadastrar_planta" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
+                    <a id="novo_planta" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
                         <i class="fab fa-envira"></i>
                     </a>
                 </div>

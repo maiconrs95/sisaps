@@ -35,7 +35,7 @@
         } else{
 
             //Se não, insere o novo usuário no sistema
-            $sql = "INSERT INTO tb_sintomas (nome_cientifico, nome_popular, causas, tratamentos, id_parte_corpo, nome_cientifico_comp) VALUES ('$nome_c', '$nome_p', '$causa', '$tratamento', $parte_corpo, '$nome_comp')";
+            $sql = "INSERT INTO tb_sintomas (nome_cientifico, nome_popular, causas, tratamentos, id_parte_corpo, nome_cientifico_comp, id_status) VALUES ('$nome_c', '$nome_p', '$causa', '$tratamento', $parte_corpo, '$nome_comp',1)";
            
             $result_id = mysqli_query($link, $sql);
 

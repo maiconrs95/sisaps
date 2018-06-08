@@ -1,5 +1,6 @@
 function controlaView(conteudo) {
 
+    //novo usuario
     if (conteudo == 'view/novo_usuario.html') {
         
         mascaraCampo();
@@ -26,7 +27,9 @@ function controlaView(conteudo) {
             }
 
         });
-    } //novo usuario
+    } 
+
+    //alterar usuario
     else if (conteudo == 'view/alterar_usuario.html') {
 
         consultaUsuario();
@@ -58,8 +61,9 @@ function controlaView(conteudo) {
             }
         });
 
-    } //alterar usuario
+    } 
 
+    //nova planta
     else if (conteudo == 'view/novo_planta.html'){
 
         var img_valida = 0;
@@ -93,6 +97,13 @@ function controlaView(conteudo) {
         });
     }
 
+    //alterar planta
+    else if (conteudo == 'view/alterar_planta.html'){
+        
+        obtemSintomas();
+    }
+
+    //novo sintoma
     else if(conteudo == 'view/novo_sintoma.html'){
 
         getCorpo();
@@ -109,7 +120,9 @@ function controlaView(conteudo) {
             }
         });
         
-    }//sintoma
+    }
+
+    //alterar sintoma
     else if(conteudo == 'view/alterar_sintoma.html'){
         
         consultaSintomas();
@@ -132,5 +145,5 @@ function controlaView(conteudo) {
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }            
         });
-    }//sintoma
+    }
 }
