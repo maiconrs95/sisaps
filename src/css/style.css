@@ -130,7 +130,7 @@ th a:hover {
 .editar{
     color: #015DCF;
 }
-.negado {
+.negado, .red {
     color: red;
 }
 .ativo {
