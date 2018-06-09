@@ -136,6 +136,9 @@ th a:hover {
 .ativo {
     color: #2EA900;
 }
+.green{
+    color: green;
+}
 .pendente {
     color: #E8AD45;
 }

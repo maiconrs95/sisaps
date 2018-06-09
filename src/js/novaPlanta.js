@@ -31,10 +31,6 @@ function obterPlanta(form) {
 function cadastraPlanta(planta) {
 
     //FAZER UPLOAD DE IMAGEM
-    var form_data = new FormData('#form-planta');
-
-    console.log(form_data);
-    console.log(planta);
 
 }
 

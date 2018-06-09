@@ -2,7 +2,7 @@ function controlaView(conteudo) {
 
     //novo usuario
     if (conteudo == 'view/novo_usuario.html') {
-        
+
         mascaraCampo();
 
         $('#cep_user').blur(function () {
@@ -27,7 +27,7 @@ function controlaView(conteudo) {
             }
 
         });
-    } 
+    }
 
     //alterar usuario
     else if (conteudo == 'view/alterar_usuario.html') {
@@ -50,7 +50,7 @@ function controlaView(conteudo) {
             var formPerfil = document.querySelector('#formPerfil');
             var formPessoais = document.querySelector('#formPessoais');
             var camposObg = updateCamposObg(formPerfil, formPessoais);
-            
+
             //OBTÉM OS DADOS DO USUÁRIO DO MODAL
             var usuario = obtemDadosInputs();
 
@@ -61,89 +61,83 @@ function controlaView(conteudo) {
             }
         });
 
-    } 
+    }
 
     //nova planta
-    else if (conteudo == 'view/novo_planta.html'){
+    else if (conteudo == 'view/novo_planta.html') {
 
-        var img_valida = 0;
 
-        obtemSintomas();
 
-        //valida-img
-        $("#file").change(function () {
-            if(validaImg()){
-                img_valida = 1;
-            }else{
-                img_valida = 0;
-            };
-        });
-
-        $('#insert_planta').click(function(){
+        $('#form-planta').on('submit', function (e) {
+            e.preventDefault();
 
             var formPLanta = document.querySelector('#form-planta');
             var planta = obterPlanta(formPLanta);
-
-            if(validaPlanta(formPLanta) && img_valida == 1){
-                cadastraPlanta(planta);
-                enviaImg();
-            }else{
+            var hhh = document.getElementById('file');
+            previewing(); 
+            if (validaPlanta(formPLanta)) {
+                //cadastraPlanta(planta);
+               
+                console.log('cadastrado');
+            } else {
                 console.log('Não cadastra');
                 $('#previwborder').removeClass('borda-img');
                 $('#previwborder').addClass('borda-vermelha');
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
-            
         });
+
+        obtemSintomas();
+
     }
 
     //alterar planta
-    else if (conteudo == 'view/alterar_planta.html'){
-        
+    else if (conteudo == 'view/alterar_planta.html') {
+
         obtemSintomas();
     }
 
     //novo sintoma
-    else if(conteudo == 'view/novo_sintoma.html'){
+    else if (conteudo == 'view/novo_sintoma.html') {
 
         getCorpo();
 
-        $('#insert_sintoma').click(function(){
+        $('#insert_sintoma').click(function () {
 
             var formSintoma = document.querySelector('#form-sintoma');
             var sintoma = obterSintoma(formSintoma);
 
-            if(validaCamposSintoma(formSintoma)){
+            if (validaCamposSintoma(formSintoma)) {
                 cadastrarSintoma(sintoma);
-            }else{
+            } else {
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
         });
-        
+
     }
 
     //alterar sintoma
-    else if(conteudo == 'view/alterar_sintoma.html'){
-        
+    else if (conteudo == 'view/alterar_sintoma.html') {
+
         consultaSintomas();
 
-        $('.close').click(function(){
+        $('.close').click(function () {
             $('.alert-msg').hide();
         });
-    
+
         $("#pesquisar-sintoma").on("keyup", function () {
             var value = $(this).val().toLowerCase();
             filtraSintoma(value);
         });
 
-        $('#update_registro').click(function(){
+        $('#update_registro').click(function () {
             var formSintomas = document.querySelector('#update_sintoma');
 
-            if(updateCamposSintoma(formSintomas)){
+            if (updateCamposSintoma(formSintomas)) {
                 alterarSintoma(obtemSintomaInputs());
-            }else{
+            } else {
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
-            }            
+            }
         });
     }
 }
