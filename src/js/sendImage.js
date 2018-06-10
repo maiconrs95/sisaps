@@ -63,13 +63,15 @@ function previewing() {
                     break;
                 case 1:
                     exibeMsg(data.mensagem, 'alert-danger');
+                    validaPlanta(form);
                     break;
                 case 2:
-                    exibeMsg(data.mensagem, 'alert-warning');
+                    exibeMsg(data.mensagem, 'alert-success');
+                    limpaPlanta(form);
+                    $('#previewing').attr('src', 'img/sem-foto.jpg');
                     break;
                 case 3:
                     exibeMsg(data.mensagem, 'alert-success');
-                    limpaCampos();
                     break;
                 default:
                     break;

@@ -11,7 +11,7 @@ function controlaView(conteudo) {
             carregaCep();
         });
 
-        $('#email_user').blur(function(){
+        $('#email_user').blur(function () {
             !IsEmail(formulario.email.value)
         });
 
@@ -71,19 +71,15 @@ function controlaView(conteudo) {
 
     //nova planta
     else if (conteudo == 'view/novo_planta.html') {
-        
+
         obtemSintomas();
         getPartePlanta();
 
         $('#form-planta').on('submit', (function (event) {
-            //event.preventDefault();
-            //return false;
-
-            var formPLanta = document.querySelector('#form-planta');
-            var planta = obterPlanta(formPLanta);
-
-            previewing(); 
-            /*if (validaPlanta(formPLanta)) {
+            event.preventDefault();
+            previewing();
+    
+            /*if () {
                 //cadastraPlanta(planta);
                 //$('#previewing').attr('src', 'img/sem-foto.jpg');
                 limpaPlanta(formPLanta);

@@ -36,8 +36,7 @@
 
     if($sintomas != 0){
 
-        $associar = array_chunk($sintomas, ceil(count($sintomas) / 2));
-        var_dump($associar[0]);
+        $associar = array_chunk($sintomas, ceil(count($sintomas) / 2));       
 
     }else{
 
@@ -72,11 +71,9 @@
 
         $link = $conexao->conn_mysql();
         $associa = mysqli_query($link, $sql);
-
-        echo json_encode($sql);
     }
 
-    $retorno = array('codigo' => 3, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' cadastrada.');
+    $retorno = array('codigo' => 2, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' cadastrada.', 'user' => $usuario);
     echo json_encode($retorno);
     exit();
 ?>
