@@ -24,7 +24,7 @@
 
     //Verificar se a planta ja existe. Se sim, excluir todos os registro da tabela planta e sintoma. Se nao, só cria o registro
     $sql = "SELECT * FROM tb_plantas WHERE nome_cientifico = '$nome_c'";
-    
+
     $result_planta = mysqli_query($link, $sql);
 
     if($result_planta){
@@ -37,9 +37,11 @@
 
         $query = "delete from tb_plantas_sintomas where id_planta_sintomas = $id_apagar";
         $apagar = mysqli_query($link, $query);
+        echo $query;
 
         $query = "delete from tb_plantas where id_planta_sintomas = $id_apagar";
         $apagar = mysqli_query($link, $query);
+        echo $query;
 
        }
     }//ACABA AQ

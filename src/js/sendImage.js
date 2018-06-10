@@ -48,12 +48,12 @@ function previewing() {
         contentType: false,
         processData: false,
         beforeSend: function (){
-            $('#insert_planta').attr('disabled', true);
-            $('#planta_cancelar').attr('disabled', true);
+            //$('#insert_planta').attr('disabled', true);
+            //$('#planta_cancelar').attr('disabled', true);
         },
         success: function (data) {
-            $('#insert_planta').attr('disabled', false);
-            $('#planta_cancelar').attr('disabled', false);
+            //$('#insert_planta').attr('disabled', false);
+            //$('#planta_cancelar').attr('disabled', false);
 
             console.log(data);
 
