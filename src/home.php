@@ -197,6 +197,7 @@
     <script src="./js/home.js"></script>
     <script src="./js/controller.js"></script>
     <script src="./js/valida.cpf.js"></script>
+    <script src="./js/validaEmail.js"></script>
     <script src="./js/via.cep.js"></script>
 
     <!-- USUARIO -->

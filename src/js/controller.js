@@ -11,6 +11,10 @@ function controlaView(conteudo) {
             carregaCep();
         });
 
+        $('#email_user').blur(function(){
+            !IsEmail(formulario.email.value)
+        });
+
         $('#cpf_user').blur(function () {
             validacaoCpf(formulario.cpf.value);
         });
@@ -20,8 +24,9 @@ function controlaView(conteudo) {
             var usuario = obterUsuario(formulario);
             var camposObg = validaCampos(formulario);
             var cpfValido = validacaoCpf(formulario.cpf.value);
+            var emailValido = IsEmail(formulario.email.value);
 
-            if (camposObg && cpfValido) {
+            if (camposObg && cpfValido && emailValido) {
                 cadastrarUsuario(usuario);
             } else {
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
