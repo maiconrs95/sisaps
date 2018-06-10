@@ -5,6 +5,8 @@ function controlaView(conteudo) {
 
         mascaraCampo();
 
+        var formulario = document.querySelector('#form-usuario');
+
         $('#cep_user').blur(function () {
             carregaCep();
         });
@@ -15,7 +17,6 @@ function controlaView(conteudo) {
 
         $('#insert_cadastrar').click(function () {
 
-            var formulario = document.querySelector('#form-usuario');
             var usuario = obterUsuario(formulario);
             var camposObg = validaCampos(formulario);
             var cpfValido = validacaoCpf(formulario.cpf.value);
@@ -82,8 +83,6 @@ function controlaView(conteudo) {
                 console.log('cadastrado');
             } else {
                 console.log('Não cadastra');
-                $('#previwborder').removeClass('borda-img');
-                $('#previwborder').addClass('borda-vermelha');
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
         });

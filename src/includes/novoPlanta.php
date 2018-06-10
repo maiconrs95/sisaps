@@ -46,7 +46,7 @@
        }
     }//ACABA AQ
 
-    if(!is_uploaded_file($_FILES['arquivo']['tmp_name'])){
+    if(!is_uploaded_file($_FILES['arquivo']['tmp_name']) || ($_FILES['arquivo']['type']) == "imagem/gif"){
         
         $targetPath = "img/sem-foto.jpg";
 

@@ -28,6 +28,7 @@
     $cidade     = (isset($_GET['cidade'])) ? $_GET['cidade'] : '' ;  
     $logradouro = (isset($_GET['logradouro'])) ? $_GET['logradouro'] : '' ;  
     $numero     = (isset($_GET['num'])) ? $_GET['num'] : '' ;  
+    $senha_default = $usuario . substr($cpf, 0 , 3);
 
     //verifica se o email ou cpf ja se encontra cadastrado
     $sql = "SELECT id_user, id_perfil, usuario, email_user, cpf_user FROM tb_user WHERE (cpf_user = '$cpf' || email_user = '$email')  LIMIT 1";
@@ -49,12 +50,12 @@
         } else{
 
             //Se não, insere o novo usuário no sistema
-            $sql = "INSERT INTO tb_user (nome_user, email_user, cpf_user, id_perfil, telefone_user, celular_user, cep, cidade, logradouro, num_casa, primeiro_login, senha_user, usuario) values ('$nome', '$email', '$cpf', '$perfil', '$telefone', '$celular', '$cep', '$cidade', '$logradouro', '$numero', 1, '1234', '$usuario')";
+            $sql = "INSERT INTO tb_user (nome_user, email_user, cpf_user, id_perfil, telefone_user, celular_user, cep, cidade, logradouro, num_casa, primeiro_login, senha_user, usuario) values ('$nome', '$email', '$cpf', '$perfil', '$telefone', '$celular', '$cep', '$cidade', '$logradouro', '$numero', 1, '$senha_default', '$usuario')";
            
             $result_id = mysqli_query($link, $sql);
 
             //Mensagem de sucesso
-            $retorno = array('codigo' => 3,'mensagem' => 'Usuário ' . $nome . ' Cadastrado', 'id' => $_SESSION['perfil']);
+            $retorno = array('codigo' => 3,'mensagem' => 'Usuário ' . $usuario . ' Cadastrado', 'id' => $_SESSION['perfil']);
             echo json_encode($retorno);
             exit();
         }

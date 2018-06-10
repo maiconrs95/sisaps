@@ -4,7 +4,7 @@ function obtemDadosInputs() {
     var usuario = {
         id: document.querySelector('#id').textContent,    
         nome: document.querySelector('#nome_user').value,
-        senha: document.querySelector('#password_user').value,
+        senha: $( "input:checked" ).val(),
         email: document.querySelector('#email_user').value,
         cpf: document.querySelector('#cpf_user').value,
         perfil: document.querySelector('#perfil_user').value,
@@ -50,6 +50,7 @@ function alterarUsuario(usuario) {
         success: function (response) {
             $('#update_user').attr('disabled', false);
             $('#calcel_update').attr('disabled', false);
+            $( "input:checked" ).prop('checked', false)
 
             switch (response.codigo) {
                 case 1:
@@ -57,6 +58,8 @@ function alterarUsuario(usuario) {
                     break;
                 case 2:
                     exibeMsg(response.mensagem, 'alert-success');
+                    $("tbody tr").remove();
+                    consultaUsuario();
                     break;
                 case 3:
                     exibeMsg(response.mensagem, 'alert-success');
