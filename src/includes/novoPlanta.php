@@ -16,7 +16,9 @@
     $efeitos = (isset($_POST['efeitos'])) ? $_POST['efeitos'] : '' ;  
     $modo_preparo = (isset($_POST['modo_preparo'])) ? $_POST['modo_preparo'] : '' ;  
     $bibliografia = (isset($_POST['bibliografia'])) ? $_POST['bibliografia'] : '' ;   
-    $sintomas = (isset($_POST['duallistbox_demo2'])) ? $_POST['duallistbox_demo2'] : '0' ; 
+    $sintomas = (isset($_POST['duallistbox_demo2'])) ? $_POST['duallistbox_demo2'] : '0' ;
+    
+    $usuario = array('nome_c' => $nome_c, 'nome_p' => $nome_p, 'parte_planta' => $parte_planta, 'regiao' => $result_id, 'principio_ativo' => $principio_ativo, 'cuidados' => $cuidados, 'efeitos' => $efeitos, 'preparo' => $modo_preparo, 'bibliografia' => $bibliografia);
 
     if($sintomas != 0){
 
@@ -25,7 +27,7 @@
 
     }else{
 
-        $retorno = array('codigo' => 0, 'Usuário' => "",'mensagem' => 'Selecione algum sintoma.');
+        $retorno = array('codigo' => 0, 'Usuário' => "",'mensagem' => 'Selecione algum sintoma.', 'dados' => $usuario);
         echo json_encode($retorno);
         exit();
     }
@@ -54,7 +56,7 @@
 
         if($id_planta == 0){
 
-            $retorno = array('codigo' => 1, 'Usuário' => "",'mensagem' => 'Preencha todos os campos obrigaórios.');
+            $retorno = array('codigo' => 1, 'Usuário' => "",'mensagem' => 'Preencha todos os campos obrigaórios.', 'dados' => $usuario);
             echo json_encode($retorno);
             exit();
         }

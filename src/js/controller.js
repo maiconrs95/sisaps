@@ -75,12 +75,13 @@ function controlaView(conteudo) {
         obtemSintomas();
         getPartePlanta();
 
-        $('#form-planta').on('submit', function (e) {
-            //e.preventDefault();
+        document.getElementById('form-planta').addEventListener('submit', function (event) {
+            event.preventDefault();
+            //return false;
 
             var formPLanta = document.querySelector('#form-planta');
             var planta = obterPlanta(formPLanta);
-            var hhh = document.getElementById('file');
+
             previewing(); 
             if (validaPlanta(formPLanta)) {
                 //cadastraPlanta(planta);
