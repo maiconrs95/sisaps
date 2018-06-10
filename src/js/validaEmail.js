@@ -6,7 +6,11 @@ function IsEmail(email){
 
     if(!parse_email.test(email)){
         $('#email_user').addClass('borda-vermelha');
+
+        return false
     }else{
         $('#email_user').removeClass('borda-vermelha');
+
+        return true
     }
 }
