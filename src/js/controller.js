@@ -66,8 +66,9 @@ function controlaView(conteudo) {
 
     //nova planta
     else if (conteudo == 'view/novo_planta.html') {
-
-
+        
+        obtemSintomas();
+        getPartePlanta();
 
         $('#form-planta').on('submit', function (e) {
             e.preventDefault();
@@ -86,9 +87,6 @@ function controlaView(conteudo) {
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
         });
-
-        obtemSintomas();
-
     }
 
     //alterar planta

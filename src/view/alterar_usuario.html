@@ -7,7 +7,8 @@
             <h3>Alterar usuário</h3>
             <hr class="mt-4 mb-4">
         </div>
-    </div><!-- *** end row título *** -->
+    </div>
+    <!-- *** end row título *** -->
 
 
     <!-- =========================
@@ -18,8 +19,10 @@
             <div class="input-group">
                 <input id="find-user" class="form-control" type="search" placeholder="Pesquisar usuário" aria-label="Search">
             </div>
-        </div><!-- *** filtro por nome *** -->
-    </div><!-- *** row filtros *** -->
+        </div>
+        <!-- *** filtro por nome *** -->
+    </div>
+    <!-- *** row filtros *** -->
 
 
     <!-- =========================
@@ -49,7 +52,8 @@
                     <div class="modal-content">
 
                         <div id="modal_header" class="modal-header">
-                            <h5 class="modal-title"></h5><span id="id" style="display: none;">a</span>
+                            <h5 class="modal-title"></h5>
+                            <span id="id" style="display: none;">a</span>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -76,12 +80,12 @@
                                                 <div class="form-group">
                                                     <input type="text" name="email" class="form-control obrigatorio" id="email_user" aria-describedby="Atualizar email" placeholder="Atualizar email">
                                                 </div>
-                                                <div class="form-check">
-                                                        <input class="form-check-input" name="senha" type="checkbox" value="1" id="password_user">
-                                                        <label class="form-check-label" for="password_user">
-                                                          Resetar senha
-                                                        </label>
-                                                      </div>
+                                                <div class="form-check form-group">
+                                                    <input class="form-check-input" name="senha" type="checkbox" value="1" id="password_user">
+                                                    <label class="form-check-label" for="password_user">
+                                                        Resetar senha
+                                                    </label>
+                                                </div>
                                                 <div class="form-group">
                                                     <select class="custom-select obrigatorio" name="perfil" id="perfil_user">
                                                         <option selected></option>
@@ -92,7 +96,8 @@
                                                     </select>
                                                 </div>
                                             </form>
-                                        </div><!-- tab pane -->
+                                        </div>
+                                        <!-- tab pane -->
 
                                         <div class="tab-pane fade" id="nav_pessoais" role="tabpanel" aria-labelledby="nav-pessoais-tab">
                                             <form id="formPessoais">
@@ -102,7 +107,8 @@
 
                                                 <div class="form-group">
                                                     <div class="input-group mb-3">
-                                                        <input type="text" class="form-control cpf obrigatorio" id="cpf_user" aria-describedby="Atualizar CPF" placeholder="CPF" disabled>
+                                                        <input type="text" class="form-control cpf obrigatorio" id="cpf_user" aria-describedby="Atualizar CPF" placeholder="CPF"
+                                                            disabled>
                                                         <div class="input-group-append">
                                                             <span id="cpf_valido" class="green p-2 input-group-text" style="background: #fff !important; border-left: none;">
                                                                 <i class="small fas fa-check"></i>
@@ -131,27 +137,38 @@
                                                 </div>
                                             </form>
 
-                                        </div><!-- *** tab pane *** -->
-                                    </div><!-- *** tab content *** -->
-                                </div><!-- *** col *** -->
-                            </div><!-- *** row *** -->
+                                        </div>
+                                        <!-- *** tab pane *** -->
+                                    </div>
+                                    <!-- *** tab content *** -->
+                                </div>
+                                <!-- *** col *** -->
+                            </div>
+                            <!-- *** row *** -->
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <small id="modal_info" class="form-text text-muted">* Altere os dados e clique em confirmar para atualizar</small>
                                 </div>
                             </div>
-                        </div><!-- *** modal body *** -->
+                        </div>
+                        <!-- *** modal body *** -->
 
                         <div class="modal-footer">
                             <button id="update_user" type="button" class="btn btn-success btn-sm">Confirmar</button>
                             <button id="calcel_update" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
                         </div>
 
-                    </div><!-- *** modal content *** -->
-                </div><!-- *** modal dialog *** -->
-            </div><!-- *** modal fade *** -->
-        </div><!-- *** col tabelas *** -->
-    </div><!-- *** row tableas + modais ***-->
+                    </div>
+                    <!-- *** modal content *** -->
+                </div>
+                <!-- *** modal dialog *** -->
+            </div>
+            <!-- *** modal fade *** -->
+        </div>
+        <!-- *** col tabelas *** -->
+    </div>
+    <!-- *** row tableas + modais ***-->
 
-</div><!-- *** containeir content *** -->
+</div>
+<!-- *** containeir content *** -->

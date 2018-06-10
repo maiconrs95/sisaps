@@ -107,3 +107,17 @@ function obtemSintomas() {
 
     });
 }
+
+function getPartePlanta() {
+
+    $.get('includes/getPartePlanta.php', function (data) {
+
+        parte = data;
+
+        $(data).each(function (i, user) {
+
+            var select = $('#parte_planta');
+            $('<option>').val(parte[i].id_parte_planta).text(parte[i].parte_planta).appendTo(select);
+        });
+    });
+}
