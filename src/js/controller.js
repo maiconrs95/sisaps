@@ -93,6 +93,7 @@ function controlaView(conteudo) {
     else if (conteudo == 'view/alterar_planta.html') {
 
         obtemSintomas();
+        getPartePlanta();
     }
 
     //novo sintoma

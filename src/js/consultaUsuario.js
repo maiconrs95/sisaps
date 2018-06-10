@@ -10,7 +10,7 @@ function consultaUsuario() {
 
     $.get('includes/buscaUsuarios.php', function (data) {
 
-        $('a').addClass('disabled');
+        $("tbody tr").remove(); 
         usuarios = data;
  
         $(data).each(function (i, user) {
@@ -22,8 +22,6 @@ function consultaUsuario() {
 
             insereUsuario(i, usuario.toLowerCase(), perfil, verificaStatus(status), cpf);
         });
-
-        $('a').removeClass('disabled');
     });
 }
 

@@ -51,6 +51,11 @@
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                    <a id="home" class="nav-link" href="#">
+                        <i class="fas fa-home fa-1x ml-3"></i> Home
+                    </a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 d-flex justify-content-end">
                 <ul class="navbar-nav">
@@ -123,6 +128,14 @@
                 <div class="row d-flex justify-content-center mt-5 loader" style="display: none;">
                     <div class="col-md-4 mt-5">
                         
+                    <!-- <div class="row">
+                        <div class="col-md-3">
+                            <a id="novo_usuario" class="nav-link side-nav" href="#" data-toggle="tooltip" data-placement="bottom" title="Novo Usuário">
+                                <i class="fas fa-user-plus fa-5x"></i>
+                            </a>                
+                        </div>
+                    </div> -->
+
                     </div>
                 </div>
             </div><!-- conteudo -->

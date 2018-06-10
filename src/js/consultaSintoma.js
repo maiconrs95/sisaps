@@ -11,7 +11,7 @@ function consultaSintomas() {
     $.get('includes/buscaSintomas.php', function (data) {
 
         sintomas_bd = data;
-
+        $("tbody tr").remove();
         $(data).each(function (i, sintoma) {
 
             insereSintomas(i, sintoma.nome_cientifico.toLowerCase(), sintoma.parte_corpo, sintoma.nome_popular);

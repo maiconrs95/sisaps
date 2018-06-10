@@ -3,6 +3,10 @@ $(document).ready(function () {
     var campos_obg = 0;
     var cpf_user = 0;
     
+    $('#home').click(function (){
+        location.reload();
+    });
+
     $('.side-nav').click(function () {
 
         var conteudo = this.id;
