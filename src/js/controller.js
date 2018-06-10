@@ -75,24 +75,24 @@ function controlaView(conteudo) {
         obtemSintomas();
         getPartePlanta();
 
-        document.getElementById('form-planta').addEventListener('submit', function (event) {
-            event.preventDefault();
+        $('#form-planta').on('submit', (function (event) {
+            //event.preventDefault();
             //return false;
 
             var formPLanta = document.querySelector('#form-planta');
             var planta = obterPlanta(formPLanta);
 
             previewing(); 
-            if (validaPlanta(formPLanta)) {
+            /*if (validaPlanta(formPLanta)) {
                 //cadastraPlanta(planta);
-                $('#previewing').attr('src', 'img/sem-foto.jpg');
+                //$('#previewing').attr('src', 'img/sem-foto.jpg');
                 limpaPlanta(formPLanta);
                 console.log('cadastrado');
             } else {
                 console.log('Não cadastra');
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
-            }
-        });
+            }*/
+        }));
     }
 
     //alterar planta

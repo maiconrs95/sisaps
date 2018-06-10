@@ -17,8 +17,22 @@
     $modo_preparo = (isset($_POST['modo_preparo'])) ? $_POST['modo_preparo'] : '' ;  
     $bibliografia = (isset($_POST['bibliografia'])) ? $_POST['bibliografia'] : '' ;   
     $sintomas = (isset($_POST['duallistbox_demo2'])) ? $_POST['duallistbox_demo2'] : '0' ;
+
+    $conexao = new db();
+    $link = $conexao->conn_mysql();
+
+    if(!is_uploaded_file($_FILES['arquivo']['tmp_name'])){
+        
+        $targetPath = "img/sem-foto.jpg";
+
+    }else{
+
+        $sourcePath = $_FILES['arquivo']['tmp_name'];
+        $targetPath = "../img/plantas/".$_FILES['arquivo']['name'];
+        move_uploaded_file($sourcePath,$targetPath);
+    }
     
-    $usuario = array('nome_c' => $nome_c, 'nome_p' => $nome_p, 'parte_planta' => $parte_planta, 'regiao' => $result_id, 'principio_ativo' => $principio_ativo, 'cuidados' => $cuidados, 'efeitos' => $efeitos, 'preparo' => $modo_preparo, 'bibliografia' => $bibliografia);
+    $usuario = array('nome_c' => $nome_c, 'nome_p' => $nome_p, 'parte_planta' => $parte_planta, 'regiao' => $regiao, 'principio_ativo' => $principio_ativo, 'cuidados' => $cuidados, 'efeitos' => $efeitos, 'preparo' => $modo_preparo, 'bibliografia' => $bibliografia, 'img' => $targetPath);
 
     if($sintomas != 0){
 
@@ -32,20 +46,6 @@
         exit();
     }
     
-
-    $conexao = new db();
-    $link = $conexao->conn_mysql();
-
-    if(!is_uploaded_file($_FILES['arquivo']['tmp_name'])){
-        
-        $targetPath = "img/sem-foto.jpg";
-
-    }else{
-
-        $sourcePath = $_FILES['arquivo']['tmp_name'];
-        $targetPath = "img/plantas/".$_FILES['arquivo']['name'];
-        move_uploaded_file($sourcePath,$targetPath);
-    }
 
     $procedure_planta = "call cadastro_planta('$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos', '$principio_ativo','$bibliografia', 2, $id_usuario, '$regiao')";
 
