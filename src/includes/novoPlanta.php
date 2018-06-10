@@ -33,19 +33,26 @@
         move_uploaded_file($sourcePath,$targetPath);
     }
 
-    $sql = "INSERT INTO tb_plantas (nome_cientifico, nome_popular, modo_preparo, foto_planta, cuidados, efeitos_colaterais, principio_efeitos, bibliografia, id_parte_planta, id_user, estado, cidade, regiao, pais, id_status, comentarios) VALUES
-    ('$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos','$principio_ativo', '$bibliografia','$parte_planta', '$id_usuario', 'estado', 'cidade','$regiao','pais', 1, 'Planta Pendente de Verificacao')";
-
     $procedure_planta = "call cadastro_planta('$nome_c','$nome_p','$modo_preparo','$targetPath','$cuidados','$efeitos','$principio_ativo','$bibliografia', 2,$id_usuario,'$regiao')";
 
     $result_id = mysqli_query($link, $procedure_planta);
 
     while ($row = mysqli_fetch_array($result_id)) {   
         $id_planta = $row[0]; 
-        echo $id_planta;
+        //echo $id_planta;
     }
     
-    $retorno = array('DADOS' => $sql, 'Sintomas' => $id_planta);
-    echo json_encode($procedure_planta);
+    foreach($sintomas as $id_sintoma){
+
+        $sql =  "INSERT INTO tb_plantas_sintomas (id_plantas, id_sintomas) VALUES ('$id_planta', '$id_sintoma')";
+
+        $link = $conexao->conn_mysql();
+        $associa = mysqli_query($link, $sql);
+
+        echo $associa;
+    }
+
+    $retorno = array('Data' => $sintomas);
+    //echo json_encode($result_id);
     exit();
 ?>
