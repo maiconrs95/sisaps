@@ -50,6 +50,7 @@
         $associa = mysqli_query($link, $sql);
     }
 
-    $retorno = array('codigo' => 1, 'Usuário' => "",'mensagem' => 'Planta cadastrada.');
-    echo json_encode($procedure_planta);
+    $retorno = array('codigo' => 3, 'Usuário' => "",'mensagem' => 'Planta cadastrada.');
+    echo json_encode($retorno);
+    exit();
 ?>

@@ -47,8 +47,30 @@ function previewing() {
         },
         contentType: false,
         processData: false,
+        beforeSend: function (){
+            $('#insert_planta').attr('disabled', true);
+            $('#planta_cancelar').attr('disabled', true);
+        },
         success: function (data) {
+            $('#insert_planta').attr('disabled', false);
+            $('#planta_cancelar').attr('disabled', false);
+
             console.log(data);
+
+            switch (data.codigo) {
+                case 1:
+                    alert(data.mensagem);
+                    break;
+                case 2:
+                    exibeMsg(data.mensagem, 'alert-warning');
+                    break;
+                case 3:
+                    exibeMsg(data.mensagem, 'alert-success');
+                    limpaCampos();
+                    break;
+                default:
+                    break;
+            }
         },
         error: function () {}
     });
