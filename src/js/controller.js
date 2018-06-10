@@ -100,11 +100,13 @@ function controlaView(conteudo) {
 
         $('.close').click(function (){
             $('#previewing').attr('src', 'img/plantas/sem-foto.jpg');
-            $("input:text").val("")
+            $("input:text").val("");
+            $('#parte_planta option:selected').remove();        
         });
         $('#cancela_planta').click(function (){
             $('#previewing').attr('src', 'img/plantas/sem-foto.jpg');
-            $("input:text").val("")
+            $("input:text").val("");
+            $('#parte_planta option:selected').removeAttr('selected');        
         });
         
         $("#pesquisar-planta").on("keyup", function () {

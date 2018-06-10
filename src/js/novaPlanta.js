@@ -115,7 +115,8 @@ function getPartePlanta() {
     $.get('includes/getPartePlanta.php', function (data) {
 
         parte = data;
-
+        
+        $('#parte_planta option').remove();
         $(data).each(function (i, user) {
 
             var select = $('#parte_planta');
