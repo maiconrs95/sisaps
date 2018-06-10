@@ -43,11 +43,11 @@ function previewing() {
         dataType: 'json',
         data: new FormData(form),
         beforeSend: function () {
-            
+
         },
         contentType: false,
         processData: false,
-        beforeSend: function (){
+        beforeSend: function () {
             //$('#insert_planta').attr('disabled', true);
             //$('#planta_cancelar').attr('disabled', true);
         },
@@ -58,8 +58,11 @@ function previewing() {
             console.log(data);
 
             switch (data.codigo) {
+                case 0:
+                    exibeMsg(data.mensagem, 'alert-danger');
+                    break;
                 case 1:
-                    alert(data.mensagem);
+                    exibeMsg(data.mensagem, 'alert-danger');
                     break;
                 case 2:
                     exibeMsg(data.mensagem, 'alert-warning');

@@ -1,6 +1,7 @@
 <?php
 
-    //header("Content-type: application/json; charset=utf-8");
+    //header("Content-type: text/html; charset=utf-8");
+    header("Content-type: application/json; charset=utf-8");
 
     session_start();
     require_once('conexao.php');
@@ -15,9 +16,21 @@
     $efeitos = (isset($_POST['efeitos'])) ? $_POST['efeitos'] : '' ;  
     $modo_preparo = (isset($_POST['modo_preparo'])) ? $_POST['modo_preparo'] : '' ;  
     $bibliografia = (isset($_POST['bibliografia'])) ? $_POST['bibliografia'] : '' ;   
-    $sintomas = array(isset($_POST['duallistbox_demo2'])) ? $_POST['duallistbox_demo2'] : '' ; 
-    $associar = array_chunk($sintomas, ceil(count($sintomas) / 2));
-   
+    $sintomas = (isset($_POST['duallistbox_demo2'])) ? $_POST['duallistbox_demo2'] : '0' ; 
+
+    if($sintomas != 0){
+
+        $associar = array_chunk($sintomas, ceil(count($sintomas) / 2));
+        var_dump($associar[0]);
+
+    }else{
+
+        $retorno = array('codigo' => 0, 'Usuário' => "",'mensagem' => 'Selecione algum sintoma.');
+        echo json_encode($retorno);
+        exit();
+    }
+    
+
     $conexao = new db();
     $link = $conexao->conn_mysql();
 
@@ -36,7 +49,16 @@
 
     $result_id = mysqli_query($link, $procedure_planta);
 
-    while ($row = mysqli_fetch_array($result_id)) {   
+    while ($row = mysqli_fetch_array($result_id)) {
+        $id_planta = $row[0];
+
+        if($id_planta == 0){
+
+            $retorno = array('codigo' => 1, 'Usuário' => "",'mensagem' => 'Preencha todos os campos obrigaórios.');
+            echo json_encode($retorno);
+            exit();
+        }
+
         $id_planta = $row[0]; 
         //echo $id_planta;
     }
