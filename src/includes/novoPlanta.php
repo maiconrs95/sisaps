@@ -22,6 +22,28 @@
     $conexao = new db();
     $link = $conexao->conn_mysql();
 
+    //Verificar se a planta ja existe. Se sim, excluir todos os registro da tabela planta e sintoma. Se nao, só cria o registro
+    $sql = "SELECT * FROM tb_plantas WHERE nome_cientifico = '$nome_c'";
+    
+    $result_planta = mysqli_query($link, $sql);
+
+    if($result_planta){
+
+       $retorno_plantas = mysqli_fetch_array($result_id);
+
+       if(isset($retorno_plantas['nome_cientifico'])){
+
+        $id_apagar = $retorno_plantas['id_plantas'];
+
+        $query = "delete from tb_plantas_sintomas where id_planta_sintomas = $id_apagar";
+        $apagar = mysqli_query($link, $query);
+
+        $query = "delete from tb_plantas where id_planta_sintomas = $id_apagar";
+        $apagar = mysqli_query($link, $query);
+
+       }
+    }//ACABA AQ
+
     if(!is_uploaded_file($_FILES['arquivo']['tmp_name'])){
         
         $targetPath = "img/sem-foto.jpg";
