@@ -43,7 +43,7 @@ function previewing() {
         dataType: 'json',
         data: new FormData(form),
         beforeSend: function () {
-            $("#body-overlay").show();
+            
         },
         contentType: false,
         processData: false,

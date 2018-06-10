@@ -15,38 +15,13 @@
     $efeitos = (isset($_POST['efeitos'])) ? $_POST['efeitos'] : '' ;  
     $modo_preparo = (isset($_POST['modo_preparo'])) ? $_POST['modo_preparo'] : '' ;  
     $bibliografia = (isset($_POST['bibliografia'])) ? $_POST['bibliografia'] : '' ;   
-    $sintomas = (isset($_POST['duallistbox_demo2'])) ? $_POST['duallistbox_demo2'] : '' ;  
-    
-    //var $associar = array_chunk($associar, ceil(count($associar) / 2));
-
+    $sintomas = array(isset($_POST['duallistbox_demo2'])) ? $_POST['duallistbox_demo2'] : '' ; 
+    $associar = array_chunk($sintomas, ceil(count($sintomas) / 2));
+   
     $conexao = new db();
     $link = $conexao->conn_mysql();
 
-    //Verificar se a planta ja existe. Se sim, excluir todos os registro da tabela planta e sintoma. Se nao, só cria o registro
-    $sql = "SELECT * FROM tb_plantas WHERE nome_cientifico = '$nome_c'";
-
-    $result_planta = mysqli_query($link, $sql);
-
-    if($result_planta){
-
-       $retorno_plantas = mysqli_fetch_array($result_id);
-
-       if(isset($retorno_plantas['nome_cientifico'])){
-
-        $id_apagar = $retorno_plantas['id_plantas'];
-
-        $query = "delete from tb_plantas_sintomas where id_planta_sintomas = $id_apagar";
-        $apagar = mysqli_query($link, $query);
-        echo $query;
-
-        $query = "delete from tb_plantas where id_planta_sintomas = $id_apagar";
-        $apagar = mysqli_query($link, $query);
-        echo $query;
-
-       }
-    }//ACABA AQ
-
-    if(!is_uploaded_file($_FILES['arquivo']['tmp_name']) || ($_FILES['arquivo']['type']) == "imagem/gif"){
+    if(!is_uploaded_file($_FILES['arquivo']['tmp_name'])){
         
         $targetPath = "img/sem-foto.jpg";
 
@@ -66,15 +41,18 @@
         //echo $id_planta;
     }
     
-    foreach($sintomas as $id_sintoma){
+    foreach($associar[0] as $id_sintoma){
 
-        $sql =  "INSERT INTO tb_plantas_sintomas (id_plantas, id_sintomas) VALUES ('$id_planta', '$id_sintoma')";
+        //$sql =  "CALL associa_planta_sintoma ('$id_planta,'$id_sintoma')";
+        $sql = "INSERT INTO tb_plantas_sintomas (id_plantas, id_sintomas) VALUES ('$id_planta', '$id_sintoma')";
 
         $link = $conexao->conn_mysql();
         $associa = mysqli_query($link, $sql);
+
+        echo json_encode($sql);
     }
 
-    $retorno = array('codigo' => 3, 'Usuário' => "",'mensagem' => 'Planta cadastrada.');
+    $retorno = array('codigo' => 3, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' cadastrada.');
     echo json_encode($retorno);
     exit();
 ?>

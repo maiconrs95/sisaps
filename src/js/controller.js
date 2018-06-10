@@ -76,7 +76,7 @@ function controlaView(conteudo) {
         getPartePlanta();
 
         $('#form-planta').on('submit', function (e) {
-            e.preventDefault();
+            //e.preventDefault();
 
             var formPLanta = document.querySelector('#form-planta');
             var planta = obterPlanta(formPLanta);
