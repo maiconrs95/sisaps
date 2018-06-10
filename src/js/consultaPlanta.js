@@ -8,8 +8,6 @@ function consultaplantas() {
 
         allPlants = data;
         
-        console.log(allPlants);
-
         $("tbody tr").remove();
         $(data).each(function (i, planta) {
 
@@ -63,10 +61,23 @@ function filtraPlanta(value) {
 //Abre modal
 function carregaModalPlanta(id) {
 
-    console.log(allPlants[id].id_plantas);
-
     $.get('includes/getPlantasSintomas.php?id_planta=' + allPlants[id].id_plantas, function (data) {        
+        
         console.log(data);
+        var img = data[0].foto_planta.split('../');
+        $('.modal-title').text(data[0].nome_cientifico);
+        $('#previewing').attr('src', img[1]);
+        $('#nome_popular').val(data[0].nome_popular);
+        $('#nome_cientifico').val(data[0].nome_cientifico);
+
+        $('<option>').val(data[0].id_parte_planta).text(data[0].parte_planta).attr('selected', 'true').appendTo($('#parte_planta'));
+   
+        $('#regiao').val(data[0].regiao);
+        $('#principio_ativo').val(data[0].principio_efeitos);
+        $('#cuidados').val(data[0].cuidados);
+        $('#efeitos').val(data[0].efeitos_colaterais);
+        $('#modo_preparo').val(data[0].modo_preparo);
+        $('#bibliografia').val(data[0].bibliografia);        
 
     });
 }

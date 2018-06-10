@@ -98,6 +98,15 @@ function controlaView(conteudo) {
         obtemSintomas();
         getPartePlanta();
 
+        $('.close').click(function (){
+            $('#previewing').attr('src', 'img/plantas/sem-foto.jpg');
+            $("input:text").val("")
+        });
+        $('#cancela_planta').click(function (){
+            $('#previewing').attr('src', 'img/plantas/sem-foto.jpg');
+            $("input:text").val("")
+        });
+        
         $("#pesquisar-planta").on("keyup", function () {
             var value = $(this).val().toLowerCase();
             filtraPlanta(value);
