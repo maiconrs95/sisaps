@@ -77,7 +77,8 @@ function controlaView(conteudo) {
             previewing(); 
             if (validaPlanta(formPLanta)) {
                 //cadastraPlanta(planta);
-               
+                $('#previewing').attr('src', 'img/sem-foto.jpg');
+                limpaPlanta(formPLanta);
                 console.log('cadastrado');
             } else {
                 console.log('Não cadastra');
