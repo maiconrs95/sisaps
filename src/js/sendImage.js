@@ -48,14 +48,12 @@ function previewing() {
         contentType: false,
         processData: false,
         beforeSend: function () {
-            //$('#insert_planta').attr('disabled', true);
-            //$('#planta_cancelar').attr('disabled', true);
+            $('#insert_planta').attr('disabled', true);
+            $('#planta_cancelar').attr('disabled', true);
         },
         success: function (data) {
-            //$('#insert_planta').attr('disabled', false);
-            //$('#planta_cancelar').attr('disabled', false);
-
-            console.log(data);
+            $('#insert_planta').attr('disabled', false);
+            $('#planta_cancelar').attr('disabled', false);
 
             switch (data.codigo) {
                 case 0:
@@ -69,6 +67,7 @@ function previewing() {
                     exibeMsg(data.mensagem, 'alert-success');
                     limpaPlanta(form);
                     $('#previewing').attr('src', 'img/sem-foto.jpg');
+                    $('.demo2').bootstrapDualListbox('refresh');
                     break;
                 case 3:
                     exibeMsg(data.mensagem, 'alert-success');

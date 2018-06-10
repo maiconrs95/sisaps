@@ -81,7 +81,7 @@ function controlaView(conteudo) {
     
             /*if () {
                 //cadastraPlanta(planta);
-                //$('#previewing').attr('src', 'img/sem-foto.jpg');
+                //
                 limpaPlanta(formPLanta);
                 console.log('cadastrado');
             } else {
@@ -94,8 +94,14 @@ function controlaView(conteudo) {
     //alterar planta
     else if (conteudo == 'view/alterar_planta.html') {
 
+        consultaplantas();
         obtemSintomas();
         getPartePlanta();
+
+        $("#pesquisar-planta").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            filtraPlanta(value);
+        });
     }
 
     //novo sintoma

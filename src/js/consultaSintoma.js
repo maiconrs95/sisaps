@@ -5,7 +5,7 @@ function obtemUsuarioAtualizacao(id) {
     return sintomas_bd[id];
 }
 
-//Busca os usuários cadastrados na base de dados
+//Busca os sintomas cadastrados na base de dados
 function consultaSintomas() {
 
     $.get('includes/buscaSintomas.php', function (data) {
@@ -21,7 +21,7 @@ function consultaSintomas() {
 }
 
 
-//Insere os usuários que retornaram da consulta na tabela
+//Insere os sintomas que retornaram da consulta na tabela
 function insereSintomas(id_sintoma, sintoma, parteCorpo, nome) {
 
     var corpoTabela = $(".table").find("tbody");
@@ -29,7 +29,6 @@ function insereSintomas(id_sintoma, sintoma, parteCorpo, nome) {
 
     corpoTabela.append(linha);
 }
-
 
 //Cria as linhas que serão adicionada na tabela
 function novaLinhaSintoma(id_sintoma, sintoma, parteCorpo, nome) {
@@ -55,15 +54,13 @@ function novaLinhaSintoma(id_sintoma, sintoma, parteCorpo, nome) {
     return linha;
 }
 
-
-//filtra os usuários na tabela
+//filtra os sintomas na tabela
 function filtraSintoma(value) {
 
     $("#lista-sintomas tr").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
 }
-
 
 //Abre modal
 function carregaModalSintoma(id) {
