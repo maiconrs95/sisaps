@@ -22,18 +22,18 @@
     $conexao = new db();
     $link = $conexao->conn_mysql();
 
-    if(!is_uploaded_file($_FILES['arquivo']['tmp_name']) || ($_FILES["file"]["type"] != "image/jpg") || ($_FILES["file"]["type"] != "image/png") || ($_FILES["file"]["type"] != "image/jpeg")){
+    if(!is_uploaded_file($_FILES['arquivo']['tmp_name'])){
         
         $targetPath = "img/sem-foto.jpg";
 
     }else{
 
         $sourcePath = $_FILES['arquivo']['tmp_name'];
-        $targetPath = "../img/plantas/".$_FILES['arquivo']['name'];
+        $targetPath = "img/plantas/".$_FILES['arquivo']['name'];
         move_uploaded_file($sourcePath,$targetPath);
     }
 
-    $procedure_planta = "call cadastro_planta('$nome_c','$nome_p','$modo_preparo','$targetPath','$cuidados','$efeitos','$principio_ativo','$bibliografia', 2,$id_usuario,'$regiao')";
+    $procedure_planta = "call cadastro_planta('$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos', '$principio_ativo','$bibliografia', 2, $id_usuario, '$regiao')";
 
     $result_id = mysqli_query($link, $procedure_planta);
 
@@ -48,11 +48,8 @@
 
         $link = $conexao->conn_mysql();
         $associa = mysqli_query($link, $sql);
-
-        echo $associa;
     }
 
-    $retorno = array('Data' => $sintomas);
-    //echo json_encode($result_id);
-    exit();
+    $retorno = array('codigo' => 1, 'Usuário' => "",'mensagem' => 'Planta cadastrada.');
+    echo json_encode($procedure_planta);
 ?>

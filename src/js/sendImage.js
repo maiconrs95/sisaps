@@ -40,6 +40,7 @@ function previewing() {
     $.ajax({
         url: "../src/includes/novoPlanta.php",
         type: "POST",
+        dataType: 'json',
         data: new FormData(form),
         beforeSend: function () {
             $("#body-overlay").show();
