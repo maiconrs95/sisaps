@@ -66,7 +66,7 @@ function previewing() {
                 case 2:
                     exibeMsg(data.mensagem, 'alert-success');
                     limpaPlanta(form);
-                    $('#previewing').attr('src', 'img/sem-foto.jpg');
+                    $('#previewing').attr('src', 'img/plantas/sem-foto.jpg');
                     $('.demo2').bootstrapDualListbox('refresh');
                     break;
                 case 3:
