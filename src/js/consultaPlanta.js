@@ -63,16 +63,14 @@ function carregaModalPlanta(id) {
 
     var select = $('.demo2');
 
-    //configura o dual list
     var demo2 = $('.demo2').bootstrapDualListbox({
-        destroy: 'true',
         preserveSelectionOnMove: 'moved',
         nonSelectedListLabel: 'Não associado:',
         selectedListLabel: 'Associado:',
         moveOnSelect: false,
         nonSelectedFilter: ''
     });
-
+    select.bootstrapDualListbox('refresh', true);
     $.get('includes/buscaSintomas.php', function (data) {
 
         $(data).each(function (i, user) {
@@ -85,7 +83,7 @@ function carregaModalPlanta(id) {
 
         $(data).each(function (i, user) {
             console.log(data[i].nome_cientifico);
-            select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico).prop('selected', true));            
+            select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico).prop('selected', true));
         });
         select.bootstrapDualListbox('refresh', true);
     });
