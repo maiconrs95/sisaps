@@ -7,7 +7,7 @@ function consultaplantas() {
     $.get('includes/getPlantas.php', function (data) {
 
         allPlants = data;
-        
+
         $("tbody tr").remove();
         $(data).each(function (i, planta) {
 
@@ -61,9 +61,37 @@ function filtraPlanta(value) {
 //Abre modal
 function carregaModalPlanta(id) {
 
-    $.get('includes/getPlantasSintomas.php?id_planta=' + allPlants[id].id_plantas, function (data) {        
-        
-        console.log(data);
+    var select = $('.demo2');
+
+    //configura o dual list
+    var demo2 = $('.demo2').bootstrapDualListbox({
+        destroy: 'true',
+        preserveSelectionOnMove: 'moved',
+        nonSelectedListLabel: 'Não associado:',
+        selectedListLabel: 'Associado:',
+        moveOnSelect: false,
+        nonSelectedFilter: ''
+    });
+
+    $.get('includes/buscaSintomas.php', function (data) {
+
+        $(data).each(function (i, user) {
+            //console.log(data[i]);
+            select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico));
+        });
+    });
+
+    $.get('includes/getSintomasAssociados.php?id_planta=' + allPlants[id].id_plantas, function (data) {
+
+        $(data).each(function (i, user) {
+            console.log(data[i].nome_cientifico);
+            select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico).prop('selected', true));            
+        });
+        select.bootstrapDualListbox('refresh', true);
+    });
+
+    $.get('includes/getPlantasSintomas.php?id_planta=' + allPlants[id].id_plantas, function (data) {
+
         var img = data[0].foto_planta.split('../');
         $('.modal-title').text(data[0].nome_cientifico);
         $('#previewing').attr('src', img[1]);
@@ -71,13 +99,13 @@ function carregaModalPlanta(id) {
         $('#nome_cientifico').val(data[0].nome_cientifico);
 
         $('<option>').val(data[0].id_parte_planta).text(data[0].parte_planta).attr('selected', 'true').appendTo($('#parte_planta'));
-   
+
         $('#regiao').val(data[0].regiao);
         $('#principio_ativo').val(data[0].principio_efeitos);
         $('#cuidados').val(data[0].cuidados);
         $('#efeitos').val(data[0].efeitos_colaterais);
         $('#modo_preparo').val(data[0].modo_preparo);
-        $('#bibliografia').val(data[0].bibliografia);        
+        $('#bibliografia').val(data[0].bibliografia);
 
     });
 }

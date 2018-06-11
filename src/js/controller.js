@@ -95,7 +95,7 @@ function controlaView(conteudo) {
     else if (conteudo == 'view/alterar_planta.html') {
 
         consultaplantas();
-        obtemSintomas();
+        //obtemSintomas();
         getPartePlanta();
 
         $('.close').click(function (){
