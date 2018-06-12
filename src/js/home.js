@@ -39,9 +39,11 @@ $(document).ready(function () {
 
         if (data.user_perfil == 2) {
             $('#adm-section').remove();
+            $('#adm-mobile').remove();
         }
         if (data.user_perfil == 3) {
             $('#adm-section').remove();
+            $('#adm-mobile').remove();
             $('#professor-section').remove();
         }
     });

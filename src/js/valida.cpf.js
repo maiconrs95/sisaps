@@ -7,10 +7,12 @@ function validacaoCpf(cpf) {
     if (validaCpf(cpf)) {
         $('#cpf_valido').show();
         $(cpf_user).removeClass('borda-vermelha');
+        //$('.input-group-append').removeClass('borda-vermelha');
         $('#cpf_invalido').hide();
         return true;
     } else {
         $('#cpf_invalido').show();
+        //$('.input-group-append').addClass('borda-vermelha');
         $(cpf_user).addClass('borda-vermelha');
         $('#cpf_valido').hide();
         return false

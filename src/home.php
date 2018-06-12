@@ -57,7 +57,7 @@
                     </a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 d-flex justify-content-end">
+            <form class="form-inline my-2 my-lg-0 d-flex">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -150,16 +150,18 @@
     <footer class="footer d-block d-md-none fixed-bottom">
         <div class="container-fluid">
             <div class="row p-3">
-                <div class="col-2">
-                    <a id="novo_usuario" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
-                        <i class="fas fa-user-plus"></i>
-                    </a>
-                </div>
-                <div class="col-2">
-                    <a id="alterar_usuario" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
-                        <i class="fas fa-redo-alt"></i>
-                    </a>
-                </div>
+                <span id="adm-mobile">
+                    <div class="col-2">
+                        <a id="novo_usuario" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
+                    </div>
+                    <div class="col-2">
+                        <a id="alterar_usuario" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
+                            <i class="fas fa-redo-alt"></i>
+                        </a>
+                    </div>
+                </span>
                 <div class="col-2">
                     <a id="novo_planta" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
                         <i class="fab fa-envira"></i>

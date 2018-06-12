@@ -61,8 +61,9 @@ function filtraPlanta(value) {
 //Abre modal
 function carregaModalPlanta(id) {
 
+    //Zera e reconfigura o dual list
     var select = $('.demo2');
-
+    select.empty();
     var demo2 = $('.demo2').bootstrapDualListbox({
         preserveSelectionOnMove: 'moved',
         nonSelectedListLabel: 'Não associado:',
@@ -70,24 +71,29 @@ function carregaModalPlanta(id) {
         moveOnSelect: false,
         nonSelectedFilter: ''
     });
-    select.bootstrapDualListbox('refresh', true);
+
+    //Busca os sintomas da lista de opções e preenche a lista da esquerda
     $.get('includes/buscaSintomas.php', function (data) {
 
-        $(data).each(function (i, user) {
-            //console.log(data[i]);
+        $(data).each(function (i, user) {            
             select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico));
         });
+
+        select.bootstrapDualListbox('refresh', true);
     });
 
+    //Busca os sintomas associados e preenche a lista da direita (selected)
     $.get('includes/getSintomasAssociados.php?id_planta=' + allPlants[id].id_plantas, function (data) {
 
         $(data).each(function (i, user) {
             console.log(data[i].nome_cientifico);
             select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico).prop('selected', true));
         });
+
         select.bootstrapDualListbox('refresh', true);
     });
 
+    //Busca a planta do ID passado
     $.get('includes/getPlantasSintomas.php?id_planta=' + allPlants[id].id_plantas, function (data) {
 
         var img = data[0].foto_planta.split('../');

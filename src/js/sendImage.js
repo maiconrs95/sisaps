@@ -55,6 +55,8 @@ function previewing() {
             $('#insert_planta').attr('disabled', false);
             $('#planta_cancelar').attr('disabled', false);
 
+            console.log(data);
+
             switch (data.codigo) {
                 case 0:
                     exibeMsg(data.mensagem, 'alert-danger');

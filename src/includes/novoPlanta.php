@@ -32,7 +32,7 @@
         move_uploaded_file($sourcePath,$targetPath);
     }
     
-    $usuario = array('nome_c' => $nome_c, 'nome_p' => $nome_p, 'parte_planta' => $parte_planta, 'regiao' => $regiao, 'principio_ativo' => $principio_ativo, 'cuidados' => $cuidados, 'efeitos' => $efeitos, 'preparo' => $modo_preparo, 'bibliografia' => $bibliografia, 'img' => $targetPath);
+    $usuario = array('nome_c' => $nome_c, 'nome_p' => $nome_p, 'parte_planta' => $parte_planta, 'regiao' => $regiao, 'principio_ativo' => $principio_ativo, 'cuidados' => $cuidados, 'efeitos' => $efeitos, 'preparo' => $modo_preparo, 'bibliografia' => $bibliografia, 'img' => $targetPath, 'Sintomas' => $sintomas);
 
     if($sintomas != 0){
 
@@ -45,7 +45,6 @@
         exit();
     }
     
-
     $procedure_planta = "call cadastro_planta('$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos', '$principio_ativo','$bibliografia', 2, $id_usuario, '$regiao')";
 
     $result_id = mysqli_query($link, $procedure_planta);

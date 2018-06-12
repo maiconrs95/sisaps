@@ -91,6 +91,7 @@ function limpaPlanta(form) {
 }
 
 function obtemSintomas() {
+    
     $.get('includes/buscaSintomas.php', function (data) {
 
         var select = $('.demo2');

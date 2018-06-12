@@ -113,6 +113,11 @@ function controlaView(conteudo) {
             var value = $(this).val().toLowerCase();
             filtraPlanta(value);
         });
+
+        $('#update-planta').on('submit', (function (event) {
+            event.preventDefault();
+            previewing();
+        }));
     }
 
     //novo sintoma
