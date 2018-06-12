@@ -127,7 +127,19 @@
             <div id="conteudo" class="col-md-10 mt-5 pb-5">
                 <div class="row d-flex justify-content-center mt-5 loader" style="display: none;">
                     <div class="col-md-4 mt-5">
-                        
+
+                    <section id="homepad">
+                        <div class="row">
+                            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title">Dark card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- <div class="row">
                         <div class="col-md-3">
                             <a id="novo_usuario" class="nav-link side-nav" href="#" data-toggle="tooltip" data-placement="bottom" title="Novo Usuário">
