@@ -48,9 +48,6 @@
     
     $procedure_planta = "CALL update_planta($id_modal, '$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos','$principio_ativo', '$bibliografia', $parte_planta, $id_usuario, '$regiao')";
 
-    $apaga_sintomas = "CALL delete_associar('$id_modal')";
-    $apaga = mysqli_query($link, $apaga_sintomas);
-    
     $result_id = mysqli_query($link, $procedure_planta);
     
     while ($row = mysqli_fetch_array($result_id)) {
@@ -65,6 +62,9 @@
 
         $id_planta = $row[0]; 
     }
+
+    $apaga_sintomas = "CALL delete_associar('$id_modal')";
+    $apaga = mysqli_query($link, $apaga_sintomas);    
     
     foreach($associar[0] as $id_sintoma){
 
