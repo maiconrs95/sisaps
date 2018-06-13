@@ -45,7 +45,7 @@
         exit();
     }
     
-    $procedure_planta = "call cadastro_planta('$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos', '$principio_ativo','$bibliografia', $parte_planta, $id_usuario, '$regiao')";
+    $procedure_planta = "call cadastro_planta('$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos', '$principio_ativo','$bibliografia', 2, $id_usuario, '$regiao')";
 
     $result_id = mysqli_query($link, $procedure_planta);
 

@@ -56,7 +56,7 @@
                         <div class="modal-body">
                             <section class="row alert-msg mt-0 mb-0"></section>
                             
-                            <form id='update-planta' method="post" action="../src/includes/novoPlanta.php" enctype="multipart/form-data">
+                            <form id='update-planta' method="post" action="../src/includes/alterarPlanta.php" enctype="multipart/form-data">
                                 <div class="form-row">
                                     <div id="previwborder" class="form-group col-md-3 borda-img">
                                         <label for="insert_foto">Foto</label>
@@ -71,6 +71,7 @@
                                         <label for="nome_popular">Nome Popular
                                             <span class="red">*</span>
                                         </label>
+                                        <input type="hidden" class="form-control obrigatorio" id="id-modal" name="id_planta">
                                         <input type="text" class="form-control obrigatorio" id="nome_popular" name="nome_popular" placeholder="Nome popular da planta">
                                         <label for="nome_cientifico" class="mt-2">Nome cientifíco
                                             <span class="red">*</span>
@@ -140,14 +141,12 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-success">Confirmar</button>
+                            <button type="button" id="atualiza-planta" class="btn btn-success">Confirmar</button>
                             <button type="button" id="cancela_planta" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
                 </div>
-            </div>
-
-
+            </div>            
         </div>
     </div>
 

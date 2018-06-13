@@ -95,8 +95,10 @@ function carregaModalPlanta(id) {
 
     //Busca a planta do ID passado
     $.get('includes/getPlantasSintomas.php?id_planta=' + allPlants[id].id_plantas, function (data) {
+        console.log(allPlants[id].id_plantas);
 
         var img = data[0].foto_planta.split('../');
+        $('#id-modal').val(allPlants[id].id_plantas);
         $('.modal-title').text(data[0].nome_cientifico);
         $('#previewing').attr('src', img[1]);
         $('#nome_popular').val(data[0].nome_popular);

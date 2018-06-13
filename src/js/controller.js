@@ -114,9 +114,10 @@ function controlaView(conteudo) {
             filtraPlanta(value);
         });
 
-        $('#update-planta').on('submit', (function (event) {
-            event.preventDefault();
-            previewing();
+        $('#atualiza-planta').on('click', (function (event) {
+            alert('hit');
+            //event.preventDefault();
+            updatePlanta();
         }));
     }
 

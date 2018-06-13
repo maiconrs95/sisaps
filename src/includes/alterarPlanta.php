@@ -7,6 +7,7 @@
     require_once('conexao.php');
 
     $id_usuario = $_SESSION['id'];
+    $id_modal = (isset($_POST['id_planta'])) ? $_POST['id_planta'] : '' ;  
     $nome_p = (isset($_POST['nome_popular'])) ? $_POST['nome_popular'] : '' ; 
     $nome_c = (isset($_POST['nome_cientifico'])) ? $_POST['nome_cientifico'] : '' ;   
     $parte_planta = (isset($_POST['parte_planta'])) ? $_POST['parte_planta'] : '' ;  
@@ -45,7 +46,9 @@
         exit();
     }
     
-    $procedure_planta = "call cadastro_planta('$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos', '$principio_ativo','$bibliografia', $parte_planta, $id_usuario, '$regiao')";
+    //$procedure_planta = "call cadastro_planta('$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos', '$principio_ativo',//'$bibliografia', 2, $id_usuario, '$regiao')";
+
+    $procedure_planta = "CALL update_planta($id_modal, '$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos','$principio_ativo', '$bibliografia', $parte_planta, $id_usuario, '$regiao')";
 
     $result_id = mysqli_query($link, $procedure_planta);
 
@@ -72,7 +75,7 @@
         $associa = mysqli_query($link, $sql);
     }
 
-    $retorno = array('codigo' => 2, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' cadastrada.', 'user' => $usuario);
+    $retorno = array('codigo' => 2, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' atualizada.', 'user' => $usuario);
     echo json_encode($retorno);
     exit();
 ?>

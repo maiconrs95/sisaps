@@ -128,7 +128,7 @@
                 <div class="row d-flex justify-content-center mt-5 loader" style="display: none;">
                     <div class="col-md-4 mt-5">
 
-                    <section id="homepad">
+                    <!-- <section id="homepad">
                         <div class="row">
                             <div class="card border-dark mb-3" style="max-width: 18rem;">
                                 <div class="card-header">Header</div>
@@ -140,7 +140,7 @@
                         </div>
                     </section>
 
-                    <!-- <div class="row">
+                    <div class="row">
                         <div class="col-md-3">
                             <a id="novo_usuario" class="nav-link side-nav" href="#" data-toggle="tooltip" data-placement="bottom" title="Novo Usuário">
                                 <i class="fas fa-user-plus fa-5x"></i>

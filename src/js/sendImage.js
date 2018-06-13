@@ -80,5 +80,52 @@ function previewing() {
         },
         error: function () {}
     });
+}
 
+function updatePlanta() {
+
+    form = document.querySelector('#update-planta');
+
+    $.ajax({
+        url: "../src/includes/alterarPlanta.php",
+        type: "POST",
+        dataType: 'json',
+        data: new FormData(form),
+        beforeSend: function () {
+
+        },
+        contentType: false,
+        processData: false,
+        beforeSend: function () {
+            $('#insert_planta').attr('disabled', true);
+            $('#planta_cancelar').attr('disabled', true);
+        },
+        success: function (data) {
+            $('#insert_planta').attr('disabled', false);
+            $('#planta_cancelar').attr('disabled', false);
+
+            console.log(data);
+
+            switch (data.codigo) {
+                case 0:
+                    exibeMsg(data.mensagem, 'alert-danger');
+                    break;
+                case 1:
+                    exibeMsg(data.mensagem, 'alert-danger');
+                    validaPlanta(form);
+                    break;
+                case 2:
+                    exibeMsg(data.mensagem, 'alert-success');
+                    consultaplantas();
+                    $('.demo2').bootstrapDualListbox('refresh');
+                    break;
+                case 3:
+                    exibeMsg(data.mensagem, 'alert-success');
+                    break;
+                default:
+                    break;
+            }
+        },
+        error: function () {}
+    });
 }
