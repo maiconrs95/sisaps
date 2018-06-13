@@ -10,7 +10,7 @@ function consultaplantas() {
 
         $("tbody tr").remove();
         $(data).each(function (i, planta) {
-
+            console.log(data);
             inserePlantas(i, planta.nome_cientifico.toLowerCase(), planta.nome_popular, planta.nome_user);
         });
 
