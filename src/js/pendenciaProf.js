@@ -71,9 +71,10 @@ function carregaPlantaPend(id) {
     //Busca a planta do ID passado
     $.get('includes/getPlantasSintomas.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
         
-        console.log(data[0]);
-
-        $('.foto-planta').attr('src', data[0].foto_planta.split('../'));
+        console.log(data[0]);    
+        var img = data[0].foto_planta.split('../');
+        
+        $('.foto-planta').attr('src', img[1]);
         $('.nome-plantac').text(data[0].nome_cientifico);
         $('.nome-plantap').text(data[0].nome_popular);
         $('.parte-planta').text(data[0].nome_popular);
