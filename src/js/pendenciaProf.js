@@ -29,7 +29,7 @@ function inserePlantasPendente(id_planta, desc, nome_c, user) {
 //Cria as linhas que serão adicionada na tabela
 function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
 
-    var linha = $("<tr>").attr('id', id_planta).attr('onclick', 'carregaModalPlanta(this.id)');
+    var linha = $("<tr>").attr('id', id_planta);
     var colunaStatus = $("<th>").text(desc).attr("scope", "row").attr("width", '20%');
     var colunaNome = $("<td>").text(nome_c).attr("width", '20%');
     var colunaUsuario = $("<td>").text(user).attr("width", '30%');
@@ -37,13 +37,13 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
     var colunaAprova = $("<td>").attr("width", '10%');
     var colunaRevisa = $("<td>").attr("width", '10%');
 
-    var edit = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.ver-planta');
+    var edit = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.ver-planta').attr('onclick', 'carregaModalPlanta(this.id)');
     var iEdit = $("<i>").addClass("fas fa-edit fa-2x editar");
 
-    var aprova = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.bd-example-modal-sm');
+    var aprova = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.bd-example-modal-sm').attr('onclick', 'carregaModalPlanta(this.id)');
     var iAprova = $("<i>").addClass("fas fa-check-circle fa-2x ativo");
 
-    var revisa = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '#exampleModal');
+    var revisa = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '#exampleModal').attr('onclick', 'carregaModalPlanta(this.id)');
     var Irevisa = $("<i>").addClass("fas fa-window-close fa-2x pendente");
 
     /*<a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".ver-planta">
