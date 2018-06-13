@@ -7,10 +7,10 @@ function consultaplantasPendente() {
     $.get('includes/getPlantasProfessor.php', function (data) {
 
         plantasPendentes = data;
-
+        console.log(plantasPendentes);
         //$("tbody tr").remove();
         $(data).each(function (i, planta) {
-            console.log(data);
+
             inserePlantasPendente(i, planta.Descricao.toLowerCase(), planta.nome_cientifico, planta.nome_user);
         });
 
@@ -37,13 +37,13 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
     var colunaAprova = $("<td>").attr("width", '10%');
     var colunaRevisa = $("<td>").attr("width", '10%');
 
-    var edit = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.ver-planta').attr('onclick', 'carregaModalPlanta(this.id)');
+    var edit = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.ver-planta').attr('onclick', 'carregaPlantaPend(parentNode.parentNode.id)');
     var iEdit = $("<i>").addClass("fas fa-edit fa-2x editar");
 
-    var aprova = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.bd-example-modal-sm').attr('onclick', 'carregaModalPlanta(this.id)');
+    var aprova = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.bd-example-modal-sm').attr('onclick', 'carregaPlantaPend(parentNode.parentNode.id)');
     var iAprova = $("<i>").addClass("fas fa-check-circle fa-2x ativo");
 
-    var revisa = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '#exampleModal').attr('onclick', 'carregaModalPlanta(this.id)');
+    var revisa = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '#exampleModal').attr('onclick', 'carregaPlantaPend(parentNode.parentNode.id)');
     var Irevisa = $("<i>").addClass("fas fa-window-close fa-2x pendente");
 
     edit.append(iEdit);
@@ -64,6 +64,15 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
     return linha;
 }
 
-function carregaModalPlantaPendente(id){
+function carregaPlantaPend(id) {
 
+    console.log(plantasPendentes[id]);
+
+    //Busca a planta do ID passado
+    $.get('includes/getPlantasSintomas.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
+        
+        console.log(data);
+
+
+    });
 }
