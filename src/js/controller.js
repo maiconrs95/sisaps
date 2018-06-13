@@ -170,5 +170,9 @@ function controlaView(conteudo) {
 
     else if(conteudo == 'view/pendencias.html') {
         consultaplantasPendente();
+
+        $('.close').click(function () {
+            $('label p').text('');
+        });
     }
 }
