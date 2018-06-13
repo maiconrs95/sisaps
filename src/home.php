@@ -162,18 +162,16 @@
     <footer class="footer d-block d-md-none fixed-bottom">
         <div class="container-fluid">
             <div class="row p-3">
-                <span id="adm-mobile">
-                    <div class="col-2">
-                        <a id="novo_usuario" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
-                            <i class="fas fa-user-plus"></i>
-                        </a>
-                    </div>
-                    <div class="col-2">
-                        <a id="alterar_usuario" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
-                            <i class="fas fa-redo-alt"></i>
-                        </a>
-                    </div>
-                </span>
+                <div class="col-2 adm-mobile">
+                    <a id="novo_usuario" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
+                        <i class="fas fa-user-plus"></i>
+                    </a>
+                </div>
+                <div class="col-2 adm-mobile">
+                    <a id="alterar_usuario" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
+                        <i class="fas fa-redo-alt"></i>
+                    </a>
+                </div>
                 <div class="col-2">
                     <a id="novo_planta" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
                         <i class="fab fa-envira"></i>
