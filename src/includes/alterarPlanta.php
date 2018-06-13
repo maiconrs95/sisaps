@@ -46,12 +46,13 @@
         exit();
     }
     
-    //$procedure_planta = "call cadastro_planta('$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos', '$principio_ativo',//'$bibliografia', 2, $id_usuario, '$regiao')";
-
     $procedure_planta = "CALL update_planta($id_modal, '$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos','$principio_ativo', '$bibliografia', $parte_planta, $id_usuario, '$regiao')";
 
+    $apaga_sintomas = "CALL delete_associar('$id_modal')";
+    $apaga = mysqli_query($link, $apaga_sintomas);
+    
     $result_id = mysqli_query($link, $procedure_planta);
-
+    
     while ($row = mysqli_fetch_array($result_id)) {
         $id_planta = $row[0];
 
@@ -63,19 +64,17 @@
         }
 
         $id_planta = $row[0]; 
-        //echo $id_planta;
     }
     
     foreach($associar[0] as $id_sintoma){
 
-        //$sql =  "CALL associa_planta_sintoma ('$id_planta,'$id_sintoma')";
-        $sql = "INSERT INTO tb_plantas_sintomas (id_plantas, id_sintomas) VALUES ('$id_planta', '$id_sintoma')";
+        $sql = "INSERT INTO tb_plantas_sintomas (id_plantas, id_sintomas) VALUES ('$id_modal', '$id_sintoma')";
 
         $link = $conexao->conn_mysql();
         $associa = mysqli_query($link, $sql);
     }
 
-    $retorno = array('codigo' => 2, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' atualizada.', 'user' => $usuario);
+    $retorno = array('codigo' => 2, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' atualizada.', 'user' => $usuario, 'associa' => $associar[0]);
     echo json_encode($retorno);
     exit();
 ?>

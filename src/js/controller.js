@@ -115,7 +115,6 @@ function controlaView(conteudo) {
         });
 
         $('#atualiza-planta').on('click', (function (event) {
-            alert('hit');
             //event.preventDefault();
             updatePlanta();
         }));
