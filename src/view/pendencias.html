@@ -47,7 +47,7 @@
                                         <td>Planta</td>
                                         <td>Maicon</td>
                                         <td>
-                                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".ver-planta">
                                                 <i class="fas fa-edit fa-2x editar"></i>
                                             </a>
                                             <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".bd-example-modal-sm">
@@ -60,6 +60,29 @@
                                     </tr>
                                 </tbody>
                             </table>
+
+                            <!-- VER PLANTA -->
+                            <div class="modal fade bd-example-modal-lg ver-planta" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Nome Erva</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Dados da Planta
+
+                                            dados dos sintomas
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" id="atualiza-planta" class="btn btn-success">Confirmar</button>
+                                            <button type="button" id="cancela-planta" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <!-- MODAL OK -->
                             <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -114,7 +137,8 @@
                         </div>
                     </div>
 
-                </div><!-- TAB PANE PLANTAS -->
+                </div>
+                <!-- TAB PANE PLANTAS -->
 
                 <!-- SINTOMAS PENDENTES -->
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -202,10 +226,14 @@
 
                         </div>
                     </div>
-                </div><!-- TAB PANE SINTOMAS -->
-            
-            </div><!-- TAB CONTENT -->        
-        </div><!-- COL -->
-    </div><!-- ROW -->
+                </div>
+                <!-- TAB PANE SINTOMAS -->
+
+            </div>
+            <!-- TAB CONTENT -->
+        </div>
+        <!-- COL -->
+    </div>
+    <!-- ROW -->
 
 </div>
