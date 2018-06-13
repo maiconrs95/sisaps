@@ -15,89 +15,197 @@
         row campos para cadastro
     ============================== -->
     <div class="row">
-        <div class="col-md-12 mx-auto">
+        <div class="col-md-12">
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Status</th>
-                        <th scope="col">Registro</th>
-                        <th scope="col">Usuário</th>
-                        <th scope="col">Opções</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="pendente">Pendente</th>
-                        <td>Planta</td>
-                        <td>Maicon</td>
-                        <td>
-                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                <i class="fas fa-edit fa-2x editar"></i>
-                            </a>
-                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".bd-example-modal-sm">
-                                <i class="fas fa-check-circle fa-2x ativo"></i>
-                            </a>
-                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target="#exampleModal">
-                                <i class="fas fa-window-close fa-2x pendente"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+                        aria-selected="true">Plantas pendentes</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+                        aria-selected="false">Sintomas pendentes</a>
+                </div>
+            </nav>
 
-            <!-- MODAL OK -->
-            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Aprovar registro?</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body d-flex justify-content-center">
-                            <button type="button" class="btn btn-success" style="margin-right: 5px;">Aprovar</button>
-                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                        <div class="modal-footer">
+            <div class="tab-content" id="nav-tabContent">
+
+                <!-- PLANTAS PENDENTES -->
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="row">
+                        <div class="col-md-12 mx-auto">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Registro</th>
+                                        <th scope="col">Usuário</th>
+                                        <th scope="col">Opções</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="pendente">Pendente</th>
+                                        <td>Planta</td>
+                                        <td>Maicon</td>
+                                        <td>
+                                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                                <i class="fas fa-edit fa-2x editar"></i>
+                                            </a>
+                                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".bd-example-modal-sm">
+                                                <i class="fas fa-check-circle fa-2x ativo"></i>
+                                            </a>
+                                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target="#exampleModal">
+                                                <i class="fas fa-window-close fa-2x pendente"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- MODAL OK -->
+                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar registro?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body d-flex justify-content-center">
+                                            <button type="button" class="btn btn-success" style="margin-right: 5px;">Aprovar</button>
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- MODAL RETORNO -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Itens:</label>
+                                                    <input type="text" class="form-control" id="recipient-name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="col-form-label">Mensagem:</label>
+                                                    <textarea class="form-control" id="message-text"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary">Enviar</button>
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- MODAL RETORNO -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Itens:</label>
-                                    <input type="text" class="form-control" id="recipient-name">
+                </div><!-- TAB PANE PLANTAS -->
+
+                <!-- SINTOMAS PENDENTES -->
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="row">
+                        <div class="col-md-12 mx-auto">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Registro</th>
+                                        <th scope="col">Usuário</th>
+                                        <th scope="col">Opções</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="pendente">Pendente</th>
+                                        <td>Sintomas</td>
+                                        <td>Edgar Farias</td>
+                                        <td>
+                                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                                <i class="fas fa-edit fa-2x editar"></i>
+                                            </a>
+                                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".bd-example-modal-sm">
+                                                <i class="fas fa-check-circle fa-2x ativo"></i>
+                                            </a>
+                                            <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target="#exampleModal">
+                                                <i class="fas fa-window-close fa-2x pendente"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- MODAL OK -->
+                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar registro?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body d-flex justify-content-center">
+                                            <button type="button" class="btn btn-success" style="margin-right: 5px;">Aprovar</button>
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Mensagem:</label>
-                                    <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+
+                            <!-- MODAL RETORNO -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Itens:</label>
+                                                    <input type="text" class="form-control" id="recipient-name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="col-form-label">Mensagem:</label>
+                                                    <textarea class="form-control" id="message-text"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary">Enviar</button>
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Enviar</button>
-                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
+                </div><!-- TAB PANE SINTOMAS -->
+            
+            </div><!-- TAB CONTENT -->        
+        </div><!-- COL -->
+    </div><!-- ROW -->
 
 </div>
