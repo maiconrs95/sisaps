@@ -24,7 +24,7 @@
 
     if(!is_uploaded_file($_FILES['arquivo']['tmp_name'])){
         
-        $targetPath = "../img/sem-foto.jpg";
+        $targetPath = "";
 
     }else{
 
@@ -49,7 +49,7 @@
     $procedure_planta = "CALL update_planta($id_modal, '$nome_c', '$nome_p', '$modo_preparo', '$targetPath', '$cuidados', '$efeitos','$principio_ativo', '$bibliografia', $parte_planta, $id_usuario, '$regiao')";
 
     $result_id = mysqli_query($link, $procedure_planta);
-    
+        
     while ($row = mysqli_fetch_array($result_id)) {
         $id_planta = $row[0];
 
@@ -64,6 +64,7 @@
     }
 
     $apaga_sintomas = "CALL delete_associar('$id_modal')";
+    $link = $conexao->conn_mysql();
     $apaga = mysqli_query($link, $apaga_sintomas);    
     
     foreach($associar[0] as $id_sintoma){
@@ -74,7 +75,7 @@
         $associa = mysqli_query($link, $sql);
     }
 
-    $retorno = array('codigo' => 2, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' atualizada.', 'user' => $usuario, 'associa' => $associar[0]);
+    $retorno = array('codigo' => 2, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' atualizada.', 'user' => $usuario, 'associa' => $associar[0], 'Apaga' => $apaga_sintomas);
     echo json_encode($retorno);
     exit();
 ?>
