@@ -4,7 +4,7 @@ var plantasPendentes;
 //Busca os plantas pendentes cadastrados na base de dados
 function consultaplantasPendente() {
 
-    $.get('includes/getPlantasPendente.php', function (data) {
+    $.get('includes/getPlantasProfessor.php', function (data) {
 
         plantasPendentes = data;
 

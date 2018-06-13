@@ -223,6 +223,8 @@
     <script src="./js/novaPlanta.js"></script>
     <script src="./js/consultaPlanta.js"></script>
 
+    <!-- PENDENCIAS PROFESSOR-->
+    <script src="./js/pendenciaProf.js"></script>
 
     <!-- SINTOMAS -->
     <script src="./js/novoSintoma.js"></script>
