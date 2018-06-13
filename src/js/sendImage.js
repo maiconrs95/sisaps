@@ -67,9 +67,11 @@ function previewing() {
                     break;
                 case 2:
                     exibeMsg(data.mensagem, 'alert-success');
+                    validaPlanta(form);
                     limpaPlanta(form);
                     $('#previewing').attr('src', 'img/plantas/sem-foto.jpg');
                     $('.demo2').bootstrapDualListbox('refresh');
+                    exibeMsg(data.mensagem, 'alert-success');
                     break;
                 case 3:
                     exibeMsg(data.mensagem, 'alert-success');
@@ -118,6 +120,7 @@ function updatePlanta() {
                     exibeMsg(data.mensagem, 'alert-success');
                     consultaplantas();
                     $('.demo2').bootstrapDualListbox('refresh');
+                    validaPlanta(form);
                     break;
                 case 3:
                     exibeMsg(data.mensagem, 'alert-success');
