@@ -97,12 +97,12 @@ function updatePlanta() {
         contentType: false,
         processData: false,
         beforeSend: function () {
-            $('#insert_planta').attr('disabled', true);
-            $('#planta_cancelar').attr('disabled', true);
+            $('#atualiza-planta').prop('disabled', true);
+            $('#cancela-planta').prop('disabled', true);
         },
         success: function (data) {
-            $('#insert_planta').attr('disabled', false);
-            $('#planta_cancelar').attr('disabled', false);
+            $('#atualiza-planta').prop('disabled', false);
+            $('#cancela-planta').prop('disabled', false);
 
             console.log(data);
 
