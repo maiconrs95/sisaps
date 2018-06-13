@@ -20,7 +20,7 @@ function consultaplantasPendente() {
 //Insere as plantas que retornaram da consulta na tabela
 function inserePlantasPendente(id_planta, desc, nome_c, user) {
 
-    var corpoTabela = $(".table").find("tbody");
+    var corpoTabela = $("#tb-planta").find("tbody");
     var linha = novaLinhaPlantaPendente(id_planta, desc, nome_c, user);
 
     corpoTabela.append(linha);
@@ -46,16 +46,6 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
     var revisa = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '#exampleModal').attr('onclick', 'carregaModalPlanta(this.id)');
     var Irevisa = $("<i>").addClass("fas fa-window-close fa-2x pendente");
 
-    /*<a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".ver-planta">
-    <i class="fas fa-edit fa-2x editar"></i>
-    </a>
-    <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target=".bd-example-modal-sm">
-        <i class="fas fa-check-circle fa-2x ativo"></i>
-    </a>
-    <a href="#" class="edit-user btn-sm p-1 opc" data-toggle="modal" data-target="#exampleModal">
-        <i class="fas fa-window-close fa-2x pendente"></i>
-    </a>*/
-
     edit.append(iEdit);
     aprova.append(iAprova);
     revisa.append(Irevisa);
@@ -72,4 +62,8 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
     linha.append(colunaRevisa);
 
     return linha;
+}
+
+function carregaModalPlantaPendente(id){
+
 }
