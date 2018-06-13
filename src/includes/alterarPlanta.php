@@ -69,7 +69,7 @@
     $cod_apaga = mysqli_fetch_array($apaga);
 
     if($cod_apaga[0] == 0){
-        foreach($associar[0] as $id_sintoma){
+        foreach($sintomas as $id_sintoma){
 
             $sql = "INSERT INTO tb_plantas_sintomas (id_plantas, id_sintomas) VALUES ('$id_modal', '$id_sintoma')";
     

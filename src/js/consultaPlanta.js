@@ -68,7 +68,7 @@ function carregaModalPlanta(id) {
         preserveSelectionOnMove: 'moved',
         nonSelectedListLabel: 'Não associado:',
         selectedListLabel: 'Associado:',
-        moveOnSelect: false,
+        moveOnSelect: true,
         nonSelectedFilter: ''
     });
 
@@ -83,11 +83,10 @@ function carregaModalPlanta(id) {
     });
 
     //Busca os sintomas associados e preenche a lista da direita (selected)
-    $.get('includes/getSintomasAssociados.php?id_planta=' + allPlants[id].id_plantas, function (data) {
-
+    $.get('includes/getSintomasAssociados.php?id_planta=' + allPlants[id].id_plantas, function (data) {        
         $(data).each(function (i, user) {
-            console.log(data[i].nome_cientifico);
-            select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico).prop('selected', true));
+            var indice = select[0].length;
+            select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico).attr('data-sortindex', indice++).prop('selected', true));
         });
 
         select.bootstrapDualListbox('refresh', true);
@@ -95,7 +94,6 @@ function carregaModalPlanta(id) {
 
     //Busca a planta do ID passado
     $.get('includes/getPlantasSintomas.php?id_planta=' + allPlants[id].id_plantas, function (data) {
-        console.log(allPlants[id].id_plantas);
 
         var img = data[0].foto_planta.split('../');
         $('#id-modal').val(allPlants[id].id_plantas);
