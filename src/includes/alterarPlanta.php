@@ -66,16 +66,21 @@
     $apaga_sintomas = "CALL delete_associar('$id_modal')";
     $link = $conexao->conn_mysql();
     $apaga = mysqli_query($link, $apaga_sintomas);    
+    $cod_apaga = mysqli_fetch_array($apaga);
+
+    if($cod_apaga[0] == 0){
+        foreach($associar[0] as $id_sintoma){
+
+            $sql = "INSERT INTO tb_plantas_sintomas (id_plantas, id_sintomas) VALUES ('$id_modal', '$id_sintoma')";
     
-    foreach($associar[0] as $id_sintoma){
+            $link = $conexao->conn_mysql();
+            $associa = mysqli_query($link, $sql);
+        }
+    }else{
 
-        $sql = "INSERT INTO tb_plantas_sintomas (id_plantas, id_sintomas) VALUES ('$id_modal', '$id_sintoma')";
-
-        $link = $conexao->conn_mysql();
-        $associa = mysqli_query($link, $sql);
     }
 
-    $retorno = array('codigo' => 2, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' atualizada.', 'user' => $usuario, 'associa' => $associar[0], 'Apaga' => $apaga_sintomas);
+    $retorno = array('codigo' => 2, 'Usuário' => "",'mensagem' => 'Planta '. $nome_c .' atualizada.', 'user' => $usuario, 'associa' => $associar[0], 'Apaga' => $cod_apaga);
     echo json_encode($retorno);
     exit();
 ?>
