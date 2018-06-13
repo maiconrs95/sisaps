@@ -121,6 +121,7 @@ function updatePlanta() {
                     consultaplantas();
                     $('.demo2').bootstrapDualListbox('refresh');
                     validaPlanta(form);
+                    exibeMsg(data.mensagem, 'alert-success');                    
                     break;
                 case 3:
                     exibeMsg(data.mensagem, 'alert-success');
