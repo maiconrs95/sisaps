@@ -169,6 +169,6 @@ function controlaView(conteudo) {
     }
 
     else if(conteudo == 'view/pendencias.html') {
-        consultaplantas();
+        consultaplantasPendente();
     }
 }
