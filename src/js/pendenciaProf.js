@@ -73,6 +73,17 @@ function carregaPlantaPend(id) {
         
         console.log(data[0]);
 
+        $('.foto-planta').attr('src', data[0].foto_planta.split('../'));
+        $('.nome-plantac').text(data[0].nome_cientifico);
+        $('.nome-plantap').text(data[0].nome_popular);
+        $('.parte-planta').text(data[0].nome_popular);
+        $('.regiao-planta').text(data[0].nome_popular);
+        $('.principio-planta').text(data[0].nome_popular);
+        $('.contra-indicacao').text(data[0].nome_popular);
+        $('.efeitos-colaterais').text(data[0].nome_popular);
+        $('.modo-preparo').text(data[0].nome_popular);
+        $('.bibliografia').text(data[0].bibliografia);
+
         /*var img = data[0].foto_planta.split('../');
         $('#id-modal').val(allPlants[id].id_plantas);
         $('.modal-title').text(data[0].nome_cientifico);
