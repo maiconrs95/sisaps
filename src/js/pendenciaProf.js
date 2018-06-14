@@ -149,7 +149,8 @@ function carregaPlantaPend(id) {
     $.get('includes/getPlantasSintomas.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
 
         var img = data[0].foto_planta.split('../');
-
+        
+        $('.titulo-planta').text(data[0].nome_cientifico); 
         $('#id_planta').text(plantasPendentes[id].id_plantas);
         $('.foto-planta').attr('src', img[1]);
         $('.nome-plantac').text(data[0].nome_cientifico);
@@ -184,7 +185,8 @@ function carregaSintomaPend(id) {
 
         console.log(data);
 
-        $('#id_sintoma').text(data[0].id_sintomas);        
+        $('#id_sintoma').text(data[0].id_sintomas);
+        $('.titulo-sintoma').text(data[0].nome_cientifico);        
         $('.nome-sintomac').text(data[0].nome_cientifico);
         $('.nome-sintomap').text(data[0].nome_popular);
         $('.parte-corpo').text(data[0].parte_corpo);

@@ -185,6 +185,7 @@ function controlaView(conteudo) {
 
         $('.close').click(function () {
             $('label p').text('');
+            $('h5 label').text('');
             $('.sintomas-associados li').remove();
         });
 
