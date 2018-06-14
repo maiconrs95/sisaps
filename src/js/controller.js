@@ -226,7 +226,26 @@ function controlaView(conteudo) {
 
     //pendencias assistente
     else if(conteudo == 'view/revisao_assistente.html'){
-        alert('REVISÃO');
+        consultaSintomas();
+
+        $('.close').click(function () {
+            $('.alert-msg').hide();
+        });
+
+        $("#pesquisar-sintoma").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            filtraSintoma(value);
+        });
+
+        $('#update_registro').click(function () {
+            var formSintomas = document.querySelector('#update_sintoma');
+
+            if (updateCamposSintoma(formSintomas)) {
+                alterarSintoma(obtemSintomaInputs());
+            } else {
+                exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
+            }
+        });
     }
 
 }//controla view
