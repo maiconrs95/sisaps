@@ -175,3 +175,10 @@ function filtraPlantaPendente(value) {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
 }
+
+function filtraSintomaPendente(value) {
+
+    $("#sintomas-pendentes tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+}

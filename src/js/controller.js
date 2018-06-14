@@ -178,6 +178,11 @@ function controlaView(conteudo) {
             filtraPlantaPendente(value);
         });
 
+        $("#find-sintomap").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            filtraSintomaPendente(value);
+        });
+
         $('.close').click(function () {
             $('label p').text('');
             $('.sintomas-associados li').remove();
