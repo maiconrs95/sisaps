@@ -149,7 +149,7 @@ function carregaPlantaPend(id) {
     $.get('includes/getPlantasSintomas.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
 
         var img = data[0].foto_planta.split('../');
-        
+
         $('.titulo-planta').text(data[0].nome_cientifico); 
         $('#id_planta').text(plantasPendentes[id].id_plantas);
         $('.foto-planta').attr('src', img[1]);
@@ -210,6 +210,19 @@ function aprovaPlanta(id) {
     });
 }
 
+function aprovaSintoma(id) {
+
+    $.get('' + id, function (data) {
+
+        if (data.codigo == 0) {
+            consultaplantasPendente();
+            alert('Sintoma aprovado.');
+        } else {
+            alert('ERRO ao aprovar. Contate o administrador do sistema.');
+        }
+    });
+}
+
 function revisarPlanta(id, msg) {
 
     $.get('../src/includes/revisarPlanta.php?id_planta=' + id + '&comentario=' + msg, function (data) {
@@ -220,7 +233,22 @@ function revisarPlanta(id, msg) {
             alert('Planta enviada para correção.');
             $('#message-text').text("");
         } else {
-            alert('ERRO ao aprovar. Contate o administrador do sistema.');
+            alert('ERRO ao enviar. Contate o administrador do sistema.');
+        }
+    });
+}
+
+function revisarSintoma(id, msg) {
+
+    $.get('' + id + '&comentario=' + msg, function (data) {
+
+        console.log(data);
+        if (data.codigo == 0) {
+            consultaplantasPendente();
+            alert('Sintoma enviada para correção.');
+            $('#message-text').text("");
+        } else {
+            alert('ERRO ao enviar. Contate o administrador do sistema.');
         }
     });
 }
