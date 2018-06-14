@@ -194,4 +194,5 @@ function controlaView(conteudo) {
             revisarPlanta($('.id-planta-mensagem').text(), $('#message-text').val());
         });
     }
-}
+
+}//controla view

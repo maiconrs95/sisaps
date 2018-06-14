@@ -1,5 +1,6 @@
 //VARIAVEL GLOBAL QUE VAI RECEBER O DATA PARA MANIPULAR NOS MODAIS
 var plantasPendentes;
+var sintomasPendentes;
 
 //Busca os plantas pendentes cadastrados na base de dados
 function consultaplantasPendente() {
@@ -7,15 +8,34 @@ function consultaplantasPendente() {
     $.get('includes/getPlantasProfessor.php', function (data) {
 
         plantasPendentes = data;
-        $("tbody tr").remove();
-
-        console.log(data);
+        $("#tb-planta tbody tr").remove();
+        
         if (data.length == 0) {
             exibeMsg('Não há plantas pendentes de aprovação', 'alert-info');
         } else {
             $(data).each(function (i, planta) {
 
                 inserePlantasPendente(i, planta.Descricao.toLowerCase(), planta.nome_cientifico, planta.nome_user);
+            });
+        }
+    });
+}
+
+//Busca os plantas pendentes cadastrados na base de dados
+function consultasintomasPendente() {
+
+    $.get('includes/getSintomasProfessor.php', function (data) {
+
+        sintomasPendentes = data;
+        $("#tb-sintoma tbody tr").remove();
+
+        console.log(data);
+        if (data.length == 0) {
+            exibeMsg('Não há sintomas pendentes de aprovação', 'alert-info');
+        } else {
+            $(data).each(function (i, sintoma) {
+
+                inserePlantasPendente(i, sintoma.Descricao.toLowerCase(), sintoma.nome_cientifico, sintoma.nome_user);
             });
         }
     });
