@@ -16,7 +16,7 @@
     <meta name="language" content="PT-BR">
     <meta name="keywords" content="SISAPS, Plantas, Sintomas, Plantas Medicinais">
     <meta name="Classification" content="Negócios">
-    <meta name="author" content="Maicon R Silva, maiconrs95@outlook.com.br">
+    <meta name="author" content="Maicon R Silva, maiconrs95@outlook.com.br">    
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
