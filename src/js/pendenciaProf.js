@@ -207,10 +207,10 @@ function aprovaPlanta(id) {
 
 function aprovaSintoma(id) {
     console.log(id);
-    $.get('' + id, function (data) {
+    $.get('../src/includes/aprovarSintoma.php?id_sintoma=' + id, function (data) {
 
         if (data.codigo == 0) {
-            consultaplantasPendente();
+            consultasintomasPendente();
             alert('Sintoma aprovado.');
         } else {
             alert('ERRO ao aprovar. Contate o administrador do sistema.');
@@ -235,11 +235,11 @@ function revisarPlanta(id, msg) {
 
 function revisarSintoma(id, msg) {
     console.log(id);
-    $.get('' + id + '&comentario=' + msg, function (data) {
+    $.get('../src/includes/revisarSintoma.php?id_sintoma=' + id + '&comentario=' + msg, function (data) {
         
         if (data.codigo == 0) {
-            consultaplantasPendente();
-            alert('Sintoma enviada para correção.');
+            consultasintomasPendente();
+            alert('Sintoma enviado para correção.');
             $('#message-text').text("");
         } else {
             alert('ERRO ao enviar. Contate o administrador do sistema.');
