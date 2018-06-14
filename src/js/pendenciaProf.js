@@ -35,10 +35,19 @@ function consultasintomasPendente() {
         } else {
             $(data).each(function (i, sintoma) {
 
-                inserePlantasPendente(i, sintoma.Descricao.toLowerCase(), sintoma.nome_cientifico, sintoma.nome_user);
+                insereSintomasPendente(i, sintoma.Descricao.toLowerCase(), sintoma.nome_cientifico, sintoma.nome_user);
             });
         }
     });
+}
+
+//Insere as plantas que retornaram da consulta na tabela
+function insereSintomasPendente(id_planta, desc, nome_c, user) {
+
+    var corpoTabela = $("#tb-sintoma").find("tbody");
+    var linha = novaLinhaPlantaPendente(id_planta, desc, nome_c, user);
+
+    corpoTabela.append(linha);
 }
 
 //Insere as plantas que retornaram da consulta na tabela

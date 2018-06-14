@@ -171,6 +171,7 @@ function controlaView(conteudo) {
     //pendencias
     else if(conteudo == 'view/pendencias.html') {
         consultaplantasPendente();
+        consultasintomasPendente();
 
         $("#find-plantap").on("keyup", function () {
             var value = $(this).val().toLowerCase();
