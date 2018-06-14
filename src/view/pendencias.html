@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" id="aprova-planta" class="btn btn-success">Aprovar</button>
-                                            <button type="button" id="cancela-planta" class="btn btn-outline-warning" data-dismiss="modal">Revisão</button>
+                                            <button type="button" id="cancela-planta" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">Revisão</button>
                                         </div>
                                     </div>
                                 </div>
@@ -137,13 +137,13 @@
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar registro?</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar <span class="id-planta-aprova"></span>?</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body d-flex justify-content-center">
-                                            <button type="button" class="btn btn-success" style="margin-right: 5px;">Aprovar</button>
+                                            <button type="button" id="aprova-planta-modal" class="btn btn-success" style="margin-right: 5px;">Aprovar</button>
                                             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
                                         </div>
                                         <div class="modal-footer">
@@ -157,7 +157,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5><span class="id-planta-mensagem"></span>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -165,17 +165,13 @@
                                         <div class="modal-body">
                                             <form>
                                                 <div class="form-group">
-                                                    <label for="recipient-name" class="col-form-label">Itens:</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
-                                                </div>
-                                                <div class="form-group">
                                                     <label for="message-text" class="col-form-label">Mensagem:</label>
                                                     <textarea class="form-control" id="message-text"></textarea>
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">Enviar</button>
+                                            <button type="button" id="enviar-mensagem" class="btn btn-primary">Enviar</button>
                                             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
                                         </div>
                                     </div>
@@ -227,7 +223,7 @@
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar registro?</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar ?</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>

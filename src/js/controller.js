@@ -179,5 +179,13 @@ function controlaView(conteudo) {
         $('#aprova-planta').click(function (){
             aprovaPlanta($('#id_planta').text());
         });
+
+        $('#aprova-planta-modal').click(function (){
+            aprovaPlanta($('.id-planta-aprova').text());
+        });
+
+        $('#enviar-mensagem').click(function (){
+            revisarPlanta($('.id-planta-mensagem').text(), $('#message-text').val());
+        });
     }
 }
