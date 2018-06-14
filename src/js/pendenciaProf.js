@@ -187,7 +187,7 @@ function carregaSintomaPend(id) {
         $('#id_sintoma').text(sintomasPendentes[id].id_sintomas);        
         $('.nome-sintomac').text(data[0].nome_cientifico);
         $('.nome-sintomap').text(data[0].nome_popular);
-        $('.parte-corpo').text(data[0].);
+        $('.parte-corpo').text(data[0]);
         $('.causas').text(data[0].nome_popular);
         $('.tratamentos').text(data[0].nome_popular);
     });

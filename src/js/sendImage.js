@@ -32,7 +32,6 @@ function showPreview(objFileInput) {
     }
 }
 
-
 function previewing() {
 
     form = document.querySelector('#form-planta');
@@ -105,9 +104,7 @@ function updatePlanta() {
         success: function (data) {
             $('#atualiza-planta').prop('disabled', false);
             $('#cancela-planta').prop('disabled', false);
-
-            console.log(data);
-
+            
             switch (data.codigo) {
                 case 0:
                     exibeMsg(data.mensagem, 'alert-danger');

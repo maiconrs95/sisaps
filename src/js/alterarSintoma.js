@@ -13,7 +13,6 @@ function obtemSintomaInputs() {
     return sintoma_update;
 }
 
-
 //altera o usuário no sistema. recebe o id para query e os dados dos inputs para atualização
 function alterarSintoma(sintoma_update) {
 
@@ -58,7 +57,6 @@ function alterarSintoma(sintoma_update) {
     });
 };
 
-
 //valida os campos obrigatórios
 function updateCamposSintoma(formSintoma) {
 
@@ -91,7 +89,6 @@ function updateCamposSintoma(formSintoma) {
         return true;
     }
 }
-
 
 //monta a mensagem a ser exibida para o usuário
 function exibeMsg(msg, alerta) {

@@ -5,7 +5,9 @@
 
     $id_sintoma = (isset($_GET['id_sintoma'])) ? $_GET['id_sintoma'] : '' ;
 
-    $sql = "SELECT * FROM tb_sintomas where id_sintomas = $id_sintoma";
+    $sql = "SELECT  nome_cientifico, nome_popular, parte_corpo, causas, tratamentos FROM tb_sintomas ts 
+    JOIN tb_parte_corpo tpc ON tpc.id_parte_corpo = ts.id_parte_corpo
+    WHERE ts.id_status = 1";
 
     $conexao = new db();
     $link = $conexao->conn_mysql();
