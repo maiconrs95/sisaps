@@ -90,6 +90,8 @@ function carregaPlantaPend(id) {
         //Busca os sintomas associados e preenche a lista da direita (selected)
         $.get('includes/getSintomasAssociados.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
 
+            $('.sintomas-associados li').remove();
+            
             $(data).each(function (i, sintoma) {
 
                 $('.sintomas-associados').append($('<li>').text(data[i].nome_cientifico));

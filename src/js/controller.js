@@ -179,6 +179,7 @@ function controlaView(conteudo) {
 
         $('.close').click(function () {
             $('label p').text('');
+            $('.sintomas-associados li').remove();
         });
 
         $('#aprova-planta').click(function (){
