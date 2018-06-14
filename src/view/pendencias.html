@@ -54,6 +54,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Nome Erva</h5>
+                                            <span id="id_planta" class="d-none"></span>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -115,16 +116,16 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="nome d-inline">Sintomas
-                                                        <p></p>
+                                                    <label for="nome d-inline">Sintomas:
+                                                        <ul class="sintomas-associados" style="list-style: none;">
+
+                                                        </ul>
                                                     </label>
                                                 </div>
                                             </div>
-
-                                            <br />dados dos sintomas
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" id="atualiza-planta" class="btn btn-success">Aprovar</button>
+                                            <button type="button" id="aprova-planta" class="btn btn-success">Aprovar</button>
                                             <button type="button" id="cancela-planta" class="btn btn-outline-warning" data-dismiss="modal">Revisão</button>
                                         </div>
                                     </div>

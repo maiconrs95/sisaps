@@ -7,8 +7,8 @@ function consultaplantasPendente() {
     $.get('includes/getPlantasProfessor.php', function (data) {
 
         plantasPendentes = data;
-        console.log(plantasPendentes);
-        //$("tbody tr").remove();
+
+        $("tbody tr").remove();
         $(data).each(function (i, planta) {
 
             inserePlantasPendente(i, planta.Descricao.toLowerCase(), planta.nome_cientifico, planta.nome_user);
@@ -66,14 +66,12 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
 
 function carregaPlantaPend(id) {
 
-    console.log(plantasPendentes[id]);
-
     //Busca a planta do ID passado
     $.get('includes/getPlantasSintomas.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
-        
-        console.log(data[0]);    
+
         var img = data[0].foto_planta.split('../');
-        
+
+        $('#id_planta').text(plantasPendentes[id].id_plantas);
         $('.foto-planta').attr('src', img[1]);
         $('.nome-plantac').text(data[0].nome_cientifico);
         $('.nome-plantap').text(data[0].nome_popular);
@@ -85,21 +83,25 @@ function carregaPlantaPend(id) {
         $('.modo-preparo').text(data[0].nome_popular);
         $('.bibliografia').text(data[0].bibliografia);
 
-        /*var img = data[0].foto_planta.split('../');
-        $('#id-modal').val(allPlants[id].id_plantas);
-        $('.modal-title').text(data[0].nome_cientifico);
-        $('#previewing').attr('src', img[1]);
-        $('#nome_popular').val(data[0].nome_popular);
-        $('#nome_cientifico').val(data[0].nome_cientifico);
+    //Busca os sintomas associados e preenche a lista da direita (selected)
+    $.get('includes/getSintomasAssociados.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
+        console.log(data[0]);        
+        $(data).each(function (i, sintoma) {
 
-        $('<option>').val(data[0].id_parte_planta).text(data[0].parte_planta).attr('selected', 'true').appendTo($('#parte_planta'));
+            $('.sintomas-associados').append($('<li>').text(data[i].nome_cientifico));
+        });
+    });
 
-        $('#regiao').val(data[0].regiao);
-        $('#principio_ativo').val(data[0].principio_efeitos);
-        $('#cuidados').val(data[0].cuidados);
-        $('#efeitos').val(data[0].efeitos_colaterais);
-        $('#modo_preparo').val(data[0].modo_preparo);
-        $('#bibliografia').val(data[0].bibliografia);*/
+    });
+}
 
+function aprovaPlanta(id) {
+
+    $.get('../src/includes/aprovarPlanta.php?id_planta=' + id, function(data) {
+
+        if(data.codigo == 0){
+            consultaplantasPendente();
+            alert('Planta aprovada.');
+        }
     });
 }

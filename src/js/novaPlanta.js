@@ -104,7 +104,7 @@ function obtemSintomas() {
             preserveSelectionOnMove: 'moved',
             nonSelectedListLabel: 'Não associado:',
             selectedListLabel: 'Associado:',
-            moveOnSelect: false,
+            moveOnSelect: true,
             nonSelectedFilter: ''
         });
 

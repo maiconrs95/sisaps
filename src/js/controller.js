@@ -168,11 +168,16 @@ function controlaView(conteudo) {
         });
     }
 
+    //pendencias
     else if(conteudo == 'view/pendencias.html') {
         consultaplantasPendente();
 
         $('.close').click(function () {
             $('label p').text('');
+        });
+
+        $('#aprova-planta').click(function (){
+            aprovaPlanta($('#id_planta').text());
         });
     }
 }
