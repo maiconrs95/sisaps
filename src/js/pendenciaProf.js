@@ -51,10 +51,10 @@ function inserePlantasPendente(id_planta, desc, nome_c, user) {
 }
 
 //Insere as plantas que retornaram da consulta na tabela
-function insereSintomasPendente(id_planta, desc, nome_c, user) {
+function insereSintomasPendente(id_sintoma, desc, nome_c, user) {
 
     var corpoTabela = $("#tb-sintoma").find("tbody");
-    var linha = novaLinhaSintomaPendente(id_planta, desc, nome_c, user);
+    var linha = novaLinhaSintomaPendente(id_sintoma, desc, nome_c, user);
 
     corpoTabela.append(linha);
 }
@@ -208,6 +208,13 @@ function carregaPlantaId(id) {
     console.log(plantasPendentes[id].id_plantas);
     $('.id-planta-aprova').text(plantasPendentes[id].id_plantas);
     $('.id-planta-mensagem').text(plantasPendentes[id].id_plantas);
+}
+
+function carregaSintomaId(id) {
+
+    console.log(sintomasPendentes[id].id_sintomas);
+    $('.id-sintoma-aprova').text(sintomasPendentes[id].id_sintomas);
+    $('.id-sintoma-mensagem').text(sintomasPendentes[id].id_sintomas);
 }
 
 function filtraPlantaPendente(value) {
