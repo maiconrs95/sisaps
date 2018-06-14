@@ -133,3 +133,10 @@ function carregaPlantaId(id) {
     $('.id-planta-aprova').text(plantasPendentes[id].id_plantas);
     $('.id-planta-mensagem').text(plantasPendentes[id].id_plantas);
 }
+
+function filtraPlantaPendente(value) {
+
+    $("#plantas-pendentes tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+}

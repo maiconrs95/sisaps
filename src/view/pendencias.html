@@ -10,7 +10,6 @@
     </div>
     <!-- *** end row título *** -->
 
-
     <!-- =========================
         row campos para cadastro
     ============================== -->
@@ -30,6 +29,15 @@
 
                 <!-- PLANTAS PENDENTES -->
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                    <div class="row mb-2 mt-2">
+                        <div class="col-md-3 mt-1">
+                            <div class="input-group">
+                                <input id="find-plantap" class="form-control" type="search" placeholder="Pesquisar planta" aria-label="Search">
+                            </div>
+                        </div>                        
+                    </div>
+
                     <div class="row">
                         <div class="col-md-12 mx-auto table-responsive-sm">
                             <table id="tb-planta" class="table">
@@ -44,7 +52,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="plantas-pendentes">
-                     
+
                                 </tbody>
                             </table>
                             <section class="row alert-msg mt-0 mb-0"></section>
@@ -138,7 +146,8 @@
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar <span class="id-planta-aprova d-none"></span>?</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar
+                                                <span class="id-planta-aprova d-none"></span>?</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -158,7 +167,8 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5><span class="id-planta-mensagem"></span>
+                                            <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                                            <span class="id-planta-mensagem"></span>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
