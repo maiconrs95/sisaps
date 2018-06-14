@@ -182,14 +182,16 @@ function carregaSintomaPend(id) {
     //Busca a planta do ID passado
     $.get('includes/getSintomaPendente.php?id_sintoma=' + sintomasPendentes[id].id_sintomas, function (data) {
 
-        console.log(data);
+        console.log(sintomasPendentes[id].id_sintomas);
 
-        $('#id_sintoma').text(sintomasPendentes[id].id_sintomas);        
+        $('#id_sintoma').text(data[0].id_sintomas);        
         $('.nome-sintomac').text(data[0].nome_cientifico);
         $('.nome-sintomap').text(data[0].nome_popular);
-        $('.parte-corpo').text(data[0]);
+        $('.parte-corpo').text(data[0].parte_corpo);
         $('.causas').text(data[0].nome_popular);
         $('.tratamentos').text(data[0].nome_popular);
+
+        console.log(id);
     });
 }
 
