@@ -197,6 +197,10 @@ function controlaView(conteudo) {
             aprovaPlanta($('.id-planta-aprova').text());
         });
 
+        $('#cancela-planta').click(function (){
+            $('.id-planta-mensagem').text($('#id_planta').text());        
+        });
+
         $('#enviar-mensagem').click(function (){
             revisarPlanta($('.id-planta-mensagem').text(), $('#message-text').val());
         });
@@ -212,6 +216,11 @@ function controlaView(conteudo) {
         $('#enviar-mensagem-sintoma').click(function (){
             console.log($('.id-sintoma-mensagem').text(), $('#message-text-sintoma').val());
         });
+
+        $('#cancela-sintoma').click(function (){
+            $('.id-sintoma-mensagem').text($('#id_sintoma').text());            
+        });
+
     }
 
 }//controla view

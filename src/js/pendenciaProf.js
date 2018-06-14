@@ -28,8 +28,7 @@ function consultasintomasPendente() {
 
         sintomasPendentes = data;
         $("#tb-sintoma tbody tr").remove();
-
-        console.log(data);
+        
         if (data.length == 0) {
             exibeMsg('Não há sintomas pendentes de aprovação', 'alert-info');
         } else {
@@ -183,8 +182,6 @@ function carregaSintomaPend(id) {
     //Busca a planta do ID passado
     $.get('includes/getSintomaPendente.php?id_sintoma=' + sintomasPendentes[id].id_sintomas, function (data) {
 
-        console.log(data);
-
         $('#id_sintoma').text(data[0].id_sintomas);
         $('.titulo-sintoma').text(data[0].nome_cientifico);        
         $('.nome-sintomac').text(data[0].nome_cientifico);
@@ -192,8 +189,6 @@ function carregaSintomaPend(id) {
         $('.parte-corpo').text(data[0].parte_corpo);
         $('.causas').text(data[0].nome_popular);
         $('.tratamentos').text(data[0].nome_popular);
-
-        console.log(id);
     });
 }
 
@@ -241,8 +236,7 @@ function revisarPlanta(id, msg) {
 function revisarSintoma(id, msg) {
 
     $.get('' + id + '&comentario=' + msg, function (data) {
-
-        console.log(data);
+        
         if (data.codigo == 0) {
             consultaplantasPendente();
             alert('Sintoma enviada para correção.');
