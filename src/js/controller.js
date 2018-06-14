@@ -168,7 +168,7 @@ function controlaView(conteudo) {
         });
     }
 
-    //pendencias
+    //pendencias professor
     else if(conteudo == 'view/pendencias.html') {
         consultaplantasPendente();
         consultasintomasPendente();
@@ -222,6 +222,11 @@ function controlaView(conteudo) {
             $('.id-sintoma-mensagem').text($('#id_sintoma').text());            
         });
 
+    }
+
+    //pendencias assistente
+    else if(conteudo == 'view/revisao_assistente.html'){
+        alert('REVISÃO');
     }
 
 }//controla view
