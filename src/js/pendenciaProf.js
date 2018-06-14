@@ -176,6 +176,23 @@ function carregaPlantaPend(id) {
     });
 }
 
+
+function carregaSintomaPend(id) {
+
+    //Busca a planta do ID passado
+    $.get('includes/getSintomaPendente.php?id_sintoma=' + sintomasPendentes[id].id_sintomas, function (data) {
+
+        console.log(data);
+
+        $('#id_sintoma').text(sintomasPendentes[id].id_sintomas);        
+        $('.nome-sintomac').text(data[0].nome_cientifico);
+        $('.nome-sintomap').text(data[0].nome_popular);
+        $('.parte-corpo').text(data[0].);
+        $('.causas').text(data[0].nome_popular);
+        $('.tratamentos').text(data[0].nome_popular);
+    });
+}
+
 function aprovaPlanta(id) {
 
     $.get('../src/includes/aprovarPlanta.php?id_planta=' + id, function (data) {
