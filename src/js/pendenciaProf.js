@@ -21,7 +21,7 @@ function consultaplantasPendente() {
     });
 }
 
-//Busca os plantas pendentes cadastrados na base de dados
+//Busca os sintomas pendentes cadastrados na base de dados
 function consultasintomasPendente() {
 
     $.get('includes/getSintomasProfessor.php', function (data) {
@@ -41,7 +41,7 @@ function consultasintomasPendente() {
     });
 }
 
-//Insere as plantas que retornaram da consulta na tabela
+//Insere as plantas que retornaram da consulta na tabela planta
 function inserePlantasPendente(id_planta, desc, nome_c, user) {
 
     var corpoTabela = $("#tb-planta").find("tbody");
@@ -50,7 +50,7 @@ function inserePlantasPendente(id_planta, desc, nome_c, user) {
     corpoTabela.append(linha);
 }
 
-//Insere as plantas que retornaram da consulta na tabela
+//Insere as plantas que retornaram da consulta na tabela sintoma
 function insereSintomasPendente(id_sintoma, desc, nome_c, user) {
 
     var corpoTabela = $("#tb-sintoma").find("tbody");
@@ -59,7 +59,7 @@ function insereSintomasPendente(id_sintoma, desc, nome_c, user) {
     corpoTabela.append(linha);
 }
 
-//Cria as linhas que serão adicionada na tabela
+//Cria as linhas que serão adicionada na tabela planta
 function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
 
     var linha = $("<tr>").attr('id', id_planta);
@@ -100,7 +100,8 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
 
     return linha;
 }
-//Cria as linhas que serão adicionada na tabela
+
+//Cria as linhas que serão adicionada na tabela sintoma
 function novaLinhaSintomaPendente(id_sintoma, desc, nome_c, user) {
 
     var linha = $("<tr>").attr('id', id_sintoma);
@@ -204,15 +205,13 @@ function revisarPlanta(id, msg) {
 }
 
 function carregaPlantaId(id) {
-
-    console.log(plantasPendentes[id].id_plantas);
+    
     $('.id-planta-aprova').text(plantasPendentes[id].id_plantas);
     $('.id-planta-mensagem').text(plantasPendentes[id].id_plantas);
 }
 
 function carregaSintomaId(id) {
-
-    console.log(sintomasPendentes[id].id_sintomas);
+    
     $('.id-sintoma-aprova').text(sintomasPendentes[id].id_sintomas);
     $('.id-sintoma-mensagem').text(sintomasPendentes[id].id_sintomas);
 }
