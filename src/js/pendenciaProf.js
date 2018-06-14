@@ -11,7 +11,7 @@ function consultaplantasPendente() {
 
         console.log(data);
         if (data.length == 0) {
-            alert('Não há plantas pendentes.');
+            exibeMsg('Não há plantas pendentes de aprovação', 'alert-info');
         } else {
             $(data).each(function (i, planta) {
 
