@@ -182,7 +182,7 @@ function carregaSintomaPend(id) {
     //Busca a planta do ID passado
     $.get('includes/getSintomaPendente.php?id_sintoma=' + sintomasPendentes[id].id_sintomas, function (data) {
 
-        console.log(sintomasPendentes[id].id_sintomas);
+        console.log(data);
 
         $('#id_sintoma').text(data[0].id_sintomas);        
         $('.nome-sintomac').text(data[0].nome_cientifico);

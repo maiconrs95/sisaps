@@ -7,7 +7,7 @@
 
     $sql = "SELECT id_sintomas, nome_cientifico, nome_popular, parte_corpo, causas, tratamentos FROM tb_sintomas ts 
     JOIN tb_parte_corpo tpc ON tpc.id_parte_corpo = ts.id_parte_corpo
-    WHERE ts.id_status = 1";
+    WHERE id_sintomas = $id_sintoma";
 
     $conexao = new db();
     $link = $conexao->conn_mysql();
