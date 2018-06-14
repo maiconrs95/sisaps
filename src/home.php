@@ -119,6 +119,12 @@
                                     <span class="hidden-sm-down">  Pendências</span>
                                 </a>
                             </span>
+                            <span id="assistente-section">
+                                <a id="revisao_assistente" class="nav-link side-nav" href="#">
+                                    <i class="fas fa-exclamation"></i>
+                                    <span class="hidden-sm-down">Revisão</span>
+                                </a>
+                            </span>
                         </li>
                     </ul>
                 </nav>

@@ -1,0 +1,338 @@
+<!-- =========================
+    container content
+============================== -->
+<div class="contaier mt-3 pt-0 p-4">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <h3>Revisões</h3>
+                <hr class="mt-4 mb-4">
+            </div>
+        </div>
+        <!-- *** end row título *** -->
+    
+        <!-- =========================
+            row campos para cadastro
+        ============================== -->
+        <div class="row">
+            <div class="col-md-12">
+    
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+                            aria-selected="true">Plantas</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">Sintomas</a>
+                    </div>
+                </nav>
+    
+                <div class="tab-content" id="nav-tabContent">
+    
+                    <!-- PLANTAS PENDENTES -->
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    
+                        <div class="row mb-2 mt-2">
+                            <div class="col-md-3 mt-1">
+                                <div class="input-group">
+                                    <input id="find-plantap" class="form-control" type="search" placeholder="Pesquisar planta" aria-label="Search">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-12 mx-auto table-responsive-sm">
+                                <table id="tb-planta" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" width="20%">Status</th>
+                                            <th scope="col" width="20%">Registro</th>
+                                            <th scope="col" width="30%">Usuário</th>
+                                            <th scope="col" width="10%">Ver</th>
+                                            <th scope="col" width="10%">Aprovar</th>
+                                            <th scope="col" width="10%">Revisão</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="plantas-pendentes">
+    
+                                    </tbody>
+                                </table>
+                                <section class="row alert-msg mt-0 mb-0"></section>
+    
+                                <!-- VER PLANTA -->
+                                <div class="modal fade bd-example-modal-lg ver-planta" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title"><label class="titulo-planta"></label></h5>
+                                                <span id="id_planta" class="d-none"></span>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="text-center" style="width: 100%; height: 100px;">
+                                                            <img id="previewing" src="img/plantas/sem-foto.jpg" class="rounded foto-planta" alt="..." style="max-width: 100%; max-height: 100%">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Nome Cientifico:
+                                                            <p class="nome-plantac"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Nome Popular:
+                                                            <p class="nome-plantap"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Parte Planta:
+                                                            <p class="parte-planta"></p>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Região:
+                                                            <p class="regiao-planta"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Principio ativo e efeitos:
+                                                            <p class="principio-planta"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Contra indicações:
+                                                            <p class="contra-indicacao"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Efeitos colaterais:
+                                                            <p class="efeitos-colaterais"></p>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="nome d-inline">Modo de preparo:
+                                                            <p class="modo-preparo"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="nome d-inline">Bibliografia
+                                                            <p class="bibliografia"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="nome d-inline">Sintomas:
+                                                            <ul class="sintomas-associados" style="list-style: none;">
+    
+                                                            </ul>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="aprova-planta" class="btn btn-success">Aprovar</button>
+                                                <button type="button" id="cancela-planta" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">Revisão</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- MODAL OK -->
+                                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Aprovar
+                                                    <span class="id-planta-aprova d-none"></span>?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body d-flex justify-content-center">
+                                                <button type="button" id="aprova-planta-modal" class="btn btn-success" style="margin-right: 5px;">Aprovar</button>
+                                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                            <div class="modal-footer">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- MODAL RETORNO -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                                                <span class="id-planta-mensagem d-none"></span>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="col-form-label">Mensagem:</label>
+                                                        <textarea class="form-control" id="message-text"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="enviar-mensagem" class="btn btn-primary">Enviar</button>
+                                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+    
+                    </div>
+                    <!-- TAB PANE PLANTAS -->
+    
+                    <!-- SINTOMAS PENDENTES -->
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    
+                        <div class="row mb-2 mt-2">
+                            <div class="col-md-3 mt-1">
+                                <div class="input-group">
+                                    <input id="find-sintomap" class="form-control" type="search" placeholder="Pesquisar sintoma" aria-label="Search">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-12 mx-auto">
+    
+                                <table id="tb-sintoma" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" width="20%">Status</th>
+                                            <th scope="col" width="20%">Registro</th>
+                                            <th scope="col" width="30%">Usuário</th>
+                                            <th scope="col" width="10%">Ver</th>
+                                            <th scope="col" width="10%">Aprovar</th>
+                                            <th scope="col" width="10%">Revisão</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sintomas-pendentes">
+    
+                                    </tbody>
+                                </table>
+    
+                                <section class="row alert-msg mt-0 mb-0"></section>
+    
+                                <!-- VER SINTOMA -->
+                                <div class="modal fade bd-example-modal-lg ver-sintoma" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title"><label class="titulo-sintoma"></label></h5>
+                                                <span id="id_sintoma" class="d-none"></span>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Nome Cientifico:
+                                                            <p class="nome-sintomac"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Nome Popular:
+                                                            <p class="nome-sintomap"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Parte corpo:
+                                                            <p class="parte-corpo"></p>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Causas:
+                                                            <p class="causas"></p>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="nome d-inline">Tratamentos:
+                                                            <p class="tratamentos"></p>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="aprova-sintoma" class="btn btn-success">Aprovar</button>
+                                                <button type="button" id="cancela-sintoma" class="btn btn-outline-warning" data-toggle="modal" id="revisa-sintoma" data-target=".revisa-sintoma">Revisão</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- MODAL OK -->
+                                <div class="modal fade bd-example-modal-sm aprova-sintoma" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Aprovar 
+                                                        <span class="id-sintoma-aprova d-none"></span>?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body d-flex justify-content-center">
+                                                <button type="button" id="aprova-sintoma-modal" class="btn btn-success" style="margin-right: 5px;">Aprovar</button>
+                                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                            <div class="modal-footer">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- MODAL RETORNO -->
+                                <div class="modal fade revisa-sintoma" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                                                <span class="id-sintoma-mensagem d-none"></span>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="col-form-label">Mensagem:</label>
+                                                        <textarea class="form-control" id="message-text-sintoma"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="enviar-mensagem-sintoma" class="btn btn-primary">Enviar</button>
+                                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TAB PANE SINTOMAS -->
+                </div>
+                <!-- TAB CONTENT -->
+            </div>
+            <!-- COL -->
+        </div>
+        <!-- ROW -->
+    </div>
