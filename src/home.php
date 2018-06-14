@@ -232,6 +232,9 @@
     <!-- PENDENCIAS PROFESSOR-->
     <script src="./js/pendenciaProf.js"></script>
 
+    <!-- PENDENCIAS ASSISTENTE -->
+    <script src="./js/assistenteSintomas.js"></script>
+
     <!-- SINTOMAS -->
     <script src="./js/novoSintoma.js"></script>
     <script src="./js/consultaSintoma.js"></script>

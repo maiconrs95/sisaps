@@ -226,7 +226,7 @@ function controlaView(conteudo) {
 
     //pendencias assistente
     else if(conteudo == 'view/revisao_assistente.html'){
-        consultaSintomas();
+        consultaSintomasPendentes();
 
         $('.close').click(function () {
             $('.alert-msg').hide();
