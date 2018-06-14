@@ -204,17 +204,18 @@ function controlaView(conteudo) {
         $('#enviar-mensagem').click(function (){
             revisarPlanta($('.id-planta-mensagem').text(), $('#message-text').val());
         });
+        
 
         $('#aprova-sintoma').click(function (){
-            console.log($('#id_sintoma').text());
+            aprovaSintoma($('#id_sintoma').text());
         });
 
         $('#aprova-sintoma-modal').click(function (){
-            console.log($('.id-sintoma-aprova').text());
+            aprovaSintoma($('.id-sintoma-aprova').text());
         });
 
         $('#enviar-mensagem-sintoma').click(function (){
-            console.log($('.id-sintoma-mensagem').text(), $('#message-text-sintoma').val());
+            revisarSintoma($('.id-sintoma-mensagem').text(), $('#message-text-sintoma').val());
         });
 
         $('#cancela-sintoma').click(function (){
