@@ -8,6 +8,7 @@
    
     require_once('conexao.php');
 
+    $id_usuario     = $_SESSION['id'];
     $id             = (isset($_POST['id'])) ? $_POST['id'] : '' ;
     $nome_c         = (isset($_POST['nome_c'])) ? $_POST['nome_c'] : '' ;
     $nome_p         = (isset($_POST['nome_p'])) ? $_POST['nome_p'] : '' ;
@@ -28,7 +29,7 @@
         $dados_usuario = mysqli_fetch_array($result_id);
         
             //ATUALIZA OS DADOS DO SINTOMA NO SISTEMA
-            $sql = "UPDATE tb_sintomas SET nome_cientifico = '$nome_c', nome_popular = '$nome_p', causas = '$causas', tratamentos =             '$tratamentos', id_parte_corpo = $parte_sintoma WHERE id_sintomas = $id";
+            $sql = "UPDATE tb_sintomas SET nome_cientifico = '$nome_c', nome_popular = '$nome_p', causas = '$causas', tratamentos ='$tratamentos', id_parte_corpo = $parte_sintoma, id_status = '1', nome_cientifico_comp = '$nome_c', comentarios = 'Pendente de aprovação.', id_user = '$id_usuario' WHERE id_sintomas = $id";
            
             $result_id = mysqli_query($link, $sql);
 
