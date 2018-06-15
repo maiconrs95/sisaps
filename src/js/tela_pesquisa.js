@@ -3,7 +3,7 @@ var plantasPendentes;
 var sintomasPendentes;
 
 //Busca os plantas pendentes cadastrados na base de dados
-function consultaplantasPendente() {
+function plantasAtivas() {
 
     $.get('includes/getPlantasAtivas.php', function (data) {
 
@@ -16,15 +16,7 @@ function consultaplantasPendente() {
             $('.plantas-pendentes').show();
         } else {
             $(data).each(function (i, planta) {
-
-                $.get('includes/getSintomasAssociados.php?id_planta=' + planta.id_plantas, function (data) {                       
-                    console.log(data); 
-                    $(data).each(function (i, sintoma) {
-
-                        $('.sintomas-associados').append($('<li>').text(data[i].nome_cientifico));
-                    });
-                });
-                                                
+                
                 //inserePlantasPendente(i, planta.Descricao.toLowerCase(), planta.nome_cientifico, planta.nome_user);
             });
         }
@@ -44,11 +36,11 @@ function inserePlantasPendente(id_planta, desc, nome_c, user) {
 function listaPlantas(imagem, nome_c, nome_p, sintomas) {
 
     var linha = $("<tr>").attr('id', id_planta);
-    var colunaImg = $("<th>").text(desc).attr("width", '30%');
-    var colunaNome = $("<td>").text(nome_c).attr("width", '30%');
-    var conlunaSintoma = $("<td>").text(user).attr("width", '30%');
+    var colunaImg = $("<th>").attr("width", '30%');
+    var colunaNome = $("<td>").attr("width", '30%');
+    var conlunaSintoma = $("<td>").attr("width", '30%');
     var coluarVer = $("<td>").attr("width", '10%');
-    
+
 
     if (desc == 'pendente') {
         colunaStatus.attr('class', 'pendente');
@@ -57,26 +49,19 @@ function listaPlantas(imagem, nome_c, nome_p, sintomas) {
     var edit = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.ver-planta').attr('onclick', 'carregaPlantaPend(parentNode.parentNode.id)');
     var iEdit = $("<i>").addClass("fas fa-edit fa-2x editar");
 
-    var aprova = $("<a>").attr("href", "#").addClass('aprovar-planta btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.bd-example-modal-sm').attr('onclick', 'carregaPlantaId(parentNode.parentNode.id)');
-    var iAprova = $("<i>").addClass("fas fa-check-circle fa-2x ativo");
+    //Primeira TH(imagem)
+    var divImg = $('div').attr('class', 'text-left');
+    var img = $('img').attr('src', imagem).attr('class', 'rounded');
+    divImg.append('<strong>Imagem:</strong>');
+    divImg.append(img);
 
-    var revisa = $("<a>").attr("href", "#").addClass('revisar-planta btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '#exampleModal').attr('onclick', 'carregaPlantaId(parentNode.parentNode.id)');
-    var Irevisa = $("<i>").addClass("fas fa-window-close fa-2x pendente");
+    colunaNome.append('<strong>Nome:</strong>');
+    colunaNome.append('<p>' + nome_p + '</p>');
+    colunaNome.append('<p>' + nome_c + '</p>');
 
-    edit.append(iEdit);
-    aprova.append(iAprova);
-    revisa.append(Irevisa);
+    conlunaSintoma.append('<strong>Sintomas:</strong>');
 
-    colunaEdit.append(edit);
-    colunaAprova.append(aprova);
-    colunaRevisa.append(revisa);
-
-    linha.append(colunaStatus);
-    linha.append(colunaNome);
-    linha.append(colunaUsuario);
-    linha.append(colunaEdit);
-    linha.append(colunaAprova);
-    linha.append(colunaRevisa);
+    //linha.append(colunaRevisa);
 
     return linha;
 }
