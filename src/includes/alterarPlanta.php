@@ -24,7 +24,7 @@
 
     if(!is_uploaded_file($_FILES['arquivo']['tmp_name'])){
         
-        $targetPath = "";
+        $targetPath = '5';
 
     }else{
 

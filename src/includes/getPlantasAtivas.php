@@ -3,8 +3,13 @@
 header("Content-Type:" .  "application/json");
 require_once('conexao.php');
 
-$sql = "SELECT tp.id_plantas, Descricao, nome_cientifico, nome_user FROM tb_plantas as tp JOIN tb_user as tu ON tu.id_user = tp.id_user JOIN tb_status ts ON ts.id_status = tp.id_status
-Where tp.id_status = 3";
+$sql = "SELECT tp.nome_cientifico, tp.nome_popular, ts.nome_cientifico, foto_planta, modo_preparo, cuidados, efeitos_colaterais, 
+principio_efeitos, bibliografia, regiao, tp.id_parte_planta ,parte_planta 
+
+from tb_plantas tp 
+join tb_parte_planta tpp on tpp.id_parte_planta = tp.id_parte_planta 
+join tb_plantas_sintomas tps on tps.id_plantas = tp.id_plantas
+join tb_sintomas ts on ts.id_sintomas = tps.id_sintomas";
 
 $conexao = new db();
 $link = $conexao->conn_mysql();
