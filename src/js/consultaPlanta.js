@@ -72,9 +72,10 @@ function carregaModalPlanta(id) {
     });
 
     //Busca os sintomas da lista de opções e preenche a lista da esquerda
-    $.get('includes/buscaSintomas.php', function (data) {
+    $.get('includes/buscaSintomasAtivos.php', function (data) {
 
-        $(data).each(function (i, user) {            
+        $(data).each(function (i, user) {
+                                
             select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico));
         });
 

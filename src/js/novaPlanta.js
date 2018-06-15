@@ -92,7 +92,7 @@ function limpaPlanta(form) {
 
 function obtemSintomas() {
     
-    $.get('includes/buscaSintomas.php', function (data) {
+    $.get('includes/buscaSintomasAtivos.php', function (data) {
 
         var select = $('.demo2');
         $(data).each(function (i, user) {
