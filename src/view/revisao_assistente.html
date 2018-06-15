@@ -2,106 +2,162 @@
     container content
 ============================== -->
 <div class="contaier mt-3 pt-0 p-4">
-        <div class="row">
-            <div class="col-md-12 mx-auto">
-                <h3>Revisões</h3>
-                <hr class="mt-4 mb-4">
-            </div>
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <h3>Revisões</h3>
+            <hr class="mt-4 mb-4">
         </div>
-        <!-- *** end row título *** -->
-    
-        <!-- =========================
+    </div>
+    <!-- *** end row título *** -->
+
+    <!-- =========================
             row campos para cadastro
         ============================== -->
-        <div class="row">
-            <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 
-                <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
-                            aria-selected="true">Plantas</a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
-                            aria-selected="false">Sintomas</a>
-                    </div>
-                </nav>
-    
-                <div class="tab-content" id="nav-tabContent">
-    
-                    <!-- PLANTAS PENDENTES -->
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    
-                        <div class="row mb-2 mt-2">
-                            <div class="col-md-3 mt-1">
-                                <div class="input-group">
-                                    <input id="find-plantap" class="form-control" type="search" placeholder="Pesquisar planta" aria-label="Search">
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="row">
-                            <div class="col-md-12 mx-auto table-responsive-sm">
-                                <table id="tb-planta" class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" width="20%">Status</th>
-                                            <th scope="col" width="20%">Registro</th>
-                                            <th scope="col" width="30%">Usuário</th>
-                                            <th scope="col" width="10%">Ver</th>
-                                            <th scope="col" width="10%">Aprovar</th>
-                                            <th scope="col" width="10%">Revisão</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="plantas-pendentes">
-    
-                                    </tbody>
-                                </table>
-                                <section class="row alert-msg mt-0 mb-0"></section>
-    
-                            </div>
-                        </div>
-                    </div>
-                    <!-- TAB PANE PLANTAS -->
-    
-                    <!-- SINTOMAS PENDENTES -->
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-    
-                        <div class="row mb-2 mt-2">
-                            <div class="col-md-3 mt-1">
-                                <div class="input-group">
-                                    <input id="find-sintomap" class="form-control" type="search" placeholder="Pesquisar sintoma" aria-label="Search">
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="row">
-                            <div class="col-md-12 mx-auto">
-    
-                                <table id="tb-sintoma" class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" width="20%">Status</th>
-                                            <th scope="col" width="20%">Registro</th>
-                                            <th scope="col" width="30%">Usuário</th>
-                                            <th scope="col" width="10%">Ver</th>
-                                            <th scope="col" width="10%">Aprovar</th>
-                                            <th scope="col" width="10%">Revisão</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="sintomas-pendentes">
-    
-                                    </tbody>
-                                </table>
-    
-                                <section class="row alert-msg mt-0 mb-0"></section>
-    
-                            </div>
-                        </div>
-                    </div>
-                    <!-- TAB PANE SINTOMAS -->
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+                        aria-selected="true">Plantas</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+                        aria-selected="false">Sintomas</a>
                 </div>
-                <!-- TAB CONTENT -->
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+
+                <!-- PLANTAS PENDENTES -->
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                    <div class="row mb-2 mt-2">
+                        <div class="col-md-3 mt-1">
+                            <div class="input-group">
+                                <input id="find-plantap" class="form-control" type="search" placeholder="Pesquisar planta" aria-label="Search">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 mx-auto table-responsive-sm">
+                            <table id="tb-planta-pendente" class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="20%">Status</th>
+                                        <th scope="col" width="20%">Registro</th>
+                                        <th scope="col" width="30%">Usuário</th>
+                                        <th scope="col" width="10%">Ver</th>
+                                        <th scope="col" width="10%">Aprovar</th>
+                                        <th scope="col" width="10%">Revisão</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="plantas-pendentes">
+
+                                </tbody>
+                            </table>
+                            <section class="row alert-msg mt-0 mb-0"></section>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- TAB PANE PLANTAS -->
+
+                <!-- SINTOMAS PENDENTES -->
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                    <div class="row mb-2 mt-2">
+                        <div class="col-md-3 mt-1">
+                            <div class="input-group">
+                                <input id="find-sintomap" class="form-control" type="search" placeholder="Pesquisar sintoma" aria-label="Search">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 mx-auto">
+
+                            <table id="tb-sintoma-pendente" class="table table-responsive-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="10%">+</th>
+                                        <th scope="col" width="20%">Status</th>
+                                        <th scope="col" width="30%">Registro</th>
+                                        <th scope="col" width="40%">Comentário</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sintomas-pendentes">
+
+                                </tbody>
+                            </table>
+
+                            <section class="row alert-msg mt-0 mb-0"></section>
+
+                            <div class="modal fade" id="alterar-sintoma-pendente" tabindex="-1" role="dialog" aria-labelledby="alterar_sintomaLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div id="modal_header" class="modal-header">
+                                            <h5 class="modal-title">
+                                            </h5>
+                                            <span id="id_sintoma" class="d-none"></span>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <section class="row alert-msg mt-0 mb-0"></section>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+                                                    <form id="modal-sintomas-pendentes">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control obrigatorio" id="nome_cientifco_sintoma" name="nome_c" placeholder="Nome Científico">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control obrigatorio" id="nome_popular_sintoma" name="nome_p" placeholder="Nome Popular">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <select class="custom-select obrigatorio" id="parte_sintoma" name="parte_corpo">
+                                                                <option></option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="causas_sintoma">Causas</label>
+                                                            <textarea class="form-control" id="causas_sintoma" name="causas" rows="3"></textarea>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="tratamentos_sintoma">Tratamentos</label>
+                                                            <textarea class="form-control" id="tratamentos_sintoma" name="tratamentos" rows="3"></textarea>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <small id="info_modal" class="form-text text-muted">* Altere os dados e clique em confirmar para atualizar</small>
+                                                </div>
+                                            </div>
+                                            <!-- *** modal body *** -->
+                                            <div class="modal-footer">
+                                                <button id="update_registro" type="button" class="btn btn-success btn-sm">Confirmar</button>
+                                                <button id="calcel_update" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- TAB PANE SINTOMAS -->
             </div>
-            <!-- COL -->
+            <!-- TAB CONTENT -->
         </div>
-        <!-- ROW -->
+        <!-- COL -->
     </div>
+    <!-- ROW -->
+</div>

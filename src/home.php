@@ -233,7 +233,7 @@
     <script src="./js/pendenciaProf.js"></script>
 
     <!-- PENDENCIAS ASSISTENTE -->
-    <script src="./js/assistenteSintomas.js"></script>
+    <script src="./js/assistentePendencias.js"></script>
 
     <!-- SINTOMAS -->
     <script src="./js/novoSintoma.js"></script>
