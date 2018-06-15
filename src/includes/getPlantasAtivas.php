@@ -3,7 +3,7 @@
 header("Content-Type:" .  "application/json");
 require_once('conexao.php');
 
-$sql = "SELECT id_plantas, nome_cientifico, nome_popular, nome_user FROM tb_plantas tp JOIN tb_user ts ON ts.id_user = tp.id_user";
+$sql = "SELECT id_plantas, nome_cientifico, nome_popular, foto_planta, cuidados, efeitos_colaterais, principio_efeitos, regiao FROM tb_plantas tp JOIN tb_user ts ON ts.id_user = tp.id_user";
 
 $conexao = new db();
 $link = $conexao->conn_mysql();
@@ -34,7 +34,7 @@ if($result){
 
 function getSintomas($id_planta){
 
-    $sql = "SELECT tpp.id_sintomas, tpp.id_plantas, ts.nome_cientifico from tb_plantas_sintomas tpp join tb_plantas tp on tp.id_plantas = tpp.id_plantas join tb_sintomas as ts on ts.id_sintomas = tpp.id_sintomas where tpp.id_plantas = $id_planta";
+    $sql = "SELECT tpp.id_sintomas, tpp.id_plantas, ts.nome_cientifico, ts.nome_popular, ts.causas, ts.tratamentos from tb_plantas_sintomas tpp join tb_plantas tp on tp.id_plantas = tpp.id_plantas join tb_sintomas as ts on ts.id_sintomas = tpp.id_sintomas where tpp.id_plantas = $id_planta";
 
     $conexao = new db();
     $link = $conexao->conn_mysql();
@@ -44,7 +44,7 @@ function getSintomas($id_planta){
     while($linha =  mysqli_fetch_array($result, MYSQLI_ASSOC)){
         $sintomas[] = $linha;
     }
-    
+
     return $sintomas;        
 }
 
