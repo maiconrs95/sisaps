@@ -17,17 +17,15 @@ function consultaplantasPendente() {
         } else {
             $(data).each(function (i, planta) {
 
-                $.get('includes/getSintomasAssociados.php?id_planta=' + planta.id_plantas, function (data) {
-
-                    $('.sintomas-associados li').remove();
-        
+                $.get('includes/getSintomasAssociados.php?id_planta=' + planta.id_plantas, function (data) {                       
+                    console.log(data); 
                     $(data).each(function (i, sintoma) {
-                        console.log(data);
+
                         $('.sintomas-associados').append($('<li>').text(data[i].nome_cientifico));
                     });
                 });
                                                 
-                inserePlantasPendente(i, planta.Descricao.toLowerCase(), planta.nome_cientifico, planta.nome_user);
+                //inserePlantasPendente(i, planta.Descricao.toLowerCase(), planta.nome_cientifico, planta.nome_user);
             });
         }
     });
