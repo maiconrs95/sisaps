@@ -116,13 +116,17 @@
 
     <!-- Bootstrap -->
     <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script src="./vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- main js -->
-    <script src="js/main.js"></script>
+    <script src="js/tela_pesquisa.js"></script>
 
     <script>
+
+        consultaplantasPendente();
+
         $('#filtrar').change(function () {
             alert('hit');
             $('.card').show();
