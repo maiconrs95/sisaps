@@ -245,6 +245,11 @@ function controlaView(conteudo) {
             filtraSintomap(value);
         });
 
+        $("#find-plantap").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            filtraPlantap(value);
+        });
+
         $('#update_registro').click(function () {
             var formSintomas = document.querySelector('#modal-sintomas-pendentes');
 

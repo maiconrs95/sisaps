@@ -126,6 +126,14 @@ function filtraSintomap(value) {
     });
 }
 
+//filtra os sintomas na tabela
+function filtraPlantap(value) {
+
+    $("#plantas-pendentes tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+}
+
 //Abre modal
 function carregaSintomaPendente(id) {
 
