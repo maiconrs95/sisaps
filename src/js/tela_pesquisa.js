@@ -91,7 +91,7 @@ function carregaPlantaPend(id) {
 
 function filtraRegistro(value) {
 
-    $("#lista-plantas tr").filter(function () {
+    $("#lista-resultado tr").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
 }
