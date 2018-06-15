@@ -15,7 +15,9 @@ function plantasAtivas() {
         } else {
             $(data.Planta).each(function (i, planta) {
                 console.log(planta);
-                tabelaPlantas(i, 'a', planta.nome_cientifico, planta.nome_popular, 'a');
+                img = planta.foto_planta.split('../');
+                console.log(img);
+                tabelaPlantas(i, img[1], planta.nome_cientifico, planta.nome_popular, 'a');
             });           
         }
     });
@@ -34,7 +36,7 @@ function tabelaPlantas(i, imagem, nome_p, nome_c, sintomas) {
 function listaPlantas(i ,imagem, nome_c, nome_p, sintomas) {
 
     var linha = $("<tr>").attr('id', i);
-    var colunaEditar = $("<th>").attr("width", '30%').append('<div class="text-left" style="width: 100%; height: 100px;"><img id="previewing" src="img/plantas/sem-foto.jpg" class="rounded" alt="..." style="max-width: 100%; max-height: 100%"></div>');
+    var colunaEditar = $("<th>").attr("width", '30%').append('<div class="text-left" style="width: 100%; height: 100px;"><img id="previewing" src=' + imagem + ' class="rounded" alt="..." style="max-width: 100%; max-height: 100%"></div>');
 
     var colunaPlanta = $("<td>").attr("width", '30%').append('<p class="m-0">' + nome_p + '</p><p class="m-0">' + nome_c + '</p>');
     var colunaSintomas = $("<td>").attr("width", '30%').attr('class', 'd-none');
