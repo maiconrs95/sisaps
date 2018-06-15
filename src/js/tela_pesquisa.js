@@ -41,15 +41,14 @@ function inserePlantasPendente(id_planta, desc, nome_c, user) {
 }
 
 //Cria as linhas que serão adicionada na tabela planta
-function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
+function listaPlantas(imagem, nome_c, nome_p, sintomas) {
 
     var linha = $("<tr>").attr('id', id_planta);
-    var colunaStatus = $("<th>").text(desc).attr("scope", "row").attr("width", '20%');
-    var colunaNome = $("<td>").text(nome_c).attr("width", '20%');
-    var colunaUsuario = $("<td>").text(user).attr("width", '30%');
-    var colunaEdit = $("<td>").attr("width", '10%');
-    var colunaAprova = $("<td>").attr("width", '10%');
-    var colunaRevisa = $("<td>").attr("width", '10%');
+    var colunaImg = $("<th>").text(desc).attr("width", '30%');
+    var colunaNome = $("<td>").text(nome_c).attr("width", '30%');
+    var conlunaSintoma = $("<td>").text(user).attr("width", '30%');
+    var coluarVer = $("<td>").attr("width", '10%');
+    
 
     if (desc == 'pendente') {
         colunaStatus.attr('class', 'pendente');
