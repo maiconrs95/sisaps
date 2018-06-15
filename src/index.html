@@ -13,12 +13,17 @@
     <link rel="stylesheet" href="css/animate.css">
 
     <style>
-        a.btn-sucesso{                    
+        a.btn-sucesso {
             border: 1px solid #2EA900;
         }
-        a.btn:hover{
+
+        a.btn:hover {
             background: #2EA900;
             color: #ffffff !important;
+        }
+
+        .lista-planta-sintoma {
+            background: #F8F9FA;
         }
     </style>
 
@@ -27,7 +32,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <img id="logo_principal" src="./img/sisaps.logo.proposta2.png" width="110" height="30">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -38,19 +43,39 @@
 
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                    <a class="btn btn-sucesso" href="login.html" role="button">Login</a>
+                <a class="btn btn-sucesso" href="login.html" role="button">Login</a>
             </form>
         </div>
     </nav>
-    <div class="row">
-        <div class="col-12">
+
+    <div class="row mt-5">
+        <div class="col-12 p-5 mt-5">
+            <h3 class="text-center">Pesquisar planta</h3>
+            <div class="input-group mb-3 pl-5 pr-5">
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
 
         </div>
     </div>
 
-    <div class="row">
+    <div class="row p-4">
         <div class="col-12">
+            <div class="lista-planta-sintoma">
 
+                <div class="row p-3">
+                    <div class="col-md-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="img/plantas/sem-foto.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
