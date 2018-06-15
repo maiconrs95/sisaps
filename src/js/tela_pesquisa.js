@@ -15,31 +15,29 @@ function plantasAtivas() {
         } else {
             $(data.Planta).each(function (i, planta) {
                 console.log(planta);
-               
-            });
-
-            tabelaPlantas(1, 'a', 'a', 'a', 'a');
+                tabelaPlantas(i, 'a', planta.nome_cientifico, planta.nome_popular, 'a');
+            });           
         }
     });
 }
 
 //Insere as plantas que retornaram da consulta na tabela planta
-function tabelaPlantas(id_planta, imagem, nome_c, sintomas) {
+function tabelaPlantas(i, imagem, nome_p, nome_c, sintomas) {
 
     var corpoTabela = $("#resultados-pesquisa").find("tbody");
-    var linha = listaPlantas(id_planta, imagem, nome_c, sintomas);
+    var linha = listaPlantas(i, imagem, nome_p, nome_c, sintomas);
 
     corpoTabela.append(linha);
 }
 
 //Cria as linhas que serão adicionada na tabela planta
-function listaPlantas(id_planta ,imagem, nome_c, nome_p, sintomas) {
+function listaPlantas(i ,imagem, nome_c, nome_p, sintomas) {
 
-    var linha = $("<tr>");
-    var colunaEditar = $("<th>").attr("width", '30%').append('<strong>Imagem:</strong><div class="text-left" style="width: 100%; height: 100px;"><img id="previewing" src="img/plantas/sem-foto.jpg" class="rounded" alt="..." style="max-width: 100%; max-height: 100%"></div>');
+    var linha = $("<tr>").attr('id', i);
+    var colunaEditar = $("<th>").attr("width", '30%').append('<div class="text-left" style="width: 100%; height: 100px;"><img id="previewing" src="img/plantas/sem-foto.jpg" class="rounded" alt="..." style="max-width: 100%; max-height: 100%"></div>');
 
-    var colunaPlanta = $("<td>").attr("width", '30%');
-    var colunaSintomas = $("<td>").attr("width", '30%');
+    var colunaPlanta = $("<td>").attr("width", '30%').append('<p class="m-0">' + nome_p + '</p><p class="m-0">' + nome_c + '</p>');
+    var colunaSintomas = $("<td>").attr("width", '30%').attr('class', 'd-none');
     var colunaVer = $("<td>").attr("width", '10%');
 
     var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_sintomas');
@@ -91,9 +89,9 @@ function carregaPlantaPend(id) {
     });
 }
 
-function filtraPlantaPendente(value) {
+function filtraRegistro(value) {
 
-    $("#plantas-pendentes tr").filter(function () {
+    $("#lista-plantas tr").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
 }

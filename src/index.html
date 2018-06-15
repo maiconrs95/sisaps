@@ -54,7 +54,7 @@
         <div class="col-8 offset-sm-2 mt-5">
             <h3 class="text-center">Pesquisar planta</h3>
             <div class="input-group mb-3 pl-5 pr-5">
-                <input type="text" id="filtrar" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" id="filtra-registro" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="row">
                 <div class="col-4 offset-sm-4">
@@ -76,10 +76,10 @@
                         <table class="table table-borderless table-resposive-sm" id="resultados-pesquisa">
                             <thead>
                                 <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Imagem:</th>
+                                    <th scope="col">Nome:</th>
+                                    <th scope="col">Sitnomas:</th>
+                                    <th scope="col">Detalhes</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -126,14 +126,11 @@
     <script src="js/tela_pesquisa.js"></script>
 
     <script>
-
         plantasAtivas();
 
-        $('#filtrar').change(function () {
-            alert('hit');
-            $('.card').show();
-            var filter = $(this).val(); // get the value of the input, which we filter on
-            $('.container').find(".card-title:not(:contains(" + filter + "))").parent().css('display', 'none');
+        $("#filtra-registro").on("keyup", function () {            
+            var value = $(this).val().toLowerCase();
+            filtraRegistro(value);
         });
     </script>
 </body>
