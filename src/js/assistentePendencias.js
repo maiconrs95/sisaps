@@ -29,7 +29,7 @@ function consultaSintomasPendentes() {
 function consultaPlantasPendentes() {
 
     $.get('includes/buscaPlantasPendentes.php', function (data) {
-        console.log(data);
+        
         plantas_pendentes = data;
         $("#tb-planta-pendente tbody tr").remove();
 

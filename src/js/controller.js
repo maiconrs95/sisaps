@@ -235,7 +235,8 @@ function controlaView(conteudo) {
 
         consultaPlantasPendentes();
         consultaSintomasPendentes();
-
+        getPartePlanta();
+        
         $('.close').click(function () {
             $('.alert-msg').hide();
         });
