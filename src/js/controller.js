@@ -231,7 +231,9 @@ function controlaView(conteudo) {
     else if(conteudo == 'view/revisao_assistente.html'){
 
         $('.sintomas-pendentes').hide();
+        $('.plantas-pendentes').hide();
 
+        consultaPlantasPendentes();
         consultaSintomasPendentes();
 
         $('.close').click(function () {
@@ -252,6 +254,11 @@ function controlaView(conteudo) {
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
         });
+
+        $('#atualiza-planta-pendente').on('click', (function (event) {
+            //event.preventDefault();
+            updatePlanta();
+        }));
     }
 
 }//controla view

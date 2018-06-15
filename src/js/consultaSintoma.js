@@ -20,7 +20,6 @@ function consultaSintomas() {
     });
 }
 
-
 //Insere os sintomas que retornaram da consulta na tabela
 function insereSintomas(id_sintoma, sintoma, parteCorpo, nome) {
 

@@ -28,7 +28,7 @@ function consultasintomasPendente() {
 
         sintomasPendentes = data;
         $("#tb-sintoma tbody tr").remove();
-        console.log(data);
+
         if (data.length == 0) {
             $('.sintomas-pendentes').show();
         } else {
@@ -176,7 +176,6 @@ function carregaPlantaPend(id) {
     });
 }
 
-
 function carregaSintomaPend(id) {
 
     //Busca a planta do ID passado
@@ -219,10 +218,9 @@ function aprovaSintoma(id) {
 }
 
 function revisarPlanta(id, msg) {
-    console.log(id);
+
     $.get('../src/includes/revisarPlanta.php?id_planta=' + id + '&comentario=' + msg, function (data) {
 
-        console.log(data);
         if (data.codigo == 0) {
             consultaplantasPendente();
             alert('Planta enviada para correção.');
@@ -234,7 +232,7 @@ function revisarPlanta(id, msg) {
 }
 
 function revisarSintoma(id, msg) {
-    console.log(id);
+
     $.get('../src/includes/revisarSintoma.php?id_sintoma=' + id + '&comentario=' + msg, function (data) {
 
         if (data.codigo == 0) {

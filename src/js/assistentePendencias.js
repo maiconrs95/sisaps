@@ -1,5 +1,6 @@
 //Variavel Global que recebe o array com todos os sintomas
 var sintomas_pendentes;
+var plantas_pendentes;
 
 function obtemUsuarioAtualizacao(id) {
     return sintomas_pendentes[id];
@@ -9,7 +10,7 @@ function obtemUsuarioAtualizacao(id) {
 function consultaSintomasPendentes() {
 
     $.get('includes/buscaSintomasPendentes.php', function (data) {
-        console.log(data);
+
         sintomas_pendentes = data;
         $("#tb-sintoma-pendente tbody tr").remove();
 
@@ -24,11 +25,39 @@ function consultaSintomasPendentes() {
     });
 }
 
+//Busca os sintomas cadastrados na base de dados
+function consultaPlantasPendentes() {
+
+    $.get('includes/buscaPlantasPendentes.php', function (data) {
+        console.log(data);
+        plantas_pendentes = data;
+        $("#tb-sintoma-pendente tbody tr").remove();
+
+        if (data.length == 0) {
+            $('.plantas-pendentes').show();
+        } else {
+            $(data).each(function (e, planta) {
+
+                inserePlantasAssistente(e, planta.descricao.toLowerCase(), planta.nome_cientifico, planta.comentarios);
+            });
+        }
+    });
+}
+
 //Insere os sintomas que retornaram da consulta na tabela
 function insereSintomasAssistente(id_sintoma, status, registro, comentario) {
 
     var corpoTabela = $("#tb-sintoma-pendente").find("tbody");
     var linha = linhaAssistenteSintoma(id_sintoma, status, registro, comentario);
+
+    corpoTabela.append(linha);
+}
+
+//Insere os plantas que retornaram da consulta na tabela
+function inserePlantasAssistente(id_planta, status, registro, comentario) {
+
+    var corpoTabela = $("#tb-planta-pendente").find("tbody");
+    var linha = linhaAssistentePlanta(id_planta, status, registro, comentario);
 
     corpoTabela.append(linha);
 }
@@ -43,6 +72,34 @@ function linhaAssistenteSintoma(id_sintoma, status, registro, comentario) {
     var colunaComentario = $("<td>").text(comentario).attr("width", '40%');
 
     var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar-sintoma-pendente');
+    var icone = $("<i>").addClass("fas fa-search");
+
+    if(status == 'reprovado'){
+        colunaStatus.attr('class', 'negado');
+    }
+
+    link.append(icone);
+
+    colunaEditar.append(link);
+
+    linha.append(colunaEditar);
+    linha.append(colunaStatus);
+    linha.append(colunaRegistro);
+    linha.append(colunaComentario);
+
+    return linha;
+}
+
+//Cria as linhas que serão adicionada na tabela
+function linhaAssistentePlanta(id_planta, status, registro, comentario) {
+
+    var linha = $("<tr>").attr('id', id_planta).addClass('sintoma-sistema').attr('onclick', 'carregaPlantaPendente(this.id)');
+    var colunaEditar = $("<th>").attr("scope", "row").attr("width", '10%');
+    var colunaStatus = $("<td>").text(status).attr("width", '20%');
+    var colunaRegistro = $("<td>").text(registro).attr("width", '30%');
+    var colunaComentario = $("<td>").text(comentario).attr("width", '40%');
+
+    var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '.planta-pendente-ass');
     var icone = $("<i>").addClass("fas fa-search");
 
     if(status == 'reprovado'){
@@ -145,3 +202,58 @@ function alterarSintomaPendente(sintoma_update) {
         }
     });
 };
+
+//Abre modal
+function carregaPlantaPendente(id) {
+ 
+    //Zera e reconfigura o dual list
+    var select = $('.demo2');
+    select.empty();
+    var demo2 = $('.demo2').bootstrapDualListbox({
+        preserveSelectionOnMove: 'moved',
+        nonSelectedListLabel: 'Não associado:',
+        selectedListLabel: 'Associado:',
+        moveOnSelect: true,
+        nonSelectedFilter: ''
+    });
+
+    //Busca os sintomas da lista de opções e preenche a lista da esquerda
+    $.get('includes/buscaSintomas.php', function (data) {
+
+        $(data).each(function (i, user) {            
+            select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico));
+        });
+
+        select.bootstrapDualListbox('refresh', true);
+    });
+
+    //Busca os sintomas associados e preenche a lista da direita (selected)
+    $.get('includes/getSintomasAssociados.php?id_planta=' + plantas_pendentes[id].id_plantas, function (data) {        
+        $(data).each(function (i, user) {
+            var indice = select[0].length;
+            select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico).attr('data-sortindex', indice++).prop('selected', true));
+        });
+
+        select.bootstrapDualListbox('refresh', true);
+    });
+
+    //Busca a planta do ID passado
+    $.get('includes/getPlantasSintomas.php?id_planta=' + plantas_pendentes[id].id_plantas, function (data) {
+
+        var img = data[0].foto_planta.split('../');
+        $('#id-modal').val(plantas_pendentes[id].id_plantas);
+        $('.modal-title').text(data[0].nome_cientifico);
+        $('#previewing').attr('src', img[1]);
+        $('#nome_popular').val(data[0].nome_popular);
+        $('#nome_cientifico').val(data[0].nome_cientifico);
+
+        $('<option>').val(data[0].id_parte_planta).text(data[0].parte_planta).attr('selected', 'true').appendTo($('#parte_planta'));
+
+        $('#regiao').val(data[0].regiao);
+        $('#principio_ativo').val(data[0].principio_efeitos);
+        $('#cuidados').val(data[0].cuidados);
+        $('#efeitos').val(data[0].efeitos_colaterais);
+        $('#modo_preparo').val(data[0].modo_preparo);
+        $('#bibliografia').val(data[0].bibliografia);
+    });
+}

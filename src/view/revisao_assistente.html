@@ -43,19 +43,128 @@
                             <table id="tb-planta-pendente" class="table">
                                 <thead>
                                     <tr>
+                                        <th scope="col" width="10%">+</th>
                                         <th scope="col" width="20%">Status</th>
-                                        <th scope="col" width="20%">Registro</th>
-                                        <th scope="col" width="30%">Usuário</th>
-                                        <th scope="col" width="10%">Ver</th>
-                                        <th scope="col" width="10%">Aprovar</th>
-                                        <th scope="col" width="10%">Revisão</th>
+                                        <th scope="col" width="30%">Registro</th>
+                                        <th scope="col" width="40%">Comentário</th>
                                     </tr>
                                 </thead>
                                 <tbody id="plantas-pendentes">
 
                                 </tbody>
                             </table>
-                            <section class="row alert-msg mt-0 mb-0"></section>
+                            
+                            <div class="row plantas-pendentes">
+                                <div class="col-12">
+                                    <div class="alert alert-primary" role="alert">
+                                        Não há plantas para revisão.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade bd-example-modal-lg planta-pendente-ass" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Nome Erva</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <section class="row alert-msg mt-0 mb-0"></section>
+                                            
+                                            <form id='update-planta' method="post" action="../src/includes/alterarPlanta.php" enctype="multipart/form-data">
+                                                <div class="form-row">
+                                                    <div id="previwborder" class="form-group col-md-3 borda-img">
+                                                        <label for="insert_foto">Foto</label>
+                                                        <div class="text-center" style="width: 100%; height: 100px;">
+                                                            <img id="previewing" src="img/plantas/sem-foto.jpg" class="rounded" alt="..." style="max-width: 100%; max-height: 100%">
+                                                        </div>
+                                                        <div class="form-group" style="margin: 8px 0 0 16px;">
+                                                            <input type="file" class="form-control-file" style="color: #fff" name="arquivo" id="arquivo" onChange="showPreview(this);">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="nome_popular">Nome Popular
+                                                            <span class="red">*</span>
+                                                        </label>
+                                                        <input type="hidden" class="form-control obrigatorio" id="id-modal" name="id_planta">
+                                                        <input type="text" class="form-control obrigatorio" id="nome_popular" name="nome_popular" placeholder="Nome popular da planta">
+                                                        <label for="nome_cientifico" class="mt-2">Nome cientifíco
+                                                            <span class="red">*</span>
+                                                        </label>
+                                                        <input type="text" class="form-control obrigatorio" id="nome_cientifico" name="nome_cientifico" placeholder="Nome cientifíco da planta">
+                                                    </div>
+                                                    <div class="form-group col-md-5">
+                                                        <label for="parte_planta">Parte planta
+                                                        </label>
+                                                        <select class="custom-select insert_user" id="parte_planta" name="parte_planta">
+                                                            <option selected></option>
+                                                        </select>
+                
+                                                        <label for="regiao" class="mt-2">Região</label>
+                                                        <input type="text" class="form-control obrigatorio" id="regiao" name="regiao" placeholder="Região planta">
+                                                    </div>
+                                                </div>
+                                                <!-- *** form row *** -->
+                
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="principio_ativo">Principio ativo e efeitos
+                                                            <span class="red">*</span>
+                                                        </label>
+                                                        <textarea class="form-control obrigatorio" id="principio_ativo" name="principio_ativo" rows="2"></textarea>
+                                                    </div>
+                
+                                                    <div class="form-group col-md-6">
+                                                        <label for="cuidados">Cuidados e contraindicações
+                                                            <span class="red">*</span>
+                                                        </label>
+                                                        <textarea class="form-control obrigatorio" id="cuidados" name="cuidados" rows="2"></textarea>
+                                                    </div>
+                                                </div>
+                                                <!-- *** form row *** -->
+                
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="efeitos">Efeitos colaterais
+                                                            <span class="red">*</span>
+                                                        </label>
+                                                        <textarea class="form-control obrigatorio" id="efeitos" name="efeitos" rows="2"></textarea>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="modo_preparo">Modo de Preparo</label>
+                                                        <textarea class="form-control" id="modo_preparo" name="modo_preparo" rows="2"></textarea>
+                                                    </div>
+                                                </div>
+                                                <!-- *** form row *** -->
+                
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="bibliografia">Bibliografia</label>
+                                                        <textarea class="form-control" id="bibliografia" name="bibliografia" rows="2"></textarea>
+                                                    </div>
+                                                </div>
+                                                <!-- *** form row *** -->
+                
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="bibliografia">Sintomas associados</label>
+                                                        <select multiple="multiple" size="10" name="duallistbox_demo2[]" class="demo2" title="duallistbox_demo2">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" id="atualiza-planta-pendente" class="btn btn-success">Confirmar</button>
+                                            <button type="button" id="cancela-planta" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
 
                         </div>
                     </div>

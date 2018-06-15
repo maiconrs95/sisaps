@@ -132,6 +132,7 @@ th a:hover {
 }
 .negado, .red {
     color: red;
+    font-weight: bold;
 }
 .ativo {
     color: #2EA900;
