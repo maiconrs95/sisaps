@@ -52,7 +52,7 @@
         <div class="col-12 p-5 mt-5">
             <h3 class="text-center">Pesquisar planta</h3>
             <div class="input-group mb-3 pl-5 pr-5">
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" id="filtrar" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
             </div>
 
         </div>
@@ -86,6 +86,17 @@
 
     <!-- main js -->
     <script src="js/main.js"></script>
+
+    <script>
+
+        $('#filtrar').change(function () {
+            alert('hit');
+            $('.card').show();
+            var filter = $(this).val(); // get the value of the input, which we filter on
+            $('.container').find(".card-title:not(:contains(" + filter + "))").parent().css('display', 'none');
+        });
+
+    </script>
 </body>
 
 </html>
