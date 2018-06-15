@@ -3,13 +3,7 @@
 header("Content-Type:" .  "application/json");
 require_once('conexao.php');
 
-$sql = "SELECT tp.nome_cientifico, tp.nome_popular, ts.nome_cientifico, foto_planta, modo_preparo, cuidados, efeitos_colaterais, 
-principio_efeitos, bibliografia, regiao, tp.id_parte_planta ,parte_planta 
-
-from tb_plantas tp 
-join tb_parte_planta tpp on tpp.id_parte_planta = tp.id_parte_planta 
-join tb_plantas_sintomas tps on tps.id_plantas = tp.id_plantas
-join tb_sintomas ts on ts.id_sintomas = tps.id_sintomas";
+$sql = "SELECT id_plantas, nome_cientifico, nome_popular, nome_user FROM tb_plantas tp JOIN tb_user ts ON ts.id_user = tp.id_user";
 
 $conexao = new db();
 $link = $conexao->conn_mysql();
@@ -22,9 +16,14 @@ if(!$link){
 
 if($result){
     $plantaAtiva = array();
-    
+    $i = 0;
+
     while($linha =  mysqli_fetch_array($result, MYSQLI_ASSOC)){
-        $plantaAtiva[] = $linha;
+
+        $plantaAtiva['Planta'][] = $linha;
+        $plantaAtiva['Planta'][$i]['Sintomas'] = getSintomas($plantaAtiva['Planta'][$i]['id_plantas']);
+
+        $i++;
     }
 
     echo json_encode($plantaAtiva, JSON_PRETTY_PRINT);
@@ -32,4 +31,21 @@ if($result){
 } else{
     echo '[{"Erro": "Não foi possível conectar ao banco"}]';
 }
+
+function getSintomas($id_planta){
+
+    $sql = "SELECT tpp.id_sintomas, tpp.id_plantas, ts.nome_cientifico from tb_plantas_sintomas tpp join tb_plantas tp on tp.id_plantas = tpp.id_plantas join tb_sintomas as ts on ts.id_sintomas = tpp.id_sintomas where tpp.id_plantas = $id_planta";
+
+    $conexao = new db();
+    $link = $conexao->conn_mysql();
+
+    $result = mysqli_query($link, $sql);
+  
+    while($linha =  mysqli_fetch_array($result, MYSQLI_ASSOC)){
+        $sintomas[] = $linha;
+    }
+    
+    return $sintomas;        
+}
+
 ?>
