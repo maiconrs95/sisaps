@@ -170,6 +170,9 @@ function controlaView(conteudo) {
 
     //pendencias professor
     else if(conteudo == 'view/pendencias.html') {
+        $('.sintomas-pendentes').hide();
+        $('.plantas-pendentes').hide();
+
         consultaplantasPendente();
         consultasintomasPendente();
 
@@ -226,6 +229,8 @@ function controlaView(conteudo) {
 
     //pendencias assistente
     else if(conteudo == 'view/revisao_assistente.html'){
+
+        $('.sintomas-pendentes').hide();
 
         consultaSintomasPendentes();
 

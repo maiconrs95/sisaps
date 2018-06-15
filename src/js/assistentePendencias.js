@@ -14,27 +14,27 @@ function consultaSintomasPendentes() {
         $("#tb-sintoma-pendente tbody tr").remove();
 
         if (data.length == 0) {
-            exibeMsg('Não há sintomas pendentes de aprovação', 'alert-info');
+            $('.sintomas-pendentes').show();
         } else {
             $(data).each(function (i, sintoma) {
 
-                insereSintomasPendente(i, sintoma.descricao.toLowerCase(), sintoma.nome_cientifico, sintoma.comentarios);
+                insereSintomasAssistente(i, sintoma.descricao.toLowerCase(), sintoma.nome_cientifico, sintoma.comentarios);
             });
         }
     });
 }
 
 //Insere os sintomas que retornaram da consulta na tabela
-function insereSintomasPendente(id_sintoma, status, registro, comentario) {
+function insereSintomasAssistente(id_sintoma, status, registro, comentario) {
 
     var corpoTabela = $("#tb-sintoma-pendente").find("tbody");
-    var linha = novaLinhaSintomaPendente(id_sintoma, status, registro, comentario);
+    var linha = linhaAssistenteSintoma(id_sintoma, status, registro, comentario);
 
     corpoTabela.append(linha);
 }
 
 //Cria as linhas que serão adicionada na tabela
-function novaLinhaSintomaPendente(id_sintoma, status, registro, comentario) {
+function linhaAssistenteSintoma(id_sintoma, status, registro, comentario) {
 
     var linha = $("<tr>").attr('id', id_sintoma).addClass('sintoma-sistema').attr('onclick', 'carregaSintomaPendente(this.id)');
     var colunaEditar = $("<th>").attr("scope", "row").attr("width", '10%');
