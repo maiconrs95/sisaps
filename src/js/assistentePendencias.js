@@ -11,44 +11,52 @@ function consultaSintomasPendentes() {
     $.get('includes/buscaSintomasPendentes.php', function (data) {
         console.log(data);
         sintomas_pendentes = data;
-        $("tbody tr").remove();
-        $(data).each(function (i, sintoma) {
+        $("#tb-sintoma-pendente tbody tr").remove();
 
-            insereSintomasPendente(i, sintoma.nome_cientifico.toLowerCase(), sintoma.parte_corpo, sintoma.nome_popular);
-        });
+        if (data.length == 0) {
+            exibeMsg('Não há sintomas pendentes de aprovação', 'alert-info');
+        } else {
+            $(data).each(function (i, sintoma) {
 
+                insereSintomasPendente(i, sintoma.descricao.toLowerCase(), sintoma.nome_cientifico, sintoma.comentarios);
+            });
+        }
     });
 }
 
 //Insere os sintomas que retornaram da consulta na tabela
-function insereSintomasPendente(id_sintoma, sintoma, parteCorpo, nome) {
+function insereSintomasPendente(id_sintoma, status, registro, comentario) {
 
     var corpoTabela = $("#tb-sintoma-pendente").find("tbody");
-    var linha = novaLinhaSintomaPendente(id_sintoma, sintoma, parteCorpo, nome);
+    var linha = novaLinhaSintomaPendente(id_sintoma, status, registro, comentario);
 
     corpoTabela.append(linha);
 }
 
 //Cria as linhas que serão adicionada na tabela
-function novaLinhaSintomaPendente(id_sintoma, sintoma, parteCorpo, nome) {
+function novaLinhaSintomaPendente(id_sintoma, status, registro, comentario) {
 
     var linha = $("<tr>").attr('id', id_sintoma).addClass('sintoma-sistema').attr('onclick', 'carregaSintomaPendente(this.id)');
     var colunaEditar = $("<th>").attr("scope", "row").attr("width", '10%');
-    var colunaSintoma = $("<td>").text(sintoma).attr("width", '30%');
-    var colunaParteCorpo = $("<td>").text(parteCorpo).attr("width", '30%');
-    var colunaNome = $("<td>").text(nome).attr("width", '30%');
+    var colunaStatus = $("<td>").text(status).attr("width", '20%');
+    var colunaRegistro = $("<td>").text(registro).attr("width", '30%');
+    var colunaComentario = $("<td>").text(comentario).attr("width", '40%');
 
     var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar-sintoma-pendente');
     var icone = $("<i>").addClass("fas fa-search");
+
+    if(status == 'reprovado'){
+        colunaStatus.attr('class', 'negado');
+    }
 
     link.append(icone);
 
     colunaEditar.append(link);
 
     linha.append(colunaEditar);
-    linha.append(colunaSintoma);
-    linha.append(colunaParteCorpo);
-    linha.append(colunaNome);
+    linha.append(colunaStatus);
+    linha.append(colunaRegistro);
+    linha.append(colunaComentario);
 
     return linha;
 }
@@ -93,3 +101,47 @@ function parteCorpoSintoma(id) {
         });
     });
 }
+
+//altera o usuário no sistema. recebe o id para query e os dados dos inputs para atualização
+function alterarSintomaPendente(sintoma_update) {
+
+    var data = 'id=' + sintoma_update.id +
+        '&nome_c=' + sintoma_update.nome_cientifico +
+        '&nome_p=' + sintoma_update.nome_popular +
+        '&parte_corpo=' + sintoma_update.parte_sintoma +
+        '&causas=' + sintoma_update.causas +
+        '&tratamentos=' + sintoma_update.tratamentos;
+
+    $('.alert-msg').hide();
+
+    $.ajax({
+        type: 'POST',
+        url: 'includes/alterarSintoma.php',
+        data: data,
+        dataType: 'json',
+        beforeSend: function () {
+            $('#update_registro').attr('disabled', true);
+            $('#calcel_update').attr('disabled', true);
+        },
+        success: function (response) {
+            $('#update_registro').attr('disabled', false);
+            $('#calcel_update').attr('disabled', false);
+
+            switch (response.codigo) {
+                case 1:
+                    alert(response.mensagem);
+                    break;
+                case 2:
+                    exibeMsg(response.mensagem, 'alert-success');
+                    break;
+                case 3:
+                    exibeMsg(response.mensagem, 'alert-success');
+                    $("#tb-sintoma-pendente tbody tr").remove();
+                    consultaSintomasPendentes();
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+};

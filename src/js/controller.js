@@ -226,6 +226,7 @@ function controlaView(conteudo) {
 
     //pendencias assistente
     else if(conteudo == 'view/revisao_assistente.html'){
+
         consultaSintomasPendentes();
 
         $('.close').click(function () {
@@ -238,10 +239,10 @@ function controlaView(conteudo) {
         });
 
         $('#update_registro').click(function () {
-            var formSintomas = document.querySelector('#update_sintoma');
+            var formSintomas = document.querySelector('#modal-sintomas-pendentes');
 
             if (updateCamposSintoma(formSintomas)) {
-                alterarSintoma(obtemSintomaInputs());
+                alterarSintomaPendente(obtemSintomaInputs());
             } else {
                 exibeMsg('Preencha e valide todos os campos obrigatórios.', 'alert-danger');
             }
