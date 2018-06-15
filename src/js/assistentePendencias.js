@@ -31,7 +31,7 @@ function consultaPlantasPendentes() {
     $.get('includes/buscaPlantasPendentes.php', function (data) {
         console.log(data);
         plantas_pendentes = data;
-        $("#tb-sintoma-pendente tbody tr").remove();
+        $("#tb-planta-pendente tbody tr").remove();
 
         if (data.length == 0) {
             $('.plantas-pendentes').show();
@@ -119,7 +119,7 @@ function linhaAssistentePlanta(id_planta, status, registro, comentario) {
 }
 
 //filtra os sintomas na tabela
-function filtraSintoma(value) {
+function filtraSintomap(value) {
 
     $("#sintomas-pendentes tr").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
@@ -255,5 +255,53 @@ function carregaPlantaPendente(id) {
         $('#efeitos').val(data[0].efeitos_colaterais);
         $('#modo_preparo').val(data[0].modo_preparo);
         $('#bibliografia').val(data[0].bibliografia);
+    });
+}
+
+function updatePlantaPendente() {
+
+    form = document.querySelector('#update-planta');
+
+    $.ajax({
+        url: "../src/includes/alterarPlanta.php",
+        type: "POST",
+        dataType: 'json',
+        data: new FormData(form),
+        beforeSend: function () {
+
+        },
+        contentType: false,
+        processData: false,
+        beforeSend: function () {
+            $('#atualiza-planta').prop('disabled', true);
+            $('#cancela-planta').prop('disabled', true);
+        },
+        success: function (data) {
+            $('#atualiza-planta').prop('disabled', false);
+            $('#cancela-planta').prop('disabled', false);
+            
+            switch (data.codigo) {
+                case 0:
+                    exibeMsg(data.mensagem, 'alert-danger');
+                    break;
+                case 1:
+                    exibeMsg(data.mensagem, 'alert-danger');
+                    validaPlanta(form);
+                    break;
+                case 2:
+                    exibeMsg(data.mensagem, 'alert-success');
+                    consultaPlantasPendentes();
+                    $('.demo2').bootstrapDualListbox('refresh');
+                    validaPlanta(form);
+                    exibeMsg(data.mensagem, 'alert-success');                    
+                    break;
+                case 3:
+                    exibeMsg(data.mensagem, 'alert-success');
+                    break;
+                default:
+                    break;
+            }
+        },
+        error: function () {}
     });
 }

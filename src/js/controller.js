@@ -240,9 +240,9 @@ function controlaView(conteudo) {
             $('.alert-msg').hide();
         });
 
-        $("#pesquisar-sintoma").on("keyup", function () {
+        $("#find-sintomap").on("keyup", function () {
             var value = $(this).val().toLowerCase();
-            filtraSintoma(value);
+            filtraSintomap(value);
         });
 
         $('#update_registro').click(function () {
@@ -257,7 +257,7 @@ function controlaView(conteudo) {
 
         $('#atualiza-planta-pendente').on('click', (function (event) {
             //event.preventDefault();
-            updatePlanta();
+            updatePlantaPendente();
         }));
     }
 
