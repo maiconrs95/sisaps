@@ -207,10 +207,9 @@ function controlaView(conteudo) {
         });
 
         $('#enviar-mensagem').click(function (){
-            revisarPlanta($('.id-planta-mensagem').text(), $('#message-text').val());
+            revisarPlanta($('.id-planta-mensagem').text(), $('#message-text-planta').val());
         });
         
-
         $('#aprova-sintoma').click(function (){
             aprovaSintoma($('#id_sintoma').text());
         });

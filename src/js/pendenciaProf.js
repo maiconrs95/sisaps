@@ -246,16 +246,21 @@ function aprovaSintoma(id) {
 
 function revisarPlanta(id, msg) {
 
-    $.get('../src/includes/revisarPlanta.php?id_planta=' + id + '&comentario=' + msg, function (data) {
+    if (msg == '') {
+        alert('Digite uma mensagem.');
+        $('#message-text-planta').addClass('borda-vermelha');
+    } else {
+        $.get('../src/includes/revisarPlanta.php?id_planta=' + id + '&comentario=' + msg, function (data) {
 
-        if (data.codigo == 0) {
-            consultaplantasPendente();
-            alert('Planta enviada para correção.');
-            $('#message-text').text("");
-        } else {
-            alert('ERRO ao enviar. Contate o administrador do sistema.');
-        }
-    });
+            if (data.codigo == 0) {
+                consultaplantasPendente();
+                alert('Planta enviada para correção.');
+                $('#message-text').text("");
+            } else {
+                alert('ERRO ao enviar. Contate o administrador do sistema.');
+            }
+        });
+    }
 }
 
 function revisarSintoma(id, msg) {
@@ -273,9 +278,9 @@ function revisarSintoma(id, msg) {
 }
 
 function carregaPlantaId(id) {
-    
+
     $('.msgn-aprovado-planta').hide();
-    $('.informativo').show();
+    $('.informativo').hide();
 
     $('.id-planta-aprova').text(plantasPendentes[id].id_plantas);
     $('.id-planta-mensagem').text(plantasPendentes[id].id_plantas);
