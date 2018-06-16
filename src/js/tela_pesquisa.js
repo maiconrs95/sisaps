@@ -1,6 +1,5 @@
 //VARIAVEL GLOBAL QUE VAI RECEBER O DATA PARA MANIPULAR NOS MODAIS
 var plantasPendentes;
-var sintomasPendentes;
 
 //Busca os plantas pendentes cadastrados na base de dados
 function plantasAtivas() {
@@ -9,16 +8,15 @@ function plantasAtivas() {
 
         plantasPendentes = data;
         //$("#tb-planta tbody tr").remove();
-
+        console.log(data);
         if (data.length == 0) {
             $('.plantas-pendentes').show();
         } else {
             $(data.Planta).each(function (i, planta) {
-                console.log(planta);
+
                 img = planta.foto_planta.split('../');
-                console.log(img);
-                tabelaPlantas(i, img[1], planta.nome_cientifico, planta.nome_popular, 'a');
-            });           
+                tabelaPlantas(i, img[1], planta.nome_cientifico, planta.nome_popular, planta.Sintomas);
+            });
         }
     });
 }
@@ -33,21 +31,20 @@ function tabelaPlantas(i, imagem, nome_p, nome_c, sintomas) {
 }
 
 //Cria as linhas que serão adicionada na tabela planta
-function listaPlantas(i ,imagem, nome_c, nome_p, sintomas) {
+function listaPlantas(i, imagem, nome_c, nome_p, sintomas) {
 
     var linha = $("<tr>").attr('id', i);
     var colunaEditar = $("<th>").attr("width", '30%').append('<div class="text-left" style="width: 100%; height: 100px;"><img id="previewing" src=' + imagem + ' class="rounded" alt="..." style="max-width: 100%; max-height: 100%"></div>');
 
     var colunaPlanta = $("<td>").attr("width", '30%').append('<p class="m-0">' + nome_p + '</p><p class="m-0">' + nome_c + '</p>');
-    var colunaSintomas = $("<td>").attr("width", '30%').attr('class', 'd-none');
+    var colunaSintomas = $("<td>").attr("width", '30%').attr('class', 'd-none').append(listaSintomas(sintomas));
+
     var colunaVer = $("<td>").attr("width", '10%');
 
-    var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_sintomas');
+    var btn = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_sintomas');
     var icone = $("<i>").addClass("fas fa-search");
 
-    link.append(icone);
-
-    colunaEditar.append(link);
+    colunaVer.append('<button type="button" class="btn btn-outline-success btn-block" data-toggle="modal" data-target=".ver-registro">Ver</button>');
 
     linha.append(colunaEditar);
     linha.append(colunaPlanta);
@@ -55,6 +52,19 @@ function listaPlantas(i ,imagem, nome_c, nome_p, sintomas) {
     linha.append(colunaVer);
 
     return linha;
+}
+
+function listaSintomas(list){
+
+    var novaUL = document.createElement('ul');
+
+    $(list).each(function (i, sintoma) {
+
+        novaUL.append(sintoma.nome_cientifico + ' ' + sintoma.nome_popular + ' ' + sintoma.causas + ' ' + sintoma.tratamentos);
+    });
+
+    return novaUL;
+    //console.log('======');
 }
 
 function carregaPlantaPend(id) {
