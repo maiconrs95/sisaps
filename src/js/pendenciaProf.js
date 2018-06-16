@@ -154,12 +154,12 @@ function carregaPlantaPend(id) {
         $('.foto-planta').attr('src', img[1]);
         $('.nome-plantac').text(data[0].nome_cientifico);
         $('.nome-plantap').text(data[0].nome_popular);
-        $('.parte-planta').text(data[0].nome_popular);
-        $('.regiao-planta').text(data[0].nome_popular);
-        $('.principio-planta').text(data[0].nome_popular);
+        $('.parte-planta').text(data[0].parte_planta);
+        $('.regiao-planta').text(data[0].regiao);
+        $('.principio-planta').text(data[0].principio_efeitos);
         $('.contra-indicacao').text(data[0].nome_popular);
-        $('.efeitos-colaterais').text(data[0].nome_popular);
-        $('.modo-preparo').text(data[0].nome_popular);
+        $('.efeitos-colaterais').text(data[0].efeitos_colaterais);
+        $('.modo-preparo').text(data[0].modo_preparo);
         $('.bibliografia').text(data[0].bibliografia);
 
         //Busca os sintomas associados e preenche a lista da direita (selected)
@@ -186,8 +186,8 @@ function carregaSintomaPend(id) {
         $('.nome-sintomac').text(data[0].nome_cientifico);
         $('.nome-sintomap').text(data[0].nome_popular);
         $('.parte-corpo').text(data[0].parte_corpo);
-        $('.causas').text(data[0].nome_popular);
-        $('.tratamentos').text(data[0].nome_popular);
+        $('.causas').text(data[0].causas);
+        $('.tratamentos').text(data[0].tratamentos);
     });
 }
 

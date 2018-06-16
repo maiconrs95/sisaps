@@ -3,7 +3,7 @@
 header("Content-Type:" .  "application/json");
 require_once('conexao.php');
 
-$sql = "SELECT id_plantas, nome_cientifico, nome_popular, foto_planta, cuidados, efeitos_colaterais, principio_efeitos, regiao FROM tb_plantas tp JOIN tb_user ts ON ts.id_user = tp.id_user";
+$sql = "SELECT id_plantas, nome_cientifico, nome_popular, foto_planta, cuidados, efeitos_colaterais, principio_efeitos, regiao FROM tb_plantas tp JOIN tb_user ts ON ts.id_user = tp.id_user WHERE id_status = 3 ORDER BY id_plantas DESC";
 
 $conexao = new db();
 $link = $conexao->conn_mysql();
