@@ -4,7 +4,7 @@ header("Content-Type:" .  "application/json");
 require_once('conexao.php');
 
 $sql = "SELECT tp.id_plantas, Descricao, nome_cientifico, nome_user FROM tb_plantas as tp JOIN tb_user as tu ON tu.id_user = tp.id_user JOIN tb_status ts ON ts.id_status = tp.id_status
-Where tp.id_status = 1";
+Where tp.id_status <> 3";
 
 $conexao = new db();
 $link = $conexao->conn_mysql();

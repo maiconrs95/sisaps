@@ -69,10 +69,6 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
     var colunaAprova = $("<td>").attr("width", '10%');
     var colunaRevisa = $("<td>").attr("width", '10%');
 
-    if (desc == 'pendente') {
-        colunaStatus.attr('class', 'pendente');
-    }
-
     var edit = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.ver-planta').attr('onclick', 'carregaPlantaPend(parentNode.parentNode.id)');
     var iEdit = $("<i>").addClass("fas fa-edit fa-2x editar");
 
@@ -81,6 +77,23 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
 
     var revisa = $("<a>").attr("href", "#").addClass('revisar-planta btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '#exampleModal').attr('onclick', 'carregaPlantaId(parentNode.parentNode.id)');
     var Irevisa = $("<i>").addClass("fas fa-window-close fa-2x pendente");
+
+    if (desc == 'pendente') {
+        colunaStatus.attr('class', 'pendente');
+    } else if(desc == 'reprovado'){
+        colunaStatus.attr('class', 'red');
+        edit.prop('disabled', true).removeAttr('onclick');
+        iEdit.removeClass('editar');
+        iEdit.addClass('inativo');
+
+        aprova.prop('disabled', true);
+        iAprova.removeClass('ativo');
+        iAprova.addClass('inativo');
+
+        revisa.prop('disabled', true);
+        Irevisa.removeClass('pendente');
+        Irevisa.addClass('inativo');
+    }
 
     edit.append(iEdit);
     aprova.append(iAprova);
