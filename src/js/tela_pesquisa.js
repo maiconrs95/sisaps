@@ -1,14 +1,14 @@
 //VARIAVEL GLOBAL QUE VAI RECEBER O DATA PARA MANIPULAR NOS MODAIS
-var plantasPendentes;
+var plantasAtivas;
 
 //Busca os plantas pendentes cadastrados na base de dados
 function plantasAtivas() {
 
     $.get('includes/getPlantasAtivas.php', function (data) {
 
-        plantasPendentes = data;
+        plantasAtivas = data;
         //$("#tb-planta tbody tr").remove();
-        console.log(data);
+
         if (data.length == 0) {
             $('.plantas-pendentes').show();
         } else {
@@ -44,7 +44,7 @@ function listaPlantas(i, imagem, nome_c, nome_p, sintomas) {
     var btn = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_sintomas');
     var icone = $("<i>").addClass("fas fa-search");
 
-    colunaVer.append('<button type="button" class="btn btn-outline-success btn-block" data-toggle="modal" data-target=".ver-registro">Ver</button>');
+    colunaVer.append('<button type="button" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-outline-success btn-block" data-toggle="modal" data-target=".ver-registro" onclick="verPlantas(parentNode.parentNode.id)">Ver</button>');
 
     linha.append(colunaEditar);
     linha.append(colunaPlanta);
@@ -54,7 +54,7 @@ function listaPlantas(i, imagem, nome_c, nome_p, sintomas) {
     return linha;
 }
 
-function listaSintomas(list){
+function listaSintomas(list) {
 
     var novaUL = document.createElement('ul');
 
@@ -67,38 +67,39 @@ function listaSintomas(list){
     //console.log('======');
 }
 
-function carregaPlantaPend(id) {
+function listaSintomasModal(list) {
 
-    //Busca a planta do ID passado
-    $.get('includes/getPlantasSintomas.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
+    var novaUL = document.createElement('ul');
 
-        var img = data[0].foto_planta.split('../');
+    novaUL.style.listStyle = "none";
 
-        $('.titulo-planta').text(data[0].nome_cientifico);
-        $('#id_planta').text(plantasPendentes[id].id_plantas);
-        $('.foto-planta').attr('src', img[1]);
-        $('.nome-plantac').text(data[0].nome_cientifico);
-        $('.nome-plantap').text(data[0].nome_popular);
-        $('.parte-planta').text(data[0].nome_popular);
-        $('.regiao-planta').text(data[0].nome_popular);
-        $('.principio-planta').text(data[0].nome_popular);
-        $('.contra-indicacao').text(data[0].nome_popular);
-        $('.efeitos-colaterais').text(data[0].nome_popular);
-        $('.modo-preparo').text(data[0].nome_popular);
-        $('.bibliografia').text(data[0].bibliografia);
-
-        //Busca os sintomas associados e preenche a lista da direita (selected)
-        $.get('includes/getSintomasAssociados.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
-
-            $('.sintomas-associados li').remove();
-
-            $(data).each(function (i, sintoma) {
-
-                $('.sintomas-associados').append($('<li>').text(data[i].nome_cientifico));
-            });
-        });
-
+    $(list).each(function (i, sintoma) {
+        var novaLI = document.createElement('li');
+        novaLI.append(sintoma.nome_cientifico);
+        novaUL.append(novaLI);
     });
+
+    return novaUL;
+    //console.log('======');
+}
+
+function verPlantas(id) {
+
+     var img = plantasAtivas.Planta[id].foto_planta.split('../');
+
+    $('.modal-title').text(plantasAtivas.Planta[id].nome_cientifico);
+    $('#id_planta').text(plantasAtivas.Planta[id].id_plantas);
+    $('.foto-planta').attr('src', img[1]);
+    $('.nome-plantac').text(plantasAtivas.Planta[id].nome_cientifico);
+    $('.nome-plantap').text(plantasAtivas.Planta[id].nome_popular);
+    $('.parte-planta').text(plantasAtivas.Planta[id].parte_planta);
+    $('.regiao-planta').text(plantasAtivas.Planta[id].regiao);
+    $('.principio-planta').text(plantasAtivas.Planta[id].principio_efeitos);
+    $('.contra-indicacao').text(plantasAtivas.Planta[id].cuidados);
+    $('.efeitos-colaterais').text(plantasAtivas.Planta[id].efeitos_colaterais);
+    $('.modo-preparo').text(plantasAtivas.Planta[id].modo_preparo);
+    $('.bibliografia').text(plantasAtivas.Planta[id].bibliografia);
+    $('#sintomas-modal').append(listaSintomasModal(plantasAtivas.Planta[id].Sintomas));
 }
 
 function filtraRegistro(value) {
