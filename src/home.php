@@ -29,6 +29,17 @@
 
     <!-- Font Weasome -->
     <script defer src="./vendor/fontweasome/svg-with-js/js/fontawesome-all.min.js"></script>
+
+    <style>
+        #conteudo .img{
+            margin-top: 110px;
+            background: url('img/sisaps.svg');
+            background-repeat: no-repeat;
+            opacity: 0.3;   
+            width: 100%;
+            height: 60vh;
+        }
+    </style>
     <title>SISAPS</title>
 </head>
 
@@ -39,7 +50,7 @@
     ============================== -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light nav-shadow">
         <a id="inicio" class="navbar-brand logo side-nav" href="#">
-            <img id="logo_principal" src="./img/sisaps.logo.proposta2.png" width="110" height="30">
+            <img id="logo_principal" src="./img/sisaps.svg" width="110" height="30">
             <!-- <i class="fas fa-leaf fa-1x"></i>
             <h4 class="d-inline">SISAPS</h4> -->
         </a>
@@ -131,6 +142,7 @@
             </div><!-- *** side nav *** -->
 
             <div id="conteudo" class="col-md-10 mt-5 pb-5">
+                <div class="img"></div>
                 <div class="row d-flex justify-content-center mt-5 loader" style="display: none;">
                     <div class="col-md-4 mt-5">
 
@@ -196,6 +208,11 @@
                 <div class="col-2">
                     <a id="alterar_sintoma" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
                         <i class="fas fa-pills"></i>
+                    </a>
+                </div>                
+                <div class="col-2 assistente-mobile">
+                    <a id="revisao_assistente" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
+                        <i class="fas fa-pen-square"></i>
                     </a>
                 </div>                
             </div><!-- row -->

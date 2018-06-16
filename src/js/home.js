@@ -48,6 +48,7 @@ $(document).ready(function () {
         }
         if (data.user_perfil != 3) {
             $('#assistente-section').remove();
+            $('.assistente-mobile').remove();
         }
     });
 

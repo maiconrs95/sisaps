@@ -99,6 +99,7 @@ function verPlantas(id) {
     $('.efeitos-colaterais').text(plantasAtivas.Planta[id].efeitos_colaterais);
     $('.modo-preparo').text(plantasAtivas.Planta[id].modo_preparo);
     $('.bibliografia').text(plantasAtivas.Planta[id].bibliografia);
+    $('#sintomas-modal ul').remove();
     $('#sintomas-modal').append(listaSintomasModal(plantasAtivas.Planta[id].Sintomas));
 }
 
