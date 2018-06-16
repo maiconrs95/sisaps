@@ -172,6 +172,8 @@ function controlaView(conteudo) {
     else if(conteudo == 'view/pendencias.html') {
         $('.sintomas-pendentes').hide();
         $('.plantas-pendentes').hide();
+        $('.msgn-aprovado-planta').hide();
+        $('.msgn-aprovado-sintoma').hide();
 
         consultaplantasPendente();
         consultasintomasPendente();
@@ -186,11 +188,11 @@ function controlaView(conteudo) {
             filtraSintomaPendente(value);
         });
 
-        $('.close').click(function () {
+        /*$('.close').click(function () {
             $('label p').text('');
             $('h5 label').text('');
             $('.sintomas-associados li').remove();
-        });
+        });*/
 
         $('#aprova-planta').click(function (){
             aprovaPlanta($('#id_planta').text());

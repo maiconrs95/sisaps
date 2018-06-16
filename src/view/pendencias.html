@@ -55,7 +55,7 @@
 
                                 </tbody>
                             </table>
-                            
+
                             <div class="row plantas-pendentes">
                                 <div class="col-12">
                                     <div class="alert alert-primary" role="alert">
@@ -69,7 +69,9 @@
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title"><label class="titulo-planta"></label></h5>
+                                            <h5 class="modal-title">
+                                                <label class="titulo-planta"></label>
+                                            </h5>
                                             <span id="id_planta" class="d-none"></span>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -83,56 +85,66 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Nome Cientifico:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Nome Cientifico:</strong>
                                                         <p class="nome-plantac"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Nome Popular:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Nome Popular:</strong>
                                                         <p class="nome-plantap"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Parte Planta:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Parte Planta:</strong>
                                                         <p class="parte-planta"></p>
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Região:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Região:</strong>
                                                         <p class="regiao-planta"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Principio ativo e efeitos:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Principio ativo e efeitos:</strong>
                                                         <p class="principio-planta"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Contra indicações:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Contra indicações:</strong>
                                                         <p class="contra-indicacao"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Efeitos colaterais:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Efeitos colaterais:</strong>
                                                         <p class="efeitos-colaterais"></p>
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="nome d-inline"><strong>Modo de preparo:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Modo de preparo:</strong>
                                                         <p class="modo-preparo"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="nome d-inline"><strong>Bibliografia</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Bibliografia</strong>
                                                         <p class="bibliografia"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="nome d-inline"><strong>Sintomas:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Sintomas:</strong>
                                                         <ul class="sintomas-associados" style="list-style: none;">
 
                                                         </ul>
@@ -160,10 +172,16 @@
                                             </button>
                                         </div>
                                         <div class="modal-body d-flex justify-content-center">
-                                            <button type="button" id="aprova-planta-modal" class="btn btn-success" style="margin-right: 5px;">Aprovar</button>
-                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+                                            <span class="informativo">
+                                                Ao aprovar, os registros de <span class="nome-registro"></span> entrarão em produção.
+                                            </span>
+                                            <div class="alert alert-primary msgn-aprovado-planta" role="alert">
+                                                Registro aprovado.
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
+                                            <button type="button" id="aprova-planta-modal" class="btn btn-success" style="margin-right: 5px;">Aprovar</button>
+                                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -245,7 +263,9 @@
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title"><label class="titulo-sintoma"></label></h5>
+                                            <h5 class="modal-title">
+                                                <label class="titulo-sintoma"></label>
+                                            </h5>
                                             <span id="id_sintoma" class="d-none"></span>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -254,29 +274,34 @@
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Nome Cientifico:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Nome Cientifico:</strong>
                                                         <p class="nome-sintomac"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Nome Popular:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Nome Popular:</strong>
                                                         <p class="nome-sintomap"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Parte corpo:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Parte corpo:</strong>
                                                         <p class="parte-corpo"></p>
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Causas:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Causas:</strong>
                                                         <p class="causas"></p>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="nome d-inline"><strong>Tratamentos:</strong>
+                                                    <label for="nome d-inline">
+                                                        <strong>Tratamentos:</strong>
                                                         <p class="tratamentos"></p>
                                                     </label>
                                                 </div>
@@ -291,12 +316,13 @@
                             </div>
 
                             <!-- MODAL OK -->
-                            <div class="modal fade bd-example-modal-sm aprova-sintoma" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                            <div class="modal fade bd-example-modal-sm aprova-sintoma" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+                                aria-hidden="true">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar 
-                                                    <span class="id-sintoma-aprova d-none"></span>?</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Aprovar
+                                                <span class="id-sintoma-aprova d-none"></span>?</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -312,7 +338,8 @@
                             </div>
 
                             <!-- MODAL RETORNO -->
-                            <div class="modal fade revisa-sintoma" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade revisa-sintoma" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">

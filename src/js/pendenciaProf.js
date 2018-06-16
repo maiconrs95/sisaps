@@ -15,7 +15,7 @@ function consultaplantasPendente() {
         } else {
             $(data).each(function (i, planta) {
 
-                inserePlantasPendente(i, planta.Descricao.toLowerCase(), planta.nome_cientifico, planta.nome_user);
+                inserePlantasPendente(i, planta.Descricao, planta.nome_cientifico, planta.nome_user);
             });
         }
     });
@@ -34,7 +34,7 @@ function consultasintomasPendente() {
         } else {
             $(data).each(function (i, sintoma) {
 
-                insereSintomasPendente(i, sintoma.Descricao.toLowerCase(), sintoma.nome_cientifico, sintoma.nome_user);
+                insereSintomasPendente(i, sintoma.Descricao, sintoma.nome_cientifico, sintoma.nome_user);
             });
         }
     });
@@ -78,19 +78,19 @@ function novaLinhaPlantaPendente(id_planta, desc, nome_c, user) {
     var revisa = $("<a>").attr("href", "#").addClass('revisar-planta btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '#exampleModal').attr('onclick', 'carregaPlantaId(parentNode.parentNode.id)');
     var Irevisa = $("<i>").addClass("fas fa-window-close fa-2x pendente");
 
-    if (desc == 'pendente') {
+    if (desc == 'Pendente') {
         colunaStatus.attr('class', 'pendente');
-    } else if(desc == 'reprovado'){
+    } else if (desc == 'Reprovado') {
         colunaStatus.attr('class', 'red');
         edit.prop('disabled', true).removeAttr('onclick');
         iEdit.removeClass('editar');
         iEdit.addClass('inativo');
 
-        aprova.prop('disabled', true);
+        aprova.prop('disabled', true).removeAttr('onclick');
         iAprova.removeClass('ativo');
         iAprova.addClass('inativo');
 
-        revisa.prop('disabled', true);
+        revisa.prop('disabled', true).removeAttr('onclick');
         Irevisa.removeClass('pendente');
         Irevisa.addClass('inativo');
     }
@@ -124,10 +124,6 @@ function novaLinhaSintomaPendente(id_sintoma, desc, nome_c, user) {
     var colunaAprova = $("<td>").attr("width", '10%');
     var colunaRevisa = $("<td>").attr("width", '10%');
 
-    if (desc == 'pendente') {
-        colunaStatus.attr('class', 'pendente');
-    }
-
     var edit = $("<a>").attr("href", "#").addClass('edit-user btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.ver-sintoma').attr('onclick', 'carregaSintomaPend(parentNode.parentNode.id)');
     var iEdit = $("<i>").addClass("fas fa-edit fa-2x editar");
 
@@ -136,6 +132,23 @@ function novaLinhaSintomaPendente(id_sintoma, desc, nome_c, user) {
 
     var revisa = $("<a>").attr("href", "#").addClass('revisar-planta btn-sm p-1 opc').attr("data-toggle", "modal").attr('data-target', '.revisa-sintoma').attr('onclick', 'carregaSintomaId(parentNode.parentNode.id)');
     var Irevisa = $("<i>").addClass("fas fa-window-close fa-2x pendente");
+
+    if (desc == 'Pendente') {
+        colunaStatus.attr('class', 'pendente');
+    } else if (desc == 'Reprovado') {
+        colunaStatus.attr('class', 'red');
+        edit.prop('disabled', true).removeAttr('onclick');
+        iEdit.removeClass('editar');
+        iEdit.addClass('inativo');
+
+        aprova.prop('disabled', true).removeAttr('onclick');
+        iAprova.removeClass('ativo');
+        iAprova.addClass('inativo');
+
+        revisa.prop('disabled', true).removeAttr('onclick');
+        Irevisa.removeClass('pendente');
+        Irevisa.addClass('inativo');
+    }
 
     edit.append(iEdit);
     aprova.append(iAprova);
@@ -205,12 +218,13 @@ function carregaSintomaPend(id) {
 }
 
 function aprovaPlanta(id) {
-    console.log(id);
+
     $.get('../src/includes/aprovarPlanta.php?id_planta=' + id, function (data) {
 
         if (data.codigo == 0) {
             consultaplantasPendente();
-            alert('Planta aprovada.');
+            $('.msgn-aprovado-planta').show();
+            $('.informativo').hide();
         } else {
             alert('ERRO ao aprovar. Contate o administrador do sistema.');
         }
@@ -259,9 +273,13 @@ function revisarSintoma(id, msg) {
 }
 
 function carregaPlantaId(id) {
+    
+    $('.msgn-aprovado-planta').hide();
+    $('.informativo').show();
 
     $('.id-planta-aprova').text(plantasPendentes[id].id_plantas);
     $('.id-planta-mensagem').text(plantasPendentes[id].id_plantas);
+    $('.nome-registro').text(plantasPendentes[id].nome_cientifico);
 }
 
 function carregaSintomaId(id) {
