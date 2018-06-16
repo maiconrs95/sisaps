@@ -131,20 +131,16 @@ th a:hover {
     color: #015DCF;
 }
 .negado, .red {
-    text-transform: uppercase;
     color: red;
     font-weight: bold;
 }
 .ativo {
-    text-transform: uppercase;
     color: #2EA900;
 }
 .green{
-    text-transform: uppercase;
     color: green;
 }
 .pendente {
-    text-transform: uppercase;
     color: #E8AD45;
 }
 .inativo{
