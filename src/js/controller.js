@@ -173,6 +173,8 @@ function controlaView(conteudo) {
         $('.sintomas-pendentes').hide();
         $('.plantas-pendentes').hide();
         $('.msgn-aprovado-planta').hide();
+        $('.alert-mgn-planta').hide();
+        
         $('.msgn-aprovado-sintoma').hide();
 
         consultaplantasPendente();
