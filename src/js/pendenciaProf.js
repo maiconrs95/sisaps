@@ -170,6 +170,11 @@ function novaLinhaSintomaPendente(id_sintoma, desc, nome_c, user) {
 
 function carregaPlantaPend(id) {
 
+    $('.msgn-aprovado-planta').hide();
+    $('.informativo').show();
+    $('#aprova-planta').prop('disabled', false);
+    $('#cancela-planta').prop('disabled', false);
+
     //Busca a planta do ID passado
     $.get('includes/getPlantasSintomas.php?id_planta=' + plantasPendentes[id].id_plantas, function (data) {
 
@@ -225,6 +230,8 @@ function aprovaPlanta(id) {
             consultaplantasPendente();
             $('.msgn-aprovado-planta').show();
             $('.informativo').hide();
+            $('#aprova-planta').prop('disabled', true);
+            $('#cancela-planta').prop('disabled', true);
         } else {
             alert('ERRO ao aprovar. Contate o administrador do sistema.');
         }
@@ -254,6 +261,9 @@ function revisarPlanta(id, msg) {
             if (data.codigo == 0) {
                 consultaplantasPendente();
                 $('.alert-mgn-planta').show();
+                $('#enviar-mensagem').prop('disabled', true);
+                $('#aprova-planta').prop('disabled', true);
+                $('#cancela-planta').prop('disabled', true);
                 $('.mgn-planta').hide();
             } else {
                 alert('ERRO ao enviar. Contate o administrador do sistema.');
@@ -282,6 +292,10 @@ function carregaPlantaId(id) {
     $('.msgn-aprovado-planta').hide();
     $('.mgn-planta').show();
     $('.informativo').show();
+
+    $('#enviar-mensagem').prop('disabled', false);
+    $('#aprova-planta').prop('disabled', false);
+    $('#cancela-planta').prop('disabled', false);
 
     $('#message-text-planta').val("");
     $('#message-text-planta').removeClass('borda-vermelha');
