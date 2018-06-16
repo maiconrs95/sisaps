@@ -174,7 +174,7 @@ function controlaView(conteudo) {
         $('.plantas-pendentes').hide();
         $('.msgn-aprovado-planta').hide();
         $('.alert-mgn-planta').hide();
-        
+
         $('.msgn-aprovado-sintoma').hide();
 
         consultaplantasPendente();
@@ -205,7 +205,11 @@ function controlaView(conteudo) {
         });
 
         $('#cancela-planta').click(function (){
-            $('.id-planta-mensagem').text($('#id_planta').text());        
+            $('.id-planta-mensagem').text($('#id_planta').text());
+            $('#message-text-planta').val('');
+            $('.alert-mgn-planta').hide();
+            $('.mgn-planta').show();          
+            $('#enviar-mensagem').prop('disabled', false);          
         });
 
         $('#enviar-mensagem').click(function (){
