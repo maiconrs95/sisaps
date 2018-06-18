@@ -256,6 +256,7 @@ function revisarPlanta(id, msg) {
     if (msg == '') {
         $('#message-text-planta').addClass('borda-vermelha');
     } else {
+        $('#message-text-planta').removeClass('borda-vermelha');
         $.get('../src/includes/revisarPlanta.php?id_planta=' + id + '&comentario=' + msg, function (data) {
 
             if (data.codigo == 0) {
@@ -274,16 +275,22 @@ function revisarPlanta(id, msg) {
 
 function revisarSintoma(id, msg) {
 
-    $.get('../src/includes/revisarSintoma.php?id_sintoma=' + id + '&comentario=' + msg, function (data) {
+    if (msg == '') {
+        $('#message-text-sintoma').addClass('borda-vermelha');
+    } else {
+        $('#message-text-sintoma').removeClass('borda-vermelha');
+        
+        $.get('../src/includes/revisarSintoma.php?id_sintoma=' + id + '&comentario=' + msg, function (data) {
 
-        if (data.codigo == 0) {
-            consultasintomasPendente();
-            alert('Sintoma enviado para correção.');
-            $('#message-text').text("");
-        } else {
-            alert('ERRO ao enviar. Contate o administrador do sistema.');
-        }
-    });
+            if (data.codigo == 0) {
+                consultasintomasPendente();
+                alert('Sintoma enviado para correção.');
+                $('#message-text').text("");
+            } else {
+                alert('ERRO ao enviar. Contate o administrador do sistema.');
+            }
+        });
+    }
 }
 
 function carregaPlantaId(id) {
