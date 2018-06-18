@@ -213,6 +213,14 @@ function controlaView(conteudo) {
             $('#enviar-mensagem').prop('disabled', false);          
         });
 
+        $('#cancela-sintoma').click(function (){
+            $('.id-planta-sintoma').text($('#id_planta').text());
+            $('#message-text-sintoma').val('');
+            $('.alert-mgn-sintoma').hide();
+            $('.mgn-sintoma').show();          
+            $('#enviar-mensagem-sintoma').prop('disabled', false);          
+        });
+
         $('#enviar-mensagem').click(function (){
             revisarPlanta($('.id-planta-mensagem').text(), $('#message-text-planta').val());
         });

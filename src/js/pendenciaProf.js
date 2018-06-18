@@ -210,7 +210,7 @@ function carregaPlantaPend(id) {
 function carregaSintomaPend(id) {
 
     $('.msgn-aprovado-sintoma').hide();
-    $('.informativo').show();
+    $('.informativo-sintoma').show();
     $('#aprova-sintoma').prop('disabled', false);
     $('#cancela-sintoma').prop('disabled', false);
 
@@ -244,13 +244,13 @@ function aprovaPlanta(id) {
 }
 
 function aprovaSintoma(id) {
-    console.log(id);
+
     $.get('../src/includes/aprovarSintoma.php?id_sintoma=' + id, function (data) {
 
         if (data.codigo == 0) {
             consultasintomasPendente();
             $('.msgn-aprovado-sintoma').show();
-            $('.informativo').hide();
+            $('.informativo-sintoma').hide();
             $('#aprova-sintoma').prop('disabled', true);
             $('#cancela-sintoma').prop('disabled', true);
         } else {
@@ -327,7 +327,7 @@ function carregaSintomaId(id) {
     $('.alert-mgn-sintoma').hide();
     $('.msgn-aprovado-sintoma').hide();
     $('.mgn-sintoma').show();
-    $('.informativo').show();
+    $('.informativo-sintoma').show();
 
     $('#enviar-mensagem-sintoma').prop('disabled', false);
     $('#aprova-sintoma').prop('disabled', false);
