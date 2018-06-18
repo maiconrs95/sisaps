@@ -229,7 +229,7 @@ function carregaSintomaPend(id) {
 
 function aprovaPlanta(id) {
 
-    $.get('../src/includes/aprovarPlanta.php?id_planta=' + id, function (data) {
+    $.get('includes/aprovarPlanta.php?id_planta=' + id, function (data) {
 
         if (data.codigo == 0) {
             consultaplantasPendente();
@@ -245,7 +245,7 @@ function aprovaPlanta(id) {
 
 function aprovaSintoma(id) {
 
-    $.get('../src/includes/aprovarSintoma.php?id_sintoma=' + id, function (data) {
+    $.get('includes/aprovarSintoma.php?id_sintoma=' + id, function (data) {
 
         if (data.codigo == 0) {
             consultasintomasPendente();
@@ -265,7 +265,7 @@ function revisarPlanta(id, msg) {
         $('#message-text-planta').addClass('borda-vermelha');
     } else {
         $('#message-text-planta').removeClass('borda-vermelha');
-        $.get('../src/includes/revisarPlanta.php?id_planta=' + id + '&comentario=' + msg, function (data) {
+        $.get('includes/revisarPlanta.php?id_planta=' + id + '&comentario=' + msg, function (data) {
 
             if (data.codigo == 0) {
                 consultaplantasPendente();
@@ -288,7 +288,7 @@ function revisarSintoma(id, msg) {
     } else {
         $('#message-text-sintoma').removeClass('borda-vermelha');
 
-        $.get('../src/includes/revisarSintoma.php?id_sintoma=' + id + '&comentario=' + msg, function (data) {
+        $.get('includes/revisarSintoma.php?id_sintoma=' + id + '&comentario=' + msg, function (data) {
 
             if (data.codigo == 0) {
                 consultasintomasPendente();

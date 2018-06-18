@@ -271,7 +271,7 @@ function updatePlantaPendente() {
     form = document.querySelector('#update-planta');
 
     $.ajax({
-        url: "../src/includes/alterarPlanta.php",
+        url: "includes/alterarPlanta.php",
         type: "POST",
         dataType: 'json',
         data: new FormData(form),

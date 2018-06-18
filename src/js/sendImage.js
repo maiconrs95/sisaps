@@ -37,7 +37,7 @@ function previewing() {
     form = document.querySelector('#form-planta');
 
     $.ajax({
-        url: "../src/includes/novoPlanta.php",
+        url: "includes/novoPlanta.php",
         type: "POST",
         dataType: 'json',
         data: new FormData(form),
@@ -88,7 +88,7 @@ function updatePlanta() {
     form = document.querySelector('#update-planta');
 
     $.ajax({
-        url: "../src/includes/alterarPlanta.php",
+        url: "includes/alterarPlanta.php",
         type: "POST",
         dataType: 'json',
         data: new FormData(form),
