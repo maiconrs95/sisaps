@@ -7,7 +7,7 @@ function plantasAtivas() {
     $.get('includes/getPlantasAtivas.php', function (data) {
 
         plantasAtivas = data;
-        //$("#tb-planta tbody tr").remove();
+        $("#resultados-pesquisa tbody tr").remove();
 
         if (data.length == 0) {
             $('.plantas-pendentes').show();

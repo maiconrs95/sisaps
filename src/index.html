@@ -71,7 +71,7 @@
                 <div class="row p-3">
                     <div class="col-md-12">
 
-                        <table class="table table-hover table-resposive-sm" id="resultados-pesquisa">
+                        <table class="table table-hover table-resposive-sm d-none" id="resultados-pesquisa">
                             <thead>
                                 <tr>
                                     <th scope="col" width="30%">Imagem:</th>
@@ -195,7 +195,18 @@
     <script src="js/tela_pesquisa.js"></script>
 
     <script>
+        
         plantasAtivas();
+
+        $("#filtra-registro").on("keyup", function () {
+            if($('#filtra-registro').val().length){
+                //mostra a tabela com os resultados
+                $('#resultados-pesquisa').removeClass('d-none');
+            }else{
+                //esconde a table
+                $('#resultados-pesquisa').addClass('d-none');
+            }
+        });
 
         $("#filtra-registro").on("keyup", function () {
             var value = $(this).val().toLowerCase();
