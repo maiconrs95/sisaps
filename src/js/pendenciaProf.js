@@ -170,6 +170,10 @@ function novaLinhaSintomaPendente(id_sintoma, desc, nome_c, user) {
 
 function carregaPlantaPend(id) {
 
+    $('.informativo #previewing').attr('src', 'img/plantas/sem-foto.jpg');
+    $('.informativo label p').text("");
+    $('.informativo ul li').remove();
+
     $('.msgn-aprovado-planta').hide();
     $('.informativo').show();
     $('#aprova-planta').prop('disabled', false);
