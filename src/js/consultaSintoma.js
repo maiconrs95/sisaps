@@ -15,7 +15,7 @@ function consultaSintomas() {
         $("tbody tr").remove();
         $(data).each(function (i, sintoma) {
 
-            insereSintomas(i, sintoma.nome_cientifico.toLowerCase(), sintoma.parte_corpo, sintoma.nome_popular);
+            insereSintomas(i, sintoma.Descricao, sintoma.parte_corpo, sintoma.nome_popular);
         });
 
     });
@@ -41,6 +41,14 @@ function novaLinhaSintoma(id_sintoma, sintoma, parteCorpo, nome) {
 
     var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_sintomas');
     var icone = $("<i>").addClass("fas fa-search");
+
+    if (sintoma == 'Aprovado') {
+        colunaSintoma.addClass('ativo');
+    } else if (sintoma == 'Reprovado') {
+        colunaSintoma.addClass('negado');
+    } else if (sintoma == 'Pendente') {
+        colunaSintoma.addClass('pendente');
+    }
 
     link.append(icone);
 
@@ -86,11 +94,11 @@ function parteCorpo(id) {
 
             var select = $('#parte_sintoma');
 
-            if(corpo[i].parte_corpo == sintomas_bd[id].parte_corpo){
+            if (corpo[i].parte_corpo == sintomas_bd[id].parte_corpo) {
                 $('<option>').val(corpo[i].id_parte_corpo).text(corpo[i].parte_corpo).attr('selected', 'true').appendTo(select);
-            }else{
+            } else {
                 $('<option>').val(corpo[i].id_parte_corpo).text(corpo[i].parte_corpo).appendTo(select);
-            }            
+            }
         });
 
     });

@@ -3,7 +3,7 @@
     header("Content-Type:" .  "application/json");
     require_once('conexao.php');
 
-    $sql = "SELECT id_sintomas, nome_cientifico, nome_popular, causas, tratamentos, pc.parte_corpo from tb_sintomas s join tb_parte_corpo pc ON pc.id_parte_corpo = s.id_parte_corpo";
+    $sql = "SELECT id_sintomas, nome_cientifico, nome_popular, causas, tratamentos, pc.parte_corpo, Descricao from tb_sintomas s join tb_parte_corpo pc ON pc.id_parte_corpo = s.id_parte_corpo JOIN tb_status tps on tps.id_status = s.id_status";
 
     $conexao = new db();
     $link = $conexao->conn_mysql();
