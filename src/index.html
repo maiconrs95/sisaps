@@ -11,7 +11,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/print.css">
+    <link rel="stylesheet" type="text/css" type="text/css" href="css/print.css" media="print" />
 
     <style>
         a.btn-sucesso {
@@ -172,8 +172,8 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
                                         <button type="button" class="btn btn-outline-secondary" onclick="window.print()">Imprimir</button>
+                                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
                                     </div>
                                 </div>
                             </div>
@@ -197,14 +197,13 @@
     <script src="js/tela_pesquisa.js"></script>
 
     <script>
-
         plantasAtivas();
 
         $("#filtra-registro").on("keyup", function () {
-            if($('#filtra-registro').val().length){
+            if ($('#filtra-registro').val().length) {
                 //mostra a tabela com os resultados
                 $('#resultados-pesquisa').removeClass('d-none').fadeIn();
-            }else{
+            } else {
                 //esconde a table
                 $('#resultados-pesquisa').addClass('d-none').fadeOut();
             }
