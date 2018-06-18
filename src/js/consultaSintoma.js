@@ -10,8 +10,8 @@ function consultaSintomas() {
 
     $.get('includes/buscaSintomas.php', function (data) {
 
-        console.log(data);
         sintomas_bd = data;
+        
         $("tbody tr").remove();
         $(data).each(function (i, sintoma) {
 
