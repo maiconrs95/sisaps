@@ -1,0 +1,23 @@
+###### Configurações do sistema
+
+1. Instalar o servidor Apache usando XAMPP Server;
+2. Instalar um servidor MySQL (Incluir na instalação do XAMPP), e o MySQL Workbench;
+3. No menu iniciar, digite e inicie o "XAMPP Control Panel". Irá abrir um painel com os serviços disponíveis:
+    ⋅⋅1. Iniciar o serviço "Apache"
+    ⋅⋅2. Iniciar o serviço "MySQL"
+4. Feito isso, é necessário criar o banco de dados para iniciar a aplicação.
+    ⋅⋅1. Após realizar todos os passos anteriores, no menu iniciar, digite "MySQL Workbench", lembrando que o mesmo deve ter sido instalado no passo 2, após a instalação do XAMPP Server.
+    ⋅⋅2. Ao iniciar a aplicação, devemos configurar uma nova MySQL Connection clicando em "+".
+    ⋅⋅3. Connection name - Opcional, é nome usado por você para reconhecer a conexão;
+    ⋅⋅4. Hostname: Servidor fisico, se estiver na máquina onde o banco está instalado o hostname deve ser "127.0.0.1", se não, verificar o IP do servidor e digitar no campo hostname;
+    ⋅⋅5. Username: Por padrão o MySQL do XAMPP vem com o user root, sem senha. É aconselhável a utilização de senha por proteção aos dados. Isso deve ser configurado no painel admin do XAMPP;
+4. Executar o script presente em SISPAS/includes/BancoSisaps.sql
+5. Copiar a pasta SISAPS para C:/XAMPP/htdocs
+6. Configurar a conexão no arquivo SISAPS/includes/conexao.php:
+    ⋅⋅1. host="servidor";
+    ⋅⋅2. user="usuário do banco de dados";
+    ⋅⋅3. senha="senha do banco de dados";
+    ⋅⋅4. database="db_sisaps";
+7. acessar aplicação em "servidor/sisaps".
+8. No canto superior direito, clique em "login";
+9. User: admin, senha: admin;
