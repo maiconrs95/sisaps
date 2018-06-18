@@ -31,6 +31,7 @@ function consultaPlantasPendentes() {
     $.get('includes/buscaPlantasPendentes.php', function (data) {
         
         plantas_pendentes = data;
+        console.log(data);
         $("#tb-planta-pendente tbody tr").remove();
 
         if (data.length == 0) {
@@ -104,6 +105,11 @@ function linhaAssistentePlanta(id_planta, status, registro, comentario) {
 
     if(status == 'reprovado'){
         colunaStatus.attr('class', 'negado');
+    }else if(status == 'pendente'){
+        colunaStatus.attr('class', 'pendente');
+        colunaEditar.prop('disabled', true).removeAttr('onclick');
+        link.removeAttr('data-target', '.planta-pendente-ass').prop('disabled', true).removeAttr('onclick');
+        icone.addClass('inativo');
     }
 
     link.append(icone);

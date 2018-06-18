@@ -144,8 +144,8 @@ th a:hover {
     color: #E8AD45;
 }
 .inativo{
-    color: #cccc;
-    cursor: default;
+    color: #cccc !important;
+    cursor: default !important;
 }
 
 

@@ -3,7 +3,7 @@
 header("Content-Type:" .  "application/json");
 require_once('conexao.php');
 
-$sql = "SELECT id_plantas, nome_cientifico, nome_popular, modo_preparo, cuidados, efeitos_colaterais, principio_efeitos, bibliografia, regiao, comentarios, descricao from tb_plantas p join tb_status ts ON ts.id_status = p.id_status WHERE p.id_status = 2";
+$sql = "SELECT id_plantas, nome_cientifico, nome_popular, modo_preparo, cuidados, efeitos_colaterais, principio_efeitos, bibliografia, regiao, comentarios, descricao from tb_plantas p join tb_status ts ON ts.id_status = p.id_status WHERE p.id_status <> 3";
 
 $conexao = new db();
 $link = $conexao->conn_mysql();
