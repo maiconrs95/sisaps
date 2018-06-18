@@ -29,7 +29,7 @@ function consultaSintomasPendentes() {
 function consultaPlantasPendentes() {
 
     $.get('includes/buscaPlantasPendentes.php', function (data) {
-        
+
         plantas_pendentes = data;
         console.log(data);
         $("#tb-planta-pendente tbody tr").remove();
@@ -75,8 +75,13 @@ function linhaAssistenteSintoma(id_sintoma, status, registro, comentario) {
     var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar-sintoma-pendente');
     var icone = $("<i>").addClass("fas fa-search");
 
-    if(status == 'reprovado'){
+    if (status == 'reprovado') {
         colunaStatus.attr('class', 'negado');
+    } else if (status == 'pendente') {
+        linha.removeAttr('onclick');
+        colunaStatus.attr('class', 'pendente');
+        link.removeAttr('data-target', '.planta-pendente-ass').prop('disabled', true).addClass('disabled');
+        icone.addClass('inativo');
     }
 
     link.append(icone);
@@ -103,11 +108,11 @@ function linhaAssistentePlanta(id_planta, status, registro, comentario) {
     var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '.planta-pendente-ass');
     var icone = $("<i>").addClass("fas fa-search");
 
-    if(status == 'reprovado'){
+    if (status == 'reprovado') {
         colunaStatus.attr('class', 'negado');
-    }else if(status == 'pendente'){
+    } else if (status == 'pendente') {
         linha.removeAttr('onclick');
-        colunaStatus.attr('class', 'pendente');        
+        colunaStatus.attr('class', 'pendente');
         link.removeAttr('data-target', '.planta-pendente-ass').prop('disabled', true).addClass('disabled');
         icone.addClass('inativo');
     }
@@ -219,7 +224,7 @@ function alterarSintomaPendente(sintoma_update) {
 
 //Abre modal
 function carregaPlantaPendente(id) {
- 
+
     //Zera e reconfigura o dual list
     var select = $('.demo2');
     select.empty();
@@ -234,7 +239,7 @@ function carregaPlantaPendente(id) {
     //Busca os sintomas da lista de opções e preenche a lista da esquerda
     $.get('includes/buscaSintomas.php', function (data) {
 
-        $(data).each(function (i, user) {            
+        $(data).each(function (i, user) {
             select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico));
         });
 
@@ -242,7 +247,7 @@ function carregaPlantaPendente(id) {
     });
 
     //Busca os sintomas associados e preenche a lista da direita (selected)
-    $.get('includes/getSintomasAssociados.php?id_planta=' + plantas_pendentes[id].id_plantas, function (data) {        
+    $.get('includes/getSintomasAssociados.php?id_planta=' + plantas_pendentes[id].id_plantas, function (data) {
         $(data).each(function (i, user) {
             var indice = select[0].length;
             select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico).attr('data-sortindex', indice++).prop('selected', true));
@@ -293,7 +298,7 @@ function updatePlantaPendente() {
         success: function (data) {
             $('#atualiza-planta').prop('disabled', false);
             $('#cancela-planta').prop('disabled', false);
-            
+
             switch (data.codigo) {
                 case 0:
                     exibeMsg(data.mensagem, 'alert-danger');
@@ -307,7 +312,7 @@ function updatePlantaPendente() {
                     consultaPlantasPendentes();
                     $('.demo2').bootstrapDualListbox('refresh');
                     validaPlanta(form);
-                    exibeMsg(data.mensagem, 'alert-success');                    
+                    exibeMsg(data.mensagem, 'alert-success');
                     break;
                 case 3:
                     exibeMsg(data.mensagem, 'alert-success');
