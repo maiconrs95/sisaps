@@ -195,16 +195,16 @@
     <script src="js/tela_pesquisa.js"></script>
 
     <script>
-        
+
         plantasAtivas();
 
         $("#filtra-registro").on("keyup", function () {
             if($('#filtra-registro').val().length){
                 //mostra a tabela com os resultados
-                $('#resultados-pesquisa').removeClass('d-none');
+                $('#resultados-pesquisa').removeClass('d-none').fadeIn();
             }else{
                 //esconde a table
-                $('#resultados-pesquisa').addClass('d-none');
+                $('#resultados-pesquisa').addClass('d-none').fadeOut();
             }
         });
 
