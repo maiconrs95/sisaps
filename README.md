@@ -16,7 +16,13 @@
     ⋅⋅5. Username: Por padrão o MySQL do XAMPP vem com o user root, sem senha. É aconselhável a utilização de senha por proteção aos dados. Isso deve ser configurado no painel admin do XAMPP;
 4. Executar o script presente em SISPAS/includes/BancoSisaps.sql
 5. Copiar a pasta SISAPS para C:/XAMPP/htdocs
-6. acessar aplicação em "servidor/sisaps".
-7. User: admin, senha: admin
+6. Configurar a conexão no arquivo SISAPS/includes/conexao.php:
+    ⋅⋅1. host="servidor";
+    ⋅⋅2. user="usuário do banco de dados";
+    ⋅⋅3. senha="senha do banco de dados";
+    ⋅⋅4. database="db_sisaps";
+7. acessar aplicação em "servidor/sisaps".
+8. No canto superior direito, clique em "login";
+9. User: admin, senha: admin;
 
 
