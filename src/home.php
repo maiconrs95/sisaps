@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
 
     <!-- main css -->
-    <link rel="shortcut icon" href="">
+    <link rel="icon" href="./img/favico.png" />
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap-duallistbox.css">
     <link rel="stylesheet" href="./css/animate.css">
