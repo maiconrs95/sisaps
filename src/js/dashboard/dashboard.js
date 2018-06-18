@@ -5,19 +5,20 @@ function totalPlantasAtivas() {
         console.log(data);
     });
 }
+
 function totalPlantasPendentes() {
 
     $.get('includes/dashboard/plantasPendentes.php', function (data) {            
         console.log(data);
     });
 }
+
 function totalPlantasReprovadas() {
 
     $.get('includes/dashboard/plantasReprovadas.php', function (data) {            
         console.log(data);
     });
 }
-
 
 
 //SINTOMAS
@@ -27,12 +28,14 @@ function totalSintomasAtivos() {
         console.log(data);
     });
 }
+
 function totalSintomasPendentes() {
 
     $.get('includes/dashboard/sintomasPendentes.php', function (data) {            
         console.log(data);
     });
 }
+
 function totalSintomasReprovados() {
 
     $.get('includes/dashboard/sintomasReprovadas.php', function (data) {            

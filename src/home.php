@@ -235,6 +235,9 @@
     <script src="./js/validaEmail.js"></script>
     <script src="./js/via.cep.js"></script>
 
+    <!-- DASHBOARD -->
+    <script src="./js/dashboard/dashboard.js"></script>
+
     <!-- USUARIO -->
     <script src="./js/novoUsuario.js"></script>
     <script src="./js/consultaUsuario.js"></script>
