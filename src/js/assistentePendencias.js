@@ -106,9 +106,10 @@ function linhaAssistentePlanta(id_planta, status, registro, comentario) {
     if(status == 'reprovado'){
         colunaStatus.attr('class', 'negado');
     }else if(status == 'pendente'){
+        linha.removeAttr('onclick');
         colunaStatus.attr('class', 'pendente');
         colunaEditar.prop('disabled', true).removeAttr('onclick');
-        link.removeAttr('data-target', '.planta-pendente-ass').prop('disabled', true).removeAttr('onclick');
+        link.removeAttr('data-target', '.planta-pendente-ass').prop('disabled', true).removeAttr('onclick').addClass('disabled');
         icone.addClass('inativo');
     }
 
