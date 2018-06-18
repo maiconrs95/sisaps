@@ -170,11 +170,11 @@ function controlaView(conteudo) {
 
     //pendencias professor
     else if(conteudo == 'view/pendencias.html') {
-        $('.sintomas-pendentes').hide();
         $('.plantas-pendentes').hide();
         $('.msgn-aprovado-planta').hide();
         $('.alert-mgn-planta').hide();
 
+        $('.sintomas-pendentes').hide();
         $('.msgn-aprovado-sintoma').hide();
         $('.alert-mgn-sintoma').hide();
 
