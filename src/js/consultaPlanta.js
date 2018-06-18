@@ -5,12 +5,12 @@ var allPlants;
 function consultaplantas() {
 
     $.get('includes/getPlantas.php', function (data) {
-        console.log(data);
+        
         allPlants = data;
 
         $("tbody tr").remove();
         $(data).each(function (i, planta) {            
-            inserePlantas(i, planta.nome_cientifico.toLowerCase(), planta.nome_popular, planta.nome_user);
+            inserePlantas(i, planta.Descricao, planta.nome_cientifico.toLowerCase(), planta.nome_user);
         });
 
     });
@@ -30,12 +30,20 @@ function novaLinhaPlanta(id_planta, planta, nome_c, nome) {
 
     var linha = $("<tr>").attr('id', id_planta).addClass('sintoma-sistema').attr('onclick', 'carregaModalPlanta(this.id)');
     var colunaEditar = $("<th>").attr("scope", "row").attr("width", '10%');
-    var colunaPlanta = $("<td>").text(nome_c).attr("width", '30%');
-    var colunaNome_c = $("<td>").text(planta).attr("width", '30%');
+    var colunaPlanta = $("<td>").text(planta).attr("width", '30%');
+    var colunaNome_c = $("<td>").text(nome_c).attr("width", '30%');
     var colunaNome = $("<td>").text(nome).attr("width", '30%');
 
     var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '.bd-example-modal-lg');
     var icone = $("<i>").addClass("fas fa-search");
+
+    if(planta == 'Aprovado'){
+        colunaPlanta.addClass('ativo');
+    }else if(planta == 'Reprovado'){
+        colunaPlanta.addClass('negado');
+    }else if(planta == 'Pendente'){
+        colunaPlanta.addClass('pendente');
+    }
 
     link.append(icone);
 

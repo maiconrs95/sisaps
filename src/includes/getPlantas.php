@@ -8,7 +8,8 @@
     header("Content-Type:" .  "application/json");
     require_once('conexao.php');
 
-    $sql = "SELECT id_plantas, nome_cientifico, nome_popular, nome_user FROM tb_plantas tp JOIN tb_user ts ON ts.id_user = tp.id_user";
+    $sql = "SELECT id_plantas, nome_cientifico, nome_popular, nome_user, Descricao FROM tb_plantas tp 
+    JOIN tb_user ts ON ts.id_user = tp.id_user JOIN tb_status tps on tps.id_status = tp.id_status";
 
     $conexao = new db();
     $link = $conexao->conn_mysql();
