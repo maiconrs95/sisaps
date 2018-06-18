@@ -213,6 +213,8 @@ function carregaPlantaPend(id) {
 
 function carregaSintomaPend(id) {
 
+    $('.informativo-sintoma label p').text("");
+    
     $('.msgn-aprovado-sintoma').hide();
     $('.informativo-sintoma').show();
     $('#aprova-sintoma').prop('disabled', false);
