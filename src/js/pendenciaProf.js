@@ -279,13 +279,15 @@ function revisarSintoma(id, msg) {
         $('#message-text-sintoma').addClass('borda-vermelha');
     } else {
         $('#message-text-sintoma').removeClass('borda-vermelha');
-        
+
         $.get('../src/includes/revisarSintoma.php?id_sintoma=' + id + '&comentario=' + msg, function (data) {
 
             if (data.codigo == 0) {
                 consultasintomasPendente();
-                alert('Sintoma enviado para correção.');
-                $('#message-text').text("");
+                $('.alert-mgn-sintoma').show();
+                $('#enviar-mensagem-sintoma').prop('disabled', true);
+                $('.mgn-sintoma').hide();
+                $('#message-text-sintoma').text("");
             } else {
                 alert('ERRO ao enviar. Contate o administrador do sistema.');
             }
@@ -313,6 +315,15 @@ function carregaPlantaId(id) {
 }
 
 function carregaSintomaId(id) {
+
+    $('.alert-mgn-sintoma').hide();
+    $('.msgn-aprovado-sintoma').hide();
+    $('.mgn-sintoma').show();
+    $('.informativo').show();
+
+    $('#enviar-mensagem-sintoma').prop('disabled', false);
+    $('#aprova-sintoma').prop('disabled', false);
+    $('#cancela-sintoma').prop('disabled', false);
 
     $('.id-sintoma-aprova').text(sintomasPendentes[id].id_sintomas);
     $('.id-sintoma-mensagem').text(sintomasPendentes[id].id_sintomas);

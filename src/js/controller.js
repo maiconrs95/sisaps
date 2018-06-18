@@ -176,6 +176,7 @@ function controlaView(conteudo) {
         $('.alert-mgn-planta').hide();
 
         $('.msgn-aprovado-sintoma').hide();
+        $('.alert-mgn-sintoma').hide();
 
         consultaplantasPendente();
         consultasintomasPendente();
