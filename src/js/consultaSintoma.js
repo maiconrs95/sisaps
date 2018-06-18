@@ -46,8 +46,14 @@ function novaLinhaSintoma(id_sintoma, sintoma, parteCorpo, nome) {
         colunaSintoma.addClass('ativo');
     } else if (sintoma == 'Reprovado') {
         colunaSintoma.addClass('negado');
+        linha.removeAttr('onclick');
+        link.removeAttr('data-target', '.planta-pendente-ass').prop('disabled', true).addClass('disabled');
+        icone.addClass('inativo');
     } else if (sintoma == 'Pendente') {
         colunaSintoma.addClass('pendente');
+        linha.removeAttr('onclick');
+        link.removeAttr('data-target', '.planta-pendente-ass').prop('disabled', true).addClass('disabled');
+        icone.addClass('inativo');
     }
 
     link.append(icone);

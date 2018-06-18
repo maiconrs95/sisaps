@@ -5,11 +5,11 @@ var allPlants;
 function consultaplantas() {
 
     $.get('includes/getPlantas.php', function (data) {
-        
+
         allPlants = data;
 
         $("tbody tr").remove();
-        $(data).each(function (i, planta) {            
+        $(data).each(function (i, planta) {
             inserePlantas(i, planta.Descricao, planta.nome_cientifico.toLowerCase(), planta.nome_user);
         });
 
@@ -37,12 +37,18 @@ function novaLinhaPlanta(id_planta, planta, nome_c, nome) {
     var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '.bd-example-modal-lg');
     var icone = $("<i>").addClass("fas fa-search");
 
-    if(planta == 'Aprovado'){
+    if (planta == 'Aprovado') {
         colunaPlanta.addClass('ativo');
-    }else if(planta == 'Reprovado'){
+    } else if (planta == 'Reprovado') {
         colunaPlanta.addClass('negado');
-    }else if(planta == 'Pendente'){
+        linha.removeAttr('onclick');
+        link.removeAttr('data-target', '.planta-pendente-ass').prop('disabled', true).addClass('disabled');
+        icone.addClass('inativo');
+    } else if (planta == 'Pendente') {
         colunaPlanta.addClass('pendente');
+        linha.removeAttr('onclick');
+        link.removeAttr('data-target', '.planta-pendente-ass').prop('disabled', true).addClass('disabled');
+        icone.addClass('inativo');
     }
 
     link.append(icone);
@@ -83,7 +89,7 @@ function carregaModalPlanta(id) {
     $.get('includes/buscaSintomasAtivos.php', function (data) {
 
         $(data).each(function (i, user) {
-                                
+
             select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico));
         });
 
@@ -91,7 +97,7 @@ function carregaModalPlanta(id) {
     });
 
     //Busca os sintomas associados e preenche a lista da direita (selected)
-    $.get('includes/getSintomasAssociados.php?id_planta=' + allPlants[id].id_plantas, function (data) {        
+    $.get('includes/getSintomasAssociados.php?id_planta=' + allPlants[id].id_plantas, function (data) {
         $(data).each(function (i, user) {
             var indice = select[0].length;
             select.append($('<option>').val(data[i].id_sintomas).text(data[i].nome_cientifico).attr('data-sortindex', indice++).prop('selected', true));
