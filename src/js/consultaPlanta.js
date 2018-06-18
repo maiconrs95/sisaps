@@ -5,7 +5,7 @@ var allPlants;
 function consultaplantas() {
 
     $.get('includes/getPlantas.php', function (data) {
-
+        console.log(data);
         allPlants = data;
 
         $("tbody tr").remove();
