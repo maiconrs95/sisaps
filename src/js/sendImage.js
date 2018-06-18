@@ -103,7 +103,7 @@ function updatePlanta() {
         },
         success: function (data) {
             $('#atualiza-planta').prop('disabled', false);
-            $('#cancela-planta').prop('disabled', false);
+            $('#cancela-planta').prop('disabled', false);            
             
             switch (data.codigo) {
                 case 0:
@@ -117,8 +117,7 @@ function updatePlanta() {
                     exibeMsg(data.mensagem, 'alert-success');
                     consultaplantas();
                     $('.demo2').bootstrapDualListbox('refresh');
-                    validaPlanta(form);
-                    exibeMsg(data.mensagem, 'alert-success');                    
+                    //validaPlanta(form);              
                     break;
                 case 3:
                     exibeMsg(data.mensagem, 'alert-success');
