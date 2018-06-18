@@ -1,0 +1,13 @@
+table{
+    display: none;
+}
+@page {
+    size: A4;
+    margin: 0 !important;
+}
+
+.page {
+    width: 21cm !important;
+    height: 22cm !important;
+    padding: 2cm !important;
+}

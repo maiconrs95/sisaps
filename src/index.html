@@ -11,6 +11,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/print.css">
 
     <style>
         a.btn-sucesso {
@@ -85,7 +86,7 @@
                             </tbody>
                         </table>
 
-                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal fade bd-example-modal-lg page" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -172,6 +173,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-outline-secondary" onclick="window.print()">Imprimir</button>
                                     </div>
                                 </div>
                             </div>
