@@ -94,10 +94,10 @@ function controlaView(conteudo) {
     //alterar planta
     else if (conteudo == 'view/alterar_planta.html') {
 
-        consultaplantas();
+        setInterval(function(){ consultaplantas(); }, 300000);
+        setInterval(function(){ getPartePlanta(); }, 300000);
+        
         //obtemSintomas();
-        getPartePlanta();
-
         $('.close').click(function (){
             $('#previewing').attr('src', 'img/plantas/sem-foto.jpg');
             $("input:text").val("");
@@ -146,7 +146,7 @@ function controlaView(conteudo) {
     //alterar sintoma
     else if (conteudo == 'view/alterar_sintoma.html') {
 
-        consultaSintomas();
+        setInterval(function(){ consultaSintomas(); }, 300000);       
 
         $('.close').click(function () {
             $('.alert-msg').hide();
@@ -178,8 +178,8 @@ function controlaView(conteudo) {
         $('.msgn-aprovado-sintoma').hide();
         $('.alert-mgn-sintoma').hide();
 
-        consultaplantasPendente();
-        consultasintomasPendente();
+        setInterval(function(){ consultaplantasPendente(); }, 300000);
+        setInterval(function(){ consultasintomasPendente(); }, 300000);
 
         $("#find-plantap").on("keyup", function () {
             var value = $(this).val().toLowerCase();
@@ -249,9 +249,9 @@ function controlaView(conteudo) {
         $('.sintomas-pendentes').hide();
         $('.plantas-pendentes').hide();
 
-        consultaPlantasPendentes();
-        consultaSintomasPendentes();
-        getPartePlanta();
+        setInterval(function(){ consultaPlantasPendentes(); }, 300000);
+        setInterval(function(){ consultaSintomasPendentes(); }, 300000);
+        setInterval(function(){ getPartePlanta(); }, 300000);
         
         $('.close').click(function () {
             $('.alert-msg').hide();
