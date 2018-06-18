@@ -102,8 +102,8 @@ function obtemSintomas() {
 
         var demo2 = $('.demo2').bootstrapDualListbox({
             preserveSelectionOnMove: 'moved',
-            nonSelectedListLabel: 'Não associado:',
-            selectedListLabel: 'Associado:',
+            nonSelectedListLabel: 'Todos os sintomas:',
+            selectedListLabel: 'Associados:',
             moveOnSelect: true,
             nonSelectedFilter: ''
         });
