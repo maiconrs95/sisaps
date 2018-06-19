@@ -73,7 +73,7 @@ function previewing() {
                     exibeMsg(data.mensagem, 'alert-success');
                     break;
                 case 3:
-                    exibeMsg(data.mensagem, 'alert-success');
+                    exibeMsg(data.mensagem, 'alert-danger');
                     break;
                 default:
                     break;
