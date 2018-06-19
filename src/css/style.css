@@ -9,7 +9,7 @@ body {
 /* ========================= 
     formatação dos campos 
 ========================= */
-.borda-vermelha {
+.borda-vermelha, .error {
     border: 1px solid #dc3545;
 }
 /*.borda-img {
