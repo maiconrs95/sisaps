@@ -58,8 +58,14 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-4 offset-4">
-                <h3 class="card-title">Enviar sugestão:</h3>
+                <h3 class="card-title">Deixe uma sugestão:</h3>
                 <small style="color: #666666">Este formulário tem como objetivo o envio de sugestões aos adiministradores do sistema.</small>
+                <div class="alert alert-success" role="alert">
+                    <p class="m-0">Obrigado! Sua sugestão é muito importante para o crscimento de nosso acervo. </p>
+                    <p class="m-0">Iremos analisá-la para aplicar da melhor forma possível. Qualquer dúvida, entraramos em contato.</p>
+                    Att,
+                    <br /><br />SISAPS, UMC - Campus Vila Lobos.
+                </div>
                 <form id="form-sugestao">
                     <div class="form-group">
                         <label for="nome">Nome: </label>
@@ -125,13 +131,12 @@
                     type: "POST",
                     async: false,
                     dataType: 'json',
-                    url: '/Home/Login',
-                    data: $('#form-login').serialize(),
+                    url: 'includes/sugestao/email.php',
+                    data: $('#form-sugestao').serialize(),
                     success: function (data) {
 
                     }
                 });
-
             }
         });
     </script>
