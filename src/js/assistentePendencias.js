@@ -164,7 +164,7 @@ function parteCorpoSintoma(id) {
     $.get('includes/getCorpo.php', function (data) {
 
         corpo = data;
-        console.log(data);
+        
         $(data).each(function (i, user) {
 
             var select = $('#parte_sintoma');
