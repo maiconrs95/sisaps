@@ -55,6 +55,12 @@
                 <input type="text" id="filtra-registro" placeholder="Pesquisar planta ou sintomas..." class="form-control" aria-label="Default"
                     aria-describedby="inputGroup-sizing-default">
             </div>
+            <div class="form-check text-left ml-4 pl-5">
+                <input class="form-check-input" type="checkbox" value="" id="allPlants">
+                <label class="form-check-label" for="allPlants">
+                    Ver tudo
+                </label>
+            </div>
             <!--<div class="row">
                 <div class="col-4 offset-sm-4">
                     <button type="button" class="btn btn-success btn-lg btn-block">Pesquisar</button>
@@ -198,6 +204,14 @@
 
     <script>
         plantasAtivas();
+        
+        $('#allPlants').on('change', function(){
+            if($('#allPlants').prop('checked')){
+                $('#resultados-pesquisa').removeClass('d-none').fadeIn();
+            }else{
+                $('#resultados-pesquisa').addClass('d-none').fadeOut();
+            }
+        });
 
         $("#filtra-registro").on("keyup", function () {
             if ($('#filtra-registro').val().length) {
