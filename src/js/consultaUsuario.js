@@ -59,6 +59,12 @@ function novaLinha(id_user, usuario, perfil, status, cpf) {
     var link = $("<a>").attr("href", "#").addClass('edit-user').addClass("btn-sm p-1").attr("data-toggle", "modal").attr('data-target', '#alterar_user');
     var icone = $("<i>").addClass("fas fa-search");
 
+    if(status == 'Ativo'){
+        colunaStatus.addClass('ativo');
+    }else if(status == 'Inativo'){
+        colunaStatus.addClass('red');
+    }
+
     link.append(icone);
 
     colunaEditar.append(link);
