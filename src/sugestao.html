@@ -55,17 +55,23 @@
         </div>
     </header>
 
-    <div class="container mt-4">
+    <div class="container mt-4 container-msg d-none">
+        <div class="col-6 offset-3">
+            <div class="alert alert-success" role="alert">
+                <p class="m-0">Obrigado! Sua sugestão é muito importante para o crscimento de nosso acervo. </p>
+                <p class="m-0">Iremos analisá-la para aplicar da melhor forma possível. Qualquer dúvida, entraramos em contato.</p>
+                Att,
+                <br />
+                <br />SISAPS, UMC - Campus Vila Lobos.
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 container-form">
         <div class="row">
             <div class="col-4 offset-4">
                 <h3 class="card-title">Deixe uma sugestão:</h3>
                 <small style="color: #666666">Este formulário tem como objetivo o envio de sugestões aos adiministradores do sistema.</small>
-                <div class="alert alert-success" role="alert">
-                    <p class="m-0">Obrigado! Sua sugestão é muito importante para o crscimento de nosso acervo. </p>
-                    <p class="m-0">Iremos analisá-la para aplicar da melhor forma possível. Qualquer dúvida, entraramos em contato.</p>
-                    Att,
-                    <br /><br />SISAPS, UMC - Campus Vila Lobos.
-                </div>
                 <form id="form-sugestao">
                     <div class="form-group">
                         <label for="nome">Nome: </label>
@@ -91,10 +97,6 @@
     <script src="vendor/popper/popper.min.js"></script>
     <script src="js/vendor/jquery-validade.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- main js -->
-    <script src="js/main.js"></script>
-
     <script>
         $('#form-sugestao').validate({
             ignore: ":not(:visible)",
@@ -127,6 +129,7 @@
                 error.appendTo(element.parent().children()[1]);
             },
             submitHandler: function (form) {
+
                 $.ajax({
                     type: "POST",
                     async: false,
@@ -134,12 +137,14 @@
                     url: 'includes/sugestao/email.php',
                     data: $('#form-sugestao').serialize(),
                     success: function (data) {
-
+                        $('.container-form').fadeToggle();
+                        $('.container-msg').fadeToggle();
                     }
                 });
             }
         });
     </script>
+    
 </body>
 
 </html>
