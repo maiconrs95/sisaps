@@ -204,22 +204,19 @@
 
     <script>
         plantasAtivas();
-        
-        $('#allPlants').on('change', function(){
-            if($('#allPlants').prop('checked')){
-                $('#resultados-pesquisa').removeClass('d-none').fadeIn();
-            }else{
-                $('#resultados-pesquisa').addClass('d-none').fadeOut();
-            }
+
+        $('#allPlants').on('change', function () {
+            verificaChk();
         });
 
         $("#filtra-registro").on("keyup", function () {
-            if ($('#filtra-registro').val().length) {
+            if ($('#filtra-registro').val().length > 0) {
                 //mostra a tabela com os resultados
                 $('#resultados-pesquisa').removeClass('d-none').fadeIn();
             } else {
                 //esconde a table
                 $('#resultados-pesquisa').addClass('d-none').fadeOut();
+                verificaChk();
             }
         });
 
@@ -227,6 +224,14 @@
             var value = $(this).val().toLowerCase();
             filtraRegistro(value);
         });
+
+        function verificaChk() {
+            if ($('#allPlants').prop('checked')) {
+                $('#resultados-pesquisa').removeClass('d-none').fadeIn();
+            } else {
+                $('#resultados-pesquisa').addClass('d-none').fadeOut();
+            }
+        }
     </script>
 </body>
 
