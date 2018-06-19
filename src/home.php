@@ -99,35 +99,35 @@
                             <span id="adm-section">
                                 <a id="novo_usuario" class="nav-link side-nav" href="#">
                                     <i class="fas fa-user-plus"></i>
-                                    <span class="hidden-sm-down"> Registrar novo usuário</span>
+                                    <span class="hidden-sm-down">Novo usuário</span>
                                 </a>
                                 <a id="alterar_usuario" class="nav-link side-nav" href="#">
                                     <i class="fas fa-redo-alt"></i>
-                                    <span class="hidden-sm-down"> Alterar usuário</span>
+                                    <span class="hidden-sm-down">Alterar usuário</span>
                                 </a>                            
                                 <hr>                        
                             </span>
                             <a id="novo_planta" class="nav-link side-nav" href="#">
                                 <i class="fab fa-envira"></i>
-                                <span class="hidden-sm-down"> Cadastrar planta</span>
+                                <span class="hidden-sm-down">Cadastrar planta</span>
                             </a>
                             <a id="alterar_planta" class="nav-link side-nav" href="#">
                                 <i class="fab fa-pagelines"></i>
-                                <span class="hidden-sm-down"> Alterar planta</span>
+                                <span class="hidden-sm-down">Alterar planta</span>
                             </a>
                             <a id="novo_sintoma" class="nav-link side-nav" href="#">
                                 <i class="fab fa-medrt"></i>
-                                <span class="hidden-sm-down"> Cadastrar Sintoma</span>
+                                <span class="hidden-sm-down">Cadastrar Sintoma</span>
                             </a>
                             <a id="alterar_sintoma" class="nav-link side-nav" href="#">
                                 <i class="fas fa-pills"></i>
-                                <span class="hidden-sm-down"> Alterar Sintoma</span>
+                                <span class="hidden-sm-down">Alterar Sintoma</span>
                             </a>
                             <hr>
                             <span id="professor-section">
                                 <a id="pendencias" class="nav-link side-nav" href="#">
                                     <i class="fas fa-exclamation"></i>
-                                    <span class="hidden-sm-down">  Pendências</span>
+                                    <span class="hidden-sm-down">Pendências</span>
                                 </a>
                             </span>
                             <span id="assistente-section">

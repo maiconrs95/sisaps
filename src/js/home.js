@@ -37,18 +37,20 @@ $(document).ready(function () {
     //VERIFICA O NIVEL DE USUÁRIO NO MOMENTO DO LOGIN
     $.get('includes/session.php', function (data) {
 
+        if (data.user_perfil != 1) {
+            $('#adm-section').remove();
+            $('.adm-mobile').remove();
+        }
         if (data.user_perfil == 2) {
             $('#adm-section').remove();
             $('.adm-mobile').remove();
+            $('#assistente-section').remove();
+            $('.assistente-mobile').remove();
         }
         if (data.user_perfil == 3) {
             $('#adm-section').remove();
             $('.adm-mobile').remove();
             $('#professor-section').remove();
-        }
-        if (data.user_perfil != 3) {
-            $('#assistente-section').remove();
-            $('.assistente-mobile').remove();
         }
     });
 

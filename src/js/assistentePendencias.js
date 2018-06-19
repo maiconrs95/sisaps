@@ -31,7 +31,7 @@ function consultaPlantasPendentes() {
     $.get('includes/buscaPlantasPendentes.php', function (data) {
 
         plantas_pendentes = data;
-        console.log(data);
+                
         $("#tb-planta-pendente tbody tr").remove();
 
         if (data.length == 0) {
