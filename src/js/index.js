@@ -51,7 +51,7 @@ $('document').ready(function () {
                 $("#btn-login").attr('disabled', true);
             },
             success: function (response) {
-
+                console.log(response);
                 $("#btn-login").attr('disabled', false);
 
                 switch (response.codigo) {

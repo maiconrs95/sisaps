@@ -4,7 +4,7 @@ function obtemDadosInputs() {
     var usuario = {
         id: document.querySelector('#id').textContent,    
         nome: document.querySelector('#nome_user').value,
-        senha: $( "input:checked" ).val(),
+        senha: $( "input[name='senha']:checked" ).val(),
         email: document.querySelector('#email_user').value,
         cpf: document.querySelector('#cpf_user').value,
         perfil: document.querySelector('#perfil_user').value,
@@ -13,6 +13,7 @@ function obtemDadosInputs() {
         cep: document.querySelector('#cep_user').value,
         cidade: document.querySelector('#cidade_user').value,
         logradouro: document.querySelector('#logradouro_user').value,
+        userAtivo: $('input[name="userAtivo"]:checked').val(),
         num: document.querySelector('#num_logradouro').value
     }
     
@@ -34,8 +35,10 @@ function alterarUsuario(usuario) {
         '&cep=' + usuario.cep +
         '&cidade=' + usuario.cidade +
         '&logradouro=' + usuario.logradouro +
+        '&userAtivo=' + usuario.userAtivo +
         '&num=' + usuario.num;
         
+        console.log(data);
     $('.alert-msg').hide();
 
     $.ajax({
@@ -50,7 +53,7 @@ function alterarUsuario(usuario) {
         success: function (response) {
             $('#update_user').attr('disabled', false);
             $('#calcel_update').attr('disabled', false);
-            $( "input:checked" ).prop('checked', false)
+            $( "input[name='senha']:checked" ).prop('checked', false)
 
             switch (response.codigo) {
                 case 1:

@@ -30,6 +30,7 @@
     $cidade     = (isset($_POST['cidade'])) ? $_POST['cidade'] : '' ;  
     $logradouro = (isset($_POST['logradouro'])) ? $_POST['logradouro'] : '' ;  
     $numero     = (isset($_POST['num'])) ? $_POST['num'] : '' ; 
+    $ativo     = (isset($_POST['userAtivo'])) ? $_POST['userAtivo'] : '' ; 
     
     $senha_default = $usuario . substr($cpf, 0 , 3);
 
@@ -48,7 +49,7 @@
         if($senha == 1){
 
             $sql = "UPDATE tb_user SET nome_user = '$nome', email_user = '$email', cpf_user='$cpf', telefone_user = '$telefone',
-            celular_user= '$celular', cep = '$cep', cidade = '$cidade', logradouro = '$logradouro', num_casa = '$numero', primeiro_login = 1, senha_user = '$senha_default', id_perfil = $perfil, usuario = '$usuario' WHERE id_user = $id";
+            celular_user= '$celular', cep = '$cep', cidade = '$cidade', logradouro = '$logradouro', num_casa = '$numero', primeiro_login = 1, senha_user = '$senha_default', id_perfil = $perfil, usuario = '$usuario', ativo = '$ativo' WHERE id_user = $id";
            
            $link = $conexao->conn_mysql();
             $result_id = mysqli_query($link, $sql);
@@ -60,7 +61,7 @@
 
             //ATUALIZA OS DADOS DO USUÁRIO NO SISTEMA
             $sql = "UPDATE tb_user SET nome_user = '$nome', email_user = '$email', cpf_user='$cpf', telefone_user = '$telefone',
-            celular_user= '$celular', cep = '$cep', cidade = '$cidade', logradouro = '$logradouro', num_casa = '$numero', id_perfil = $perfil, usuario = '$usuario' WHERE id_user = $id";
+            celular_user= '$celular', cep = '$cep', cidade = '$cidade', logradouro = '$logradouro', num_casa = '$numero', id_perfil = $perfil, usuario = '$usuario', ativo = '$ativo' WHERE id_user = $id";
            
             $link = $conexao->conn_mysql();
             $result_id = mysqli_query($link, $sql);

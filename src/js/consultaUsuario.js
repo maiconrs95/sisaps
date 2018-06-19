@@ -12,7 +12,7 @@ function consultaUsuario() {
 
         $("tbody tr").remove(); 
         usuarios = data;
- 
+
         $(data).each(function (i, user) {
             var id_user = user.id_user;
             var usuario = user.nome_user;
@@ -89,6 +89,13 @@ function carregaModal(id) {
     $('.modal-title').text(usuarios[id].usuario);
     $('#email_user').val(usuarios[id].email_user);
     selecionaPerfil(usuarios[id].perfil);
+
+    if(usuarios[id].ativo == 1){
+        $('#ativo').prop('checked', true);
+    }else{
+        $('#inativo').prop('checked', true);
+    }
+
     $('#nome_user').val(usuarios[id].nome_user);
     $('#cpf_user').val(usuarios[id].cpf_user);
     $('#telefone_user').val(usuarios[id].telefone_user);

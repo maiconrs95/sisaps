@@ -14,7 +14,7 @@
         exit();
     }
     
-    $sql = "SELECT id_user, id_perfil, primeiro_login, usuario, email_user FROM tb_user WHERE (usuario = '$usuario' || email_user = '$usuario') AND BINARY senha_user = '$senha' LIMIT 1";
+    $sql = "SELECT id_user, id_perfil, primeiro_login, usuario, email_user, ativo FROM tb_user WHERE (usuario = '$usuario' || email_user = '$usuario') AND BINARY senha_user = '$senha' AND ativo = 1 LIMIT 1";
 
     $conexao = new db();
     $link = $conexao->conn_mysql();
