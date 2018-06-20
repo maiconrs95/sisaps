@@ -39,7 +39,7 @@
 
             if(!is_uploaded_file($_FILES['arquivo']['tmp_name'])){
         
-                $targetPath = "../img/sem-foto.jpg";
+                $targetPath = "../img/plantas/sem-foto.jpg";
         
             }else{
         
