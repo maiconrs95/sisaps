@@ -126,7 +126,7 @@
                             <hr>
                             <span id="professor-section">
                                 <a id="pendencias" class="nav-link side-nav" href="#">
-                                    <i class="fas fa-exclamation"></i>
+                                    <i class="fas fa-exclamation-circle"></i>
                                     <span class="hidden-sm-down">Pendências</span>
                                 </a>
                             </span>

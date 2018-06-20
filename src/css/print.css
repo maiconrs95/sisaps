@@ -1,4 +1,4 @@
-table{
+table, tbody{
     display: none;
 }
 @page {
@@ -7,7 +7,7 @@ table{
 }
 
 .page {
-    width: 21cm !important;
-    height: 22cm !important;
-    padding: 2cm !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
 }
