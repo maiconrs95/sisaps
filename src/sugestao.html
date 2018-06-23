@@ -58,7 +58,7 @@
     <div class="container mt-4 container-msg d-none">
         <div class="col-6 offset-3">
             <div class="alert alert-success" role="alert">
-                <p class="m-0">Obrigado! Sua sugestão é muito importante para o crscimento de nosso acervo. </p>
+                <p class="m-0">Obrigado! Sua sugestão é muito importante para o crescimento de nosso acervo. </p>
                 <p class="m-0">Iremos analisá-la para aplicar da melhor forma possível. Qualquer dúvida, entraramos em contato.</p>
                 <br />Att,
                 <br />
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="container mt-4 container-form">
+    <div class="container mt-4 container-form mb-5">
         <div class="row">
             <div class="col-sm-12 col-md-4 offset-md-4">
                 <h3 class="card-title">Deixe uma sugestão:</h3>
@@ -85,7 +85,7 @@
                         <label for="sugestao">Qual sua sugestão para melhor nosso acervo? </label>
                         <textarea type="text" class="form-control" id="sugestao" name="sugestao"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-success">Enviar</button>
+                    <button id="submit" type="submit" class="btn btn-success">Enviar</button>
                 </form>
 
             </div>
@@ -94,10 +94,16 @@
 
     <!-- Bootstrap -->
     <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="js/vendor/jquery-validade.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script>
+
+        $('#submit').click(function(){
+            $('#form-sugestao').serialize();
+        });
+
         $('#form-sugestao').validate({
             ignore: ":not(:visible)",
             rules: {
@@ -131,14 +137,14 @@
             submitHandler: function (form) {
 
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     async: false,
                     dataType: 'json',
-                    url: 'includes/sugestao/email.php',
+                    url: 'includes/sugestao/contact.php',
                     data: $('#form-sugestao').serialize(),
                     success: function (data) {
-                        $('.container-form').fadeToggle();
-                        $('.container-msg').fadeToggle();
+                        $('.container-form').fadeOut();
+                        $('.container-msg').removeClass('d-none').fadeIn();
                     }
                 });
             }

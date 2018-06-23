@@ -48,7 +48,7 @@ text-decoration: none;
 ";
 
   // emails para quem será enviado o formulário
-  $emailenviar = "seuemail@seudominio.com.br";
+  $emailenviar = "maiconrs95@outlook.com.br";
   $destino = $emailenviar;
   $assunto = "Contato pelo Site";
  
