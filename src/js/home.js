@@ -51,6 +51,7 @@ $(document).ready(function () {
             $('#adm-section').remove();
             $('.adm-mobile').remove();
             $('#professor-section').remove();
+            $('.professor-mobile').remove();
         }
     });
 

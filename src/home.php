@@ -191,12 +191,12 @@
                     </a>
                 </div>
                 <div class="col-2">
-                    <a id="novo_planta" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
+                    <a id="novo_planta" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
                         <i class="fab fa-envira"></i>
                     </a>
                 </div>
                 <div class="col-2">
-                    <a id="alterar_planta" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
+                    <a id="alterar_planta" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
                         <i class="fab fa-pagelines"></i>
                     </a>
                 </div>
@@ -206,12 +206,17 @@
                     </a>
                 </div>
                 <div class="col-2">
-                    <a id="alterar_sintoma" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
+                    <a id="alterar_sintoma" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
                         <i class="fas fa-pills"></i>
                     </a>
                 </div>                
+                <div class="col-2 professor-mobile">
+                    <a id="pendencias" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </a>
+                </div>
                 <div class="col-2 assistente-mobile">
-                    <a id="revisao_assistente" class="nav-link side-nav" data-toggle="modal" href="#" style="padding: 0; margin: 0;">
+                    <a id="revisao_assistente" class="nav-link side-nav" href="#" style="padding: 0; margin: 0;">
                         <i class="fas fa-pen-square"></i>
                     </a>
                 </div>                
