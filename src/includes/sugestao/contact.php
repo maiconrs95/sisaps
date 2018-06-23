@@ -24,7 +24,7 @@ if (!$comment) $errors[count($errors)] = 'Por favor, preencha o campo de mensage
 if (!$errors) {
 
 	//recipient - replace your email here
-	$to = 'maiconrs95@outlook.com.br';
+	$to = 'sisaps@outlook.com';
 	//sender - from the form
 	$from = $name . ' <' . $email . '>';
 
