@@ -29,7 +29,7 @@ if (!$errors) {
 	$from = $name . ' <' . $email . '>';
 
 	//subject and the html message
-	$subject = 'Mensagem via SISAPS' . $name;
+	$subject = 'Mensagem via SISAPS ' . $name;
 	$message = 'Nome: ' . $name . '<br/><br/>
 		       Email: ' . $email . '<br/><br/>
 		       Sugestão: ' . $comment . '<br/>';
