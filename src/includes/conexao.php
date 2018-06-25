@@ -2,16 +2,16 @@
 
     class db{
         //host
-        private $host = '50.62.209.79';
+        private $host = '';
 
         //user
-        private $user = 'sisapsadmin';
+        private $user = '';
 
         //senha
-        private $senha = 'Root_123';
+        private $senha = '';
 
         //banco_dados
-        private $database = 'db_sisaps';
+        private $database = '';
 
         public function conn_mysql(){
             //criar conexao
